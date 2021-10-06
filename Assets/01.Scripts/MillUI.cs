@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MillUIMove : MonoBehaviour
+public class MillUI : MonoBehaviour
 {
     //이미지들의 크기
     private const float bigSize = 1f;
