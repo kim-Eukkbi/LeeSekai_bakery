@@ -1,0 +1,936 @@
+fileFormatVersion: 2
+guid: cb5f9b00c9b768d4387f66fa702c2453
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2293876621917962687
+    second: bakery_uiu_0
+  - first:
+      213: -7182777186559868628
+    second: bakery_uiu_1
+  - first:
+      213: -7044812137046975471
+    second: bakery_uiu_2
+  - first:
+      213: -7139369467179243612
+    second: bakery_uiu_3
+  - first:
+      213: 2538512847053355352
+    second: bakery_uiu_4
+  - first:
+      213: 7340277264757817056
+    second: bakery_uiu_5
+  - first:
+      213: 1980159510927585325
+    second: bakery_uiu_6
+  - first:
+      213: -4481832748183578771
+    second: bakery_uiu_7
+  - first:
+      213: 6958894598640212638
+    second: bakery_uiu_8
+  - first:
+      213: -1248307114445875503
+    second: bakery_uiu_9
+  - first:
+      213: 1839498892121696431
+    second: bakery_uiu_10
+  - first:
+      213: 5013831879780741724
+    second: bakery_uiu_11
+  - first:
+      213: -3366253616504601615
+    second: bakery_uiu_12
+  - first:
+      213: -5524871209776886011
+    second: bakery_uiu_13
+  - first:
+      213: -2954400377967945447
+    second: bakery_uiu_14
+  - first:
+      213: 3838357601601447228
+    second: bakery_uiu_15
+  - first:
+      213: 9139062488731300951
+    second: bakery_uiu_16
+  - first:
+      213: -7617189025601368061
+    second: bakery_uiu_17
+  - first:
+      213: 4389340496667352698
+    second: bakery_uiu_18
+  - first:
+      213: -6630517534244902416
+    second: bakery_uiu_19
+  - first:
+      213: -4770883495436382613
+    second: bakery_uiu_20
+  - first:
+      213: 6863244666772865797
+    second: bakery_uiu_21
+  - first:
+      213: 1415532124907919276
+    second: bakery_uiu_22
+  - first:
+      213: -9067466271289501348
+    second: bakery_uiu_23
+  - first:
+      213: 6881416610548282942
+    second: bakery_uiu_24
+  - first:
+      213: -826063885771095693
+    second: bakery_uiu_25
+  - first:
+      213: 6867773940735223775
+    second: bakery_uiu_26
+  - first:
+      213: 4630780970509951789
+    second: bakery_uiu_27
+  - first:
+      213: 1737100908380360266
+    second: bakery_uiu_28
+  - first:
+      213: -9072617551236079112
+    second: bakery_uiu_29
+  - first:
+      213: 4262677703714438411
+    second: bakery_uiu_30
+  - first:
+      213: -1644666017942079999
+    second: bakery_uiu_31
+  - first:
+      213: -6834911214667776515
+    second: bakery_uiu_32
+  - first:
+      213: -952626431757639348
+    second: bakery_uiu_33
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bakery_uiu_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 476
+        width: 230
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb14ef752ac75df10800000000000000
+      internalID: 2293876621917962687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_1
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 483
+        width: 202
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21c15e6436a15c90800000000000000
+      internalID: -7182777186559868628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_2
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 449
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c54f5bfaccb3e90800000000000000
+      internalID: -7044812137046975471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_3
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 470
+        width: 202
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7e28cab4ddbec90800000000000000
+      internalID: -7139369467179243612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_4
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 429
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 859716a1cfb9a3320800000000000000
+      internalID: 2538512847053355352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_5
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 431
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eef3c62847edd560800000000000000
+      internalID: 7340277264757817056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_6
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 448
+        width: 60
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2033777590fa7b10800000000000000
+      internalID: 1980159510927585325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_7
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 451
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d671ecd7cd45dc1c0800000000000000
+      internalID: -4481832748183578771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_8
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 421
+        width: 40
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a955584c5f29060800000000000000
+      internalID: 6958894598640212638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_9
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 437
+        width: 52
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d65cd01b4f1daee0800000000000000
+      internalID: -1248307114445875503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_10
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 423
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa863ad0f76378910800000000000000
+      internalID: 1839498892121696431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_11
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 422
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c523cddb785b49540800000000000000
+      internalID: 5013831879780741724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_12
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 422
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f38e54cb2aa841d0800000000000000
+      internalID: -3366253616504601615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_13
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 423
+        width: 52
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50f477f18e6b353b0800000000000000
+      internalID: -5524871209776886011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_14
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 385
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 919d0f2628cdff6d0800000000000000
+      internalID: -2954400377967945447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_15
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 387
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c35ef54f6e5944530800000000000000
+      internalID: 3838357601601447228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_16
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 409
+        width: 52
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7543de4a9e874de70800000000000000
+      internalID: 9139062488731300951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_17
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 406
+        width: 52
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 300d60650fe4a4690800000000000000
+      internalID: -7617189025601368061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_18
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 401
+        width: 212
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7e181e0de11aec30800000000000000
+      internalID: 4389340496667352698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_19
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 395
+        width: 52
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f9655ebe6babf3a0800000000000000
+      internalID: -6630517534244902416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_20
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 370
+        width: 58
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6e8db5fcba6acdb0800000000000000
+      internalID: -4770883495436382613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_21
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 374
+        width: 213
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503479159a42f3f50800000000000000
+      internalID: 6863244666772865797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_22
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 337
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca75a41c7faf4a310800000000000000
+      internalID: 1415532124907919276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_23
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 340
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5914feb773e92280800000000000000
+      internalID: -9067466271289501348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_24
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 363
+        width: 86
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e36f33fa2f3bf7f50800000000000000
+      internalID: 6881416610548282942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_25
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 337
+        width: 60
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 371c5d6c54b3984f0800000000000000
+      internalID: -826063885771095693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_26
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 337
+        width: 60
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd72537130c3f4f50800000000000000
+      internalID: 6867773940735223775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_27
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 286
+        width: 219
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2362ebf1c6d34040800000000000000
+      internalID: 4630780970509951789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_28
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 206
+        width: 230
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e0507921c6b1810800000000000000
+      internalID: 1737100908380360266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_29
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 205
+        width: 219
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f1699be766971280800000000000000
+      internalID: -9072617551236079112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_30
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 125
+        width: 230
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d70e179c2182b30800000000000000
+      internalID: 4262677703714438411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_31
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 136
+        width: 118
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 106f76278f8fc29e0800000000000000
+      internalID: -1644666017942079999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_32
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 67
+        width: 63
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfdb46296748521a0800000000000000
+      internalID: -6834911214667776515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_33
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 89
+        width: 118
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c41207bbe4797c2f0800000000000000
+      internalID: -952626431757639348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
