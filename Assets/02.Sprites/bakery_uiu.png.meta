@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cb5f9b00c9b768d4387f66fa702c2453
+guid: 8a50ac95aeca2b240b23e075e43d78bd
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -104,6 +104,12 @@ TextureImporter:
   - first:
       213: -952626431757639348
     second: bakery_uiu_33
+  - first:
+      213: -4546943837937421633
+    second: bakery_uiu_34
+  - first:
+      213: 2470022305664062449
+    second: bakery_uiu_35
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -201,18 +207,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -225,8 +219,8 @@ TextureImporter:
         width: 230
         height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -246,7 +240,7 @@ TextureImporter:
         width: 202
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,7 +261,7 @@ TextureImporter:
         width: 19
         height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -288,7 +282,7 @@ TextureImporter:
         width: 202
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -309,8 +303,8 @@ TextureImporter:
         width: 39
         height: 39
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 8, y: 7, z: 7, w: 8}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -330,7 +324,7 @@ TextureImporter:
         width: 34
         height: 34
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -351,8 +345,8 @@ TextureImporter:
         width: 60
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -372,7 +366,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -393,7 +387,7 @@ TextureImporter:
         width: 40
         height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -409,12 +403,12 @@ TextureImporter:
       name: bakery_uiu_9
       rect:
         serializedVersion: 2
-        x: 108
-        y: 437
-        width: 52
-        height: 8
+        x: 310
+        y: 423
+        width: 55
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -430,12 +424,12 @@ TextureImporter:
       name: bakery_uiu_10
       rect:
         serializedVersion: 2
-        x: 184
-        y: 423
-        width: 17
-        height: 15
+        x: 372
+        y: 420
+        width: 63
+        height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -451,12 +445,12 @@ TextureImporter:
       name: bakery_uiu_11
       rect:
         serializedVersion: 2
-        x: 207
-        y: 422
-        width: 19
-        height: 20
+        x: 108
+        y: 437
+        width: 52
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -472,12 +466,12 @@ TextureImporter:
       name: bakery_uiu_12
       rect:
         serializedVersion: 2
-        x: 229
-        y: 422
-        width: 20
-        height: 16
+        x: 184
+        y: 423
+        width: 17
+        height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -493,12 +487,12 @@ TextureImporter:
       name: bakery_uiu_13
       rect:
         serializedVersion: 2
-        x: 108
-        y: 423
-        width: 52
-        height: 8
+        x: 207
+        y: 422
+        width: 19
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -514,13 +508,13 @@ TextureImporter:
       name: bakery_uiu_14
       rect:
         serializedVersion: 2
-        x: 17
-        y: 385
-        width: 30
-        height: 30
+        x: 229
+        y: 422
+        width: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -535,12 +529,12 @@ TextureImporter:
       name: bakery_uiu_15
       rect:
         serializedVersion: 2
-        x: 68
-        y: 387
-        width: 24
-        height: 25
+        x: 108
+        y: 423
+        width: 52
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -556,12 +550,12 @@ TextureImporter:
       name: bakery_uiu_16
       rect:
         serializedVersion: 2
-        x: 108
-        y: 409
-        width: 52
-        height: 8
+        x: 17
+        y: 385
+        width: 30
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -577,12 +571,12 @@ TextureImporter:
       name: bakery_uiu_17
       rect:
         serializedVersion: 2
-        x: 169
-        y: 406
-        width: 52
-        height: 8
+        x: 68
+        y: 387
+        width: 24
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -598,13 +592,13 @@ TextureImporter:
       name: bakery_uiu_18
       rect:
         serializedVersion: 2
-        x: 262
-        y: 401
-        width: 212
-        height: 16
+        x: 108
+        y: 409
+        width: 52
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -619,12 +613,12 @@ TextureImporter:
       name: bakery_uiu_19
       rect:
         serializedVersion: 2
-        x: 108
-        y: 395
+        x: 169
+        y: 406
         width: 52
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -640,13 +634,13 @@ TextureImporter:
       name: bakery_uiu_20
       rect:
         serializedVersion: 2
-        x: 195
-        y: 375
-        width: 58
-        height: 24
+        x: 262
+        y: 401
+        width: 212
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 0, z: 3, w: 5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -661,13 +655,13 @@ TextureImporter:
       name: bakery_uiu_21
       rect:
         serializedVersion: 2
-        x: 262
-        y: 375
-        width: 212
-        height: 23
+        x: 108
+        y: 395
+        width: 52
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -682,13 +676,13 @@ TextureImporter:
       name: bakery_uiu_22
       rect:
         serializedVersion: 2
-        x: 17
-        y: 337
-        width: 30
-        height: 30
+        x: 195
+        y: 370
+        width: 58
+        height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -703,12 +697,12 @@ TextureImporter:
       name: bakery_uiu_23
       rect:
         serializedVersion: 2
-        x: 68
-        y: 340
-        width: 24
-        height: 25
+        x: 261
+        y: 375
+        width: 213
+        height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -724,13 +718,13 @@ TextureImporter:
       name: bakery_uiu_24
       rect:
         serializedVersion: 2
-        x: 101
-        y: 363
-        width: 86
-        height: 23
+        x: 17
+        y: 337
+        width: 30
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -745,13 +739,13 @@ TextureImporter:
       name: bakery_uiu_25
       rect:
         serializedVersion: 2
-        x: 101
-        y: 337
-        width: 60
-        height: 23
+        x: 68
+        y: 340
+        width: 24
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -766,13 +760,13 @@ TextureImporter:
       name: bakery_uiu_26
       rect:
         serializedVersion: 2
-        x: 172
-        y: 337
-        width: 60
+        x: 101
+        y: 363
+        width: 86
         height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -787,13 +781,13 @@ TextureImporter:
       name: bakery_uiu_27
       rect:
         serializedVersion: 2
-        x: 255
-        y: 286
-        width: 219
-        height: 61
+        x: 101
+        y: 337
+        width: 60
+        height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -808,13 +802,13 @@ TextureImporter:
       name: bakery_uiu_28
       rect:
         serializedVersion: 2
-        x: 13
-        y: 206
-        width: 230
-        height: 125
+        x: 172
+        y: 337
+        width: 60
+        height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -830,12 +824,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 255
-        y: 205
+        y: 286
         width: 219
-        height: 72
+        height: 61
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -851,12 +845,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 13
-        y: 125
+        y: 206
         width: 230
-        height: 55
+        height: 125
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -871,13 +865,13 @@ TextureImporter:
       name: bakery_uiu_31
       rect:
         serializedVersion: 2
-        x: 290
-        y: 136
-        width: 118
-        height: 36
+        x: 255
+        y: 205
+        width: 219
+        height: 72
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 4, z: 4, w: 4}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -892,13 +886,13 @@ TextureImporter:
       name: bakery_uiu_32
       rect:
         serializedVersion: 2
-        x: 17
-        y: 67
-        width: 63
-        height: 42
+        x: 13
+        y: 125
+        width: 230
+        height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 2, y: 2, z: 2, w: 2}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -914,18 +908,60 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 290
-        y: 89
+        y: 136
         width: 118
         height: 36
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 4, z: 4, w: 4}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: c41207bbe4797c2f0800000000000000
       internalID: -952626431757639348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_34
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 67
+        width: 63
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb2b61e8ba206e0c0800000000000000
+      internalID: -4546943837937421633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bakery_uiu_35
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 89
+        width: 118
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f3d5644338474220800000000000000
+      internalID: 2470022305664062449
       vertices: []
       indices: 
       edges: []
