@@ -1088,7 +1088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cName: "\uC0C1\uC5B4"
   image: {fileID: 21300000, guid: 6d0ea88796e1cb745b7e252d97457e47, type: 3}
-  attackTime: 1
+  attackTime: 4
   hp: 1000
   mp: 2000
   stateUI: {fileID: 812968648}
@@ -1475,7 +1475,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7340277264757817056, guid: cb5f9b00c9b768d4387f66fa702c2453, type: 3}
+  m_Sprite: {fileID: -7182777186559868628, guid: 8a50ac95aeca2b240b23e075e43d78bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2093,6 +2093,10 @@ PrefabInstance:
     - target: {fileID: 598495423738106790, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -2.4974976
+      objectReference: {fileID: 0}
+    - target: {fileID: 598495423738106791, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 598495423764990229, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
       propertyPath: m_Name
