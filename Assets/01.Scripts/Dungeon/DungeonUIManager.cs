@@ -45,10 +45,16 @@ public class DungeonUIManager : MonoBehaviour
         {
             if (i == j) continue;
             StateTweens[j].Kill();
-            characterStateObjs[j].gameObject.SetActive(false);
+            characterStateObjs[j].transform.DOMoveY(characterStateObjs[j].transform.position.y - 5, .8f);
             ponCharacterStateObjs[j].gameObject.SetActive(false);
         }
-        characterStateObjs[i].transform.DOMove(ponCharacterStateObjs[i].transform.position, .8f);
+        StartCoroutine(SetCharacterObj(i));
+    }
+
+    public IEnumerator SetCharacterObj(int i)
+    {
+        yield return new WaitForSeconds(.8f);
+        characterStateObjs[i].transform.DOMove(ponCharacterStateObjs[i].transform.position, .8f).SetEase(Ease.OutQuad);
     }
 
 
