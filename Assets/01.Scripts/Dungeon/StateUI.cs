@@ -13,9 +13,4 @@ public class StateUI : MonoBehaviour
     public float hp;
     public float mp;
     public float attackTime;
-
-    public void Start()
-    {
-        DOTween.To(() => stateSliders[2].value, x => stateSliders[2].value = x, 1,attackTime).SetEase(Ease.Linear);
-    }
 }

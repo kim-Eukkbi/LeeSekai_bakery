@@ -12,7 +12,7 @@ public class Character : MonoBehaviour
     public float mp;
     public StateUI stateUI;
 
-    public void Start()
+    public void Awake()
     {
         stateUI.cName.text = cName;
         stateUI.cImage.sprite = image;
