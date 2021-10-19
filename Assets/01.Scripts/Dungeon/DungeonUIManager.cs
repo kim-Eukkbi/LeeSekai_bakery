@@ -42,10 +42,10 @@ public class DungeonUIManager : MonoBehaviour
         {
             StartCoroutine(AttackCo());
         });
-        SetDefaultUI();
+        StartFightProcess();
     }
 
-    public void SetDefaultUI()
+    public void StartFightProcess()
     {
         for (int i = 0; i < characterStateObjs.Count; i++)
         {
@@ -118,12 +118,12 @@ public class DungeonUIManager : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
         sequence.Append(currentPlayer.transform.DOMove(monsterObj.transform.position, .3f).SetLoops(2, LoopType.Yoyo)).OnComplete(()=>
         {
-           StartCoroutine(SetDefault());
+           StartCoroutine(SetDefaultUI());
         });
         sequence.Insert(.2f, Camera.main.DOShakeRotation(.1f,5f));  //나중에 다시 생각해보기
     }
 
-    public IEnumerator SetDefault()
+    public IEnumerator SetDefaultUI()
     {
         //몬스터 UI 옆으로 빼기
         monsterObj.transform.DOMoveY(monsterObj.transform.position.y - .5f, .5f);

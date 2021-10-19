@@ -14,6 +14,11 @@ public class Character : MonoBehaviour
 
     public void Awake()
     {
+        Init();
+    }
+
+    public void Init()
+    {
         stateUI.cName.text = cName;
         stateUI.cImage.sprite = image;
         stateUI.attackTime = attackTime;
