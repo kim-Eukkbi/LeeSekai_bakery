@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class DungeonUIManager : MonoBehaviour
@@ -16,15 +17,31 @@ public class DungeonUIManager : MonoBehaviour
         instance = this;
     }
 
+    [Header("캐릭터")]
     public GameObject fightPanel;
     public GameObject characterStatePanel;
     public List<GameObject> PlayerObjs;
     public List<GameObject> ponCharacterStateObjs;
     public List<StateUI> characterStateObjs;
+
+    [Header("몬스터")]
+    public GameObject monsterObj;
+    public GameObject monsterStateUIobj;
+
+
+    [Header("ECT")]
+    public Canvas mainCanvas;
+    public Button attackBtn;
     private List<Tween> StateTweens;
+    private StateUI currentCharacter;
+    private GameObject currentPlayer;
     public void Start()
     {
         StateTweens = new List<Tween>();
+        attackBtn.onClick.AddListener(() =>
+        {
+            StartCoroutine(AttackCo());
+        });
         SetDefaultUI();
     }
 
@@ -52,16 +69,74 @@ public class DungeonUIManager : MonoBehaviour
             PlayerObjs[j].transform.DOMoveY(PlayerObjs[j].transform.position.y - .5f, .5f);
             ponCharacterStateObjs[j].gameObject.SetActive(false);
         }
+        currentCharacter = characterStateObjs[i];
+        currentPlayer = PlayerObjs[i];
         StartCoroutine(SetUIs(i));
+        StartCoroutine(MonsterFightSet());
+    }
+
+    public IEnumerator MonsterFightSet()
+    {
+        yield return null;
+        monsterObj.transform.DOMoveY(monsterObj.transform.position.y + .5f, .5f);
+        yield return new WaitForSeconds(.5f);
+        monsterStateUIobj.transform.DOMoveX(monsterStateUIobj.transform.position.x - 6.5f,.8f);
     }
 
     public IEnumerator SetUIs(int i)
     {
+        StateTweens[i].Rewind();
+        yield return null;
         PlayerObjs[i].transform.DOMoveY(PlayerObjs[i].transform.position.y + .5f, .5f);
-        yield return new WaitForSeconds(.8f);
+        yield return new WaitForSeconds(.5f);
         characterStateObjs[i].transform.DOMove(ponCharacterStateObjs[i].transform.position, .8f);
         yield return new WaitForSeconds(.8f);
         fightPanel.transform.DOMove(characterStatePanel.transform.position, .8f);
+    }
+
+    public IEnumerator AttackCo()
+    {
+        fightPanel.transform.DOMoveY(characterStatePanel.transform.position.y - 5f, .8f);
+        currentCharacter.transform.DOMoveY(currentCharacter.transform.position.y - 5, .8f);
+        for(int i =0; i <3;i++)
+        {
+            ponCharacterStateObjs[i].SetActive(true);
+        }
+        yield return new WaitForSeconds(.8f);
+        PlayerAttack();
+        for (int i = 0; i < 3; i++)
+        {
+            characterStateObjs[i].transform.position =
+                new Vector3(ponCharacterStateObjs[i].transform.position.x, 
+                characterStateObjs[i].transform.position.y, characterStateObjs[i].transform.position.z);
+        }
+
+    }
+
+    public void PlayerAttack()
+    {
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(currentPlayer.transform.DOMove(monsterObj.transform.position, .3f).SetLoops(2, LoopType.Yoyo)).OnComplete(()=>
+        {
+            SetDefault();
+        });
+        sequence.Insert(.1f, Camera.main.DOShakeRotation(.1f,1f));  //나중에 다시 생각해보기
+    }
+
+    public void SetDefault()
+    {
+        //몬스터 UI 옆으로 빼기
+        monsterObj.transform.DOMoveY(monsterObj.transform.position.y - .5f, .5f);
+        monsterStateUIobj.transform.DOMoveX(monsterStateUIobj.transform.position.x + 6.5f, .5f);
+        //StateUI 원위치로
+        //플레이어 오브젝트 원위치로
+        for (int i =0; i< 3;i++)
+        {
+            int a = i;
+            PlayerObjs[a].transform.DOMoveY(currentPlayer.transform.position.y - .5f, .5f);
+            StateTweens[a].Play();
+            characterStateObjs[a].transform.DOMoveY(ponCharacterStateObjs[a].transform.position.y,.5f);
+        }
     }
 
 
