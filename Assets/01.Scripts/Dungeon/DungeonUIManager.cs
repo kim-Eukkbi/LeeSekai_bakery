@@ -16,6 +16,9 @@ public class DungeonUIManager : MonoBehaviour
         instance = this;
     }
 
+    public GameObject fightPanel;
+    public GameObject characterStatePanel;
+    public List<GameObject> PlayerObjs;
     public List<GameObject> ponCharacterStateObjs;
     public List<StateUI> characterStateObjs;
     private List<Tween> StateTweens;
@@ -44,17 +47,21 @@ public class DungeonUIManager : MonoBehaviour
         for (int j = 0; j < characterStateObjs.Count; j++)
         {
             if (i == j) continue;
-            StateTweens[j].Kill();
+            StateTweens[j].Pause();
             characterStateObjs[j].transform.DOMoveY(characterStateObjs[j].transform.position.y - 5, .8f);
+            PlayerObjs[j].transform.DOMoveY(PlayerObjs[j].transform.position.y - .5f, .5f);
             ponCharacterStateObjs[j].gameObject.SetActive(false);
         }
-        StartCoroutine(SetCharacterObj(i));
+        StartCoroutine(SetUIs(i));
     }
 
-    public IEnumerator SetCharacterObj(int i)
+    public IEnumerator SetUIs(int i)
     {
+        PlayerObjs[i].transform.DOMoveY(PlayerObjs[i].transform.position.y + .5f, .5f);
         yield return new WaitForSeconds(.8f);
-        characterStateObjs[i].transform.DOMove(ponCharacterStateObjs[i].transform.position, .8f).SetEase(Ease.OutQuad);
+        characterStateObjs[i].transform.DOMove(ponCharacterStateObjs[i].transform.position, .8f);
+        yield return new WaitForSeconds(.8f);
+        fightPanel.transform.DOMove(characterStatePanel.transform.position, .8f);
     }
 
 

@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 4238851448761916266}
   - component: {fileID: 4238851448761916268}
   - component: {fileID: 4238851448761916269}
-  - component: {fileID: 4238851448761916271}
+  - component: {fileID: 653741292994276870}
   m_Layer: 0
   m_Name: RealImage
   m_TagString: Untagged
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!223 &4238851448761916271
+--- !u!223 &653741292994276870
 Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1301,7 +1301,7 @@ GameObject:
   - component: {fileID: 4238851449669612176}
   - component: {fileID: 4238851449669612178}
   - component: {fileID: 4238851449669612179}
-  - component: {fileID: 4238851449669612181}
+  - component: {fileID: 441915234700413332}
   m_Layer: 0
   m_Name: CharacterImage
   m_TagString: Untagged
@@ -1367,7 +1367,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!223 &4238851449669612181
+--- !u!223 &441915234700413332
 Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
