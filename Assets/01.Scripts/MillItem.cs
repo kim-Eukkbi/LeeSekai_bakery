@@ -8,7 +8,6 @@ public class MillItem : MonoBehaviour
     [HideInInspector]
     public RectTransform rect;
     public Image breadImage;
-    public Image frameImage;
 
     private void Awake()
     {
