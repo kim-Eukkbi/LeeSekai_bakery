@@ -118,12 +118,12 @@ public class DungeonUIManager : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
         sequence.Append(currentPlayer.transform.DOMove(monsterObj.transform.position, .3f).SetLoops(2, LoopType.Yoyo)).OnComplete(()=>
         {
-            SetDefault();
+           StartCoroutine(SetDefault());
         });
-        sequence.Insert(.1f, Camera.main.DOShakeRotation(.1f,1f));  //나중에 다시 생각해보기
+        sequence.Insert(.2f, Camera.main.DOShakeRotation(.1f,5f));  //나중에 다시 생각해보기
     }
 
-    public void SetDefault()
+    public IEnumerator SetDefault()
     {
         //몬스터 UI 옆으로 빼기
         monsterObj.transform.DOMoveY(monsterObj.transform.position.y - .5f, .5f);
@@ -134,9 +134,10 @@ public class DungeonUIManager : MonoBehaviour
         {
             int a = i;
             PlayerObjs[a].transform.DOMoveY(currentPlayer.transform.position.y - .5f, .5f);
-            StateTweens[a].Play();
             characterStateObjs[a].transform.DOMoveY(ponCharacterStateObjs[a].transform.position.y,.5f);
         }
+        yield return new WaitForSeconds(.5f);
+        for (int i = 0; i < 3; i++) StateTweens[i].Play();
     }
 
 
