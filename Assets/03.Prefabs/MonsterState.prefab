@@ -707,6 +707,7 @@ GameObject:
   - component: {fileID: 598495423764990230}
   - component: {fileID: 598495423764990312}
   - component: {fileID: 598495423764990231}
+  - component: {fileID: 5638274364618858330}
   - component: {fileID: 598495423764990313}
   m_Layer: 0
   m_Name: MonsterState
@@ -774,6 +775,29 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5638274364618858330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598495423764990229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192a885e065c3d24bb4c88b8ea12a65a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cName: {fileID: 598495423730258283}
+  cImage: {fileID: 598495424597278051}
+  stateSliders:
+  - {fileID: 598495424817338588}
+  - {fileID: 598495423569306469}
+  - {fileID: 598495423459233068}
+  hp: 100
+  mp: 100
+  attackDamage: 10
+  defense: 30
+  attackTime: 10
 --- !u!114 &598495423764990313
 MonoBehaviour:
   m_ObjectHideFlags: 0

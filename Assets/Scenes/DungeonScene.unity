@@ -232,7 +232,11 @@ MonoBehaviour:
   attackTime: 6
   hp: 100
   mp: 20
+  attackDamage: 30
+  defense: 344
   stateUI: {fileID: 1210160702}
+  monsterStateUI: {fileID: 0}
+  isMonster: 0
 --- !u!224 &78583486 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 598495423764990230, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
@@ -452,7 +456,11 @@ MonoBehaviour:
   attackTime: 3
   hp: 10
   mp: 10
+  attackDamage: 80
+  defense: 100
   stateUI: {fileID: 822927896}
+  monsterStateUI: {fileID: 0}
+  isMonster: 0
 --- !u!1 &120634873
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +472,7 @@ GameObject:
   - component: {fileID: 120634875}
   - component: {fileID: 120634876}
   - component: {fileID: 120634874}
+  - component: {fileID: 120634877}
   m_Layer: 0
   m_Name: MonsterImage
   m_TagString: Untagged
@@ -544,6 +553,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120634873}
   m_CullTransparentMesh: 1
+--- !u!114 &120634877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120634873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933643b322964b64185a7d271188a2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cName: baksukklee
+  image: {fileID: 21300000, guid: aee633cdf522ce942a7c8496d97cf9e1, type: 3}
+  attackTime: 5
+  hp: 100
+  mp: 100
+  attackDamage: 100
+  defense: 100
+  stateUI: {fileID: 0}
+  monsterStateUI: {fileID: 598495423704506281}
+  isMonster: 1
 --- !u!1 &243677940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,10 +1473,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cName: "\uC0C1\uC5B4"
   image: {fileID: 21300000, guid: 6d0ea88796e1cb745b7e252d97457e47, type: 3}
-  attackTime: 2
+  attackTime: 7
   hp: 13
   mp: 12
+  attackDamage: 10
+  defense: 1111
   stateUI: {fileID: 2037734548}
+  monsterStateUI: {fileID: 0}
+  isMonster: 0
 --- !u!1 &925137550
 GameObject:
   m_ObjectHideFlags: 0
@@ -2429,6 +2464,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237484204}
   m_CullTransparentMesh: 1
+--- !u!114 &1301945032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 598495424597278051, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
+  m_PrefabInstance: {fileID: 598495423704506280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1308067544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3407,6 +3453,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7086ef2a1ce6a044ab6a9e80828b9a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2043968471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 598495423730258283, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
+  m_PrefabInstance: {fileID: 598495423704506280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2098360047
 GameObject:
   m_ObjectHideFlags: 0
@@ -3720,5 +3777,44 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5638274364618858330, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
+      propertyPath: hp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638274364618858330, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
+      propertyPath: mp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638274364618858330, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
+      propertyPath: mName
+      value: 
+      objectReference: {fileID: 2043968471}
+    - target: {fileID: 5638274364618858330, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
+      propertyPath: mImage
+      value: 
+      objectReference: {fileID: 1301945032}
+    - target: {fileID: 5638274364618858330, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
+      propertyPath: defense
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638274364618858330, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
+      propertyPath: attackTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638274364618858330, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
+      propertyPath: attackDamage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
+--- !u!114 &598495423704506281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5638274364618858330, guid: 1c587b3beb3113f42a91412002cb5bc2, type: 3}
+  m_PrefabInstance: {fileID: 598495423704506280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625341401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192a885e065c3d24bb4c88b8ea12a65a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

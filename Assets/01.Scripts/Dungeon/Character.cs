@@ -10,11 +10,16 @@ public class Character : MonoBehaviour
     public float attackTime;
     public float hp;
     public float mp;
+    public float attackDamage;
+    public float defense;
     public StateUI stateUI;
+    public MonsterStateUI monsterStateUI;
+    public bool isMonster = false;
 
     public void Awake()
     {
-        Init();
+        if (isMonster) MonsterInit();
+        else Init();
     }
 
     public void Init()
@@ -24,5 +29,18 @@ public class Character : MonoBehaviour
         stateUI.attackTime = attackTime;
         stateUI.hp = hp;
         stateUI.mp = mp;
+        stateUI.attackDamage = attackDamage;
+        stateUI.defense = defense;
+    }
+
+    public void MonsterInit()
+    {
+        monsterStateUI.mName.text = cName;
+        monsterStateUI.mImage.sprite = image;
+        monsterStateUI.attackTime = attackTime;
+        monsterStateUI.hp = hp;
+        monsterStateUI.mp = mp;
+        monsterStateUI.attackDamage = attackDamage;
+        monsterStateUI.defense = defense;
     }
 }

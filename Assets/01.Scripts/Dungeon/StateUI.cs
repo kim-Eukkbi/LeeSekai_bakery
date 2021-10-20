@@ -12,5 +12,7 @@ public class StateUI : MonoBehaviour
     public List<Slider> stateSliders;
     public float hp;
     public float mp;
+    public float attackDamage;
+    public float defense;
     public float attackTime;
 }

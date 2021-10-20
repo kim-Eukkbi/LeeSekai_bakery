@@ -32,7 +32,7 @@ public class DungeonUIManager : MonoBehaviour
     [Header("ECT")]
     public Canvas mainCanvas;
     public Button attackBtn;
-    private List<Tween> StateTweens;
+    public List<Tween> StateTweens;
     private StateUI currentCharacter;
     private GameObject currentPlayer;
     public void Start()
@@ -54,6 +54,7 @@ public class DungeonUIManager : MonoBehaviour
             x => characterStateObjs[a].stateSliders[2].value = x, 1,
             characterStateObjs[a].attackTime).SetEase(Ease.Linear).OnComplete(() =>
             {
+                monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack.Pause();
                 SetFight(a);
             }));
         }
@@ -138,6 +139,7 @@ public class DungeonUIManager : MonoBehaviour
         }
         yield return new WaitForSeconds(.5f);
         for (int i = 0; i < 3; i++) StateTweens[i].Play();
+        monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack.Play();
     }
 
 
