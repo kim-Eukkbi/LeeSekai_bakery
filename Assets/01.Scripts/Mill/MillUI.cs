@@ -22,8 +22,7 @@ public class MillUI : MonoBehaviour
 
             if(startPos < endPos)
             {
-                millUIMove.MoveRight();
-            }
+                millUIMove.MoveRight();            }
             else if (startPos > endPos)
             {
                 millUIMove.MoveLeft();
