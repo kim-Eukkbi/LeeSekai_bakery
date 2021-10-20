@@ -54,10 +54,20 @@ public class DungeonUIManager : MonoBehaviour
             x => characterStateObjs[a].stateSliders[2].value = x, 1,
             characterStateObjs[a].attackTime).SetEase(Ease.Linear).OnComplete(() =>
             {
-                monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack.Pause();
+                monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack[0].Pause();
                 SetFight(a);
             }));
+            StateTweens[i].SetAutoKill(false);
         }
+
+        for (int i = 0; i < characterStateObjs.Count; i++)
+        {
+            int a = i;
+            StateTweens.Add(DOTween.To(() => characterStateObjs[a].stateSliders[2].value,
+            x => characterStateObjs[a].stateSliders[2].value = x, 0,.5f).SetEase(Ease.Linear));
+            StateTweens[3 + a].Pause().SetAutoKill(false);
+        }
+
     }
 
     public void SetFight(int i)
@@ -86,10 +96,14 @@ public class DungeonUIManager : MonoBehaviour
 
     public IEnumerator SetUIs(int i)
     {
-        StateTweens[i].Rewind();
-        yield return null;
-        PlayerObjs[i].transform.DOMoveY(PlayerObjs[i].transform.position.y + .5f, .5f);
         yield return new WaitForSeconds(.5f);
+        StateTweens[3 + i].Rewind();
+        StateTweens[3 + i].Play().OnComplete(()=>
+        {
+            StateTweens[i].Rewind();
+        });
+        
+        PlayerObjs[i].transform.DOMoveY(PlayerObjs[i].transform.position.y + .5f, .5f);
         characterStateObjs[i].transform.DOMove(ponCharacterStateObjs[i].transform.position, .8f);
         yield return new WaitForSeconds(.8f);
         fightPanel.transform.DOMove(characterStatePanel.transform.position, .8f);
@@ -139,7 +153,7 @@ public class DungeonUIManager : MonoBehaviour
         }
         yield return new WaitForSeconds(.5f);
         for (int i = 0; i < 3; i++) StateTweens[i].Play();
-        monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack.Play();
+        monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack[0].Play();
     }
 
 

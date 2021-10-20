@@ -15,25 +15,37 @@ public class MonsterStateUI : MonoBehaviour
     public float defense;
     public float attackTime;
 
-    public Tween readyAttack;
+    public List<Tween> readyAttack;
 
     public void Start()
     {
-        readyAttack = DOTween.To(() => stateSliders[2].value, x => stateSliders[2].value = x, 1, attackTime).SetEase(Ease.Linear).OnComplete(() =>
+        readyAttack = new List<Tween>();
+        readyAttack.Add(DOTween.To(() => stateSliders[2].value, x => stateSliders[2].value = x, 1, attackTime).SetEase(Ease.Linear).OnComplete(() =>
         {
             SetMonsterAttack();
-        });
+        }));
+        readyAttack.Add(DOTween.To(() => stateSliders[2].value, x => stateSliders[2].value = x, 0, .5f).SetEase(Ease.Linear));
+        readyAttack[1].Pause().SetAutoKill(false);
+        readyAttack[0].SetAutoKill(false);
     }
 
 
     public void SetMonsterAttack()
     {
-        transform.DOMoveX(transform.position.x - 6.5f, .8f);
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(transform.DOMoveX(transform.position.x - 6.5f, .8f));
+        readyAttack[1].Rewind();
+        sequence.Append(readyAttack[1].Play().OnComplete(()=>
+        {
+            readyAttack[0].Rewind();
+        }));
+
         DungeonUIManager.instance.SetDefaultUI();
         for (int i = 0; i < 3; i++)
         {
             DungeonUIManager.instance.StateTweens[i].Pause();
         }
+       
         StartCoroutine(AttackMonster());
     }
 
@@ -42,11 +54,10 @@ public class MonsterStateUI : MonoBehaviour
         yield return new WaitForSeconds(.8f);
         Sequence sequence = DOTween.Sequence();
         sequence.Append(DungeonUIManager.instance.monsterObj.transform.DOMoveY
-            (DungeonUIManager.instance.monsterObj.transform.position.y - 1f, .5f).SetLoops(2, LoopType.Yoyo));
-        sequence.Insert(.25f, Camera.main.DOShakeRotation(.1f, 5f));
-        yield return new WaitForSeconds(.5f);
-        Debug.Log("Rewind");
-        readyAttack.Rewind();
+            (DungeonUIManager.instance.monsterObj.transform.position.y - 1f, .3f).SetLoops(2, LoopType.Yoyo));
+        sequence.Insert(.2f, Camera.main.DOShakeRotation(.1f, 5f));
+        yield return new WaitForSeconds(1f);
+        //Debug.Log("Rewind");
         StartCoroutine(EndAttackMonster());
     }
 
@@ -58,7 +69,7 @@ public class MonsterStateUI : MonoBehaviour
             DungeonUIManager.instance.StateTweens[i].Play();
         }
         yield return null;
-        Debug.Log("Play");
-        readyAttack.Play();
+        //Debug.Log("Play");
+        readyAttack[0].Play();
     }
 }
