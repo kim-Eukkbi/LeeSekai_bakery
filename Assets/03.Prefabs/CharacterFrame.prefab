@@ -1492,7 +1492,7 @@ RectTransform:
   m_GameObject: {fileID: 4238851449713843847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4898970257004156702}
   - {fileID: 4238851450057523867}
@@ -1566,6 +1566,8 @@ MonoBehaviour:
   - {fileID: 4238851449605125402}
   hp: 0
   mp: 0
+  attackDamage: 0
+  defense: 0
   attackTime: 0
 --- !u!114 &6914833003694752757
 MonoBehaviour:

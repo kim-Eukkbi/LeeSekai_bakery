@@ -20,11 +20,11 @@ public class MonsterStateUI : MonoBehaviour
     public void Start()
     {
         readyAttack = new List<Tween>();
-        readyAttack.Add(DOTween.To(() => stateSliders[2].value, x => stateSliders[2].value = x, 1, attackTime).SetEase(Ease.Linear).OnComplete(() =>
+        readyAttack.Add(stateSliders[2].DOValue(1,attackTime).SetEase(Ease.Linear).OnComplete(() =>
         {
             SetMonsterAttack();
         }));
-        readyAttack.Add(DOTween.To(() => stateSliders[2].value, x => stateSliders[2].value = x, 0, .5f).SetEase(Ease.Linear));
+        readyAttack.Add(stateSliders[2].DOValue(0,.5f).SetEase(Ease.Linear));
         readyAttack[1].Pause().SetAutoKill(false);
         readyAttack[0].SetAutoKill(false);
     }
@@ -32,14 +32,7 @@ public class MonsterStateUI : MonoBehaviour
 
     public void SetMonsterAttack()
     {
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(transform.DOMoveX(transform.position.x - 6.5f, .8f));
-        readyAttack[1].Rewind();
-        sequence.Append(readyAttack[1].Play().OnComplete(()=>
-        {
-            readyAttack[0].Rewind();
-        }));
-
+        //transform.DOMoveX(transform.position.x - 6.5f, .8f);
         DungeonUIManager.instance.SetDefaultUI();
         for (int i = 0; i < 3; i++)
         {
@@ -52,9 +45,14 @@ public class MonsterStateUI : MonoBehaviour
     public IEnumerator AttackMonster()
     {
         yield return new WaitForSeconds(.8f);
+        readyAttack[1].Rewind();
+        readyAttack[1].Play().OnComplete(() =>
+        {
+            readyAttack[0].Rewind();
+        });
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(DungeonUIManager.instance.monsterObj.transform.DOMoveY
-            (DungeonUIManager.instance.monsterObj.transform.position.y - 1f, .3f).SetLoops(2, LoopType.Yoyo));
+        sequence.Append(DungeonUIManager.instance.monsterObj.transform.DOMoveX
+            (DungeonUIManager.instance.monsterObj.transform.position.x - 10f, .3f).SetLoops(2, LoopType.Yoyo));
         sequence.Insert(.2f, Camera.main.DOShakeRotation(.1f, 5f));
         yield return new WaitForSeconds(1f);
         //Debug.Log("Rewind");

@@ -323,7 +323,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 370, y: 70}
+  m_SizeDelta: {x: 370, y: 54.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &598495423459233068
 MonoBehaviour:
@@ -725,7 +725,7 @@ RectTransform:
   m_GameObject: {fileID: 598495423764990229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 598495424157112053}
   - {fileID: 598495423921852904}
@@ -787,8 +787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192a885e065c3d24bb4c88b8ea12a65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cName: {fileID: 598495423730258283}
-  cImage: {fileID: 598495424597278051}
+  mName: {fileID: 0}
+  mImage: {fileID: 0}
   stateSliders:
   - {fileID: 598495424817338588}
   - {fileID: 598495423569306469}
