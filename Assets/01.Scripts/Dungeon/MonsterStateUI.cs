@@ -61,7 +61,7 @@ public class MonsterStateUI : MonoBehaviour
 
     public IEnumerator EndAttackMonster()
     {
-        transform.DOMoveX(transform.position.x + 6.5f, .8f);
+        //transform.DOMoveX(transform.position.x + 6.5f, .8f);
         for (int i = 0; i < 3; i++)
         {
             DungeonUIManager.instance.StateTweens[i].Play();

@@ -19,6 +19,7 @@ public class DungeonUIManager : MonoBehaviour
 
     [Header("Ä³¸¯ÅÍ")]
     public GameObject fightPanel;
+    public GameObject skillPanel;
     public GameObject characterStatePanel;
     public List<GameObject> PlayerObjs;
     public List<GameObject> ponCharacterStateObjs;
@@ -32,18 +33,29 @@ public class DungeonUIManager : MonoBehaviour
 
     [Header("ECT")]
     public Canvas mainCanvas;
-    public Button attackBtn;
     public List<Tween> StateTweens;
     private StateUI currentCharacter;
     private GameObject currentPlayer;
     public void Start()
     {
         StateTweens = new List<Tween>();
-        attackBtn.onClick.AddListener(() =>
+        buttons[0].GetComponent<Button>().onClick.AddListener(() =>
         {
             StartCoroutine(AttackCo());
         });
+        buttons[1].GetComponent<Button>().onClick.AddListener(() =>
+        {
+            StartCoroutine(SkillUISet());
+        });
         StartCoroutine(UpUI());
+        
+    }
+
+    public IEnumerator SkillUISet()
+    {
+        DownfightUI();
+        yield return new WaitForSeconds(.8f);
+        skillPanel.transform.DOMoveY(ponCharacterStateObjs[0].GetComponentInParent<Transform>().position.y, .5f);
     }
 
     public IEnumerator UpUI()
@@ -92,14 +104,8 @@ public class DungeonUIManager : MonoBehaviour
         }
         currentCharacter = characterStateObjs[i];
         currentPlayer = PlayerObjs[i];
-        StartCoroutine(SetUIs(i));
-        StartCoroutine(MonsterFightSet());
-    }
-
-    public IEnumerator MonsterFightSet()
-    {
-        yield return null;
         monsterObj.transform.DOMoveX(monsterObj.transform.position.x + .5f, .5f);
+        StartCoroutine(SetUIs(i)); 
     }
 
     public IEnumerator SetUIs(int i)
@@ -115,25 +121,27 @@ public class DungeonUIManager : MonoBehaviour
         characterStateObjs[i].transform.DOMove(ponCharacterStateObjs[i].transform.position, .8f);
         yield return new WaitForSeconds(.8f);
         Sequence Uiseq = DOTween.Sequence();
+        foreach(var item in buttons) item.GetComponent<Button>().interactable = false;
         Uiseq.Append(buttons[0].transform.DOMoveY(buttons[0].transform.position.y + 3.1f, .5f));
         Uiseq.Insert(.1f, buttons[1].transform.DOMoveY(buttons[1].transform.position.y + 3.1f, .5f));
         Uiseq.Insert(.2f, buttons[2].transform.DOMoveY(buttons[2].transform.position.y + 3.1f, .5f));
-        Uiseq.Insert(.3f, buttons[3].transform.DOMoveY(buttons[3].transform.position.y + 3.1f, .5f));
-        /*        for(int j =1; j<4;j++)
-                {
-                    int a = j;
-                    Uiseq.Insert(0.1f + (a / 10)*2, buttons[a].transform.DOMoveY(buttons[a].transform.position.y + 3.1f, .5f));
-                }*/
-        // fightPanel.transform.DOMove(characterStatePanel.transform.position, .8f);
+        Uiseq.Insert(.3f, buttons[3].transform.DOMoveY(buttons[3].transform.position.y + 3.1f, .5f)).OnComplete(() =>
+        {foreach (var item in buttons) item.GetComponent<Button>().interactable = true;});
     }
 
-    public IEnumerator AttackCo()
+    public void DownfightUI()
     {
         Sequence Uiseq = DOTween.Sequence();
+        foreach (var item in buttons) item.GetComponent<Button>().interactable = false;
         Uiseq.Append(buttons[3].transform.DOMoveY(buttons[3].transform.position.y - 3.1f, .5f));
         Uiseq.Insert(.1f, buttons[2].transform.DOMoveY(buttons[2].transform.position.y - 3.1f, .5f));
         Uiseq.Insert(.2f, buttons[1].transform.DOMoveY(buttons[1].transform.position.y - 3.1f, .5f));
         Uiseq.Insert(.3f, buttons[0].transform.DOMoveY(buttons[0].transform.position.y - 3.1f, .5f));
+    }
+
+    public IEnumerator AttackCo()
+    {
+        DownfightUI();
         //fightPanel.transform.DOMoveY(characterStatePanel.transform.position.y - 5f, .8f);
         currentCharacter.transform.DOMoveY(currentCharacter.transform.position.y - 5, .8f);
         for (int i = 0; i < 3; i++)
