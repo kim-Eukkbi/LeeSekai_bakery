@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShowcaseItem : MonoBehaviour
+public class SelectItem : MonoBehaviour
 {
     public Bread bread;
-    public Button button;
+    private Button button;
 
-    private ShowcaseManager sm;
     private SelectPanel selectPanel;
 
     private void Awake()
@@ -18,16 +17,18 @@ public class ShowcaseItem : MonoBehaviour
 
     private void Start()
     {
-        sm = ShowcaseManager.instance;
-        selectPanel = sm.selectPanel;
+        selectPanel = ShowcaseManager.instance.selectPanel;
 
         button.onClick.AddListener(() =>
         {
-            selectPanel.SetShowcaseItem(this);
-            sm.OpenSelectPanel();
+            selectPanel.SelectBread(bread);
         });
     }
 
+    /// <summary>
+    /// 빵을 세팅해주는 함수입니다
+    /// </summary>
+    /// <param name="bread">세팅할 빵</param>
     public void SetBread(Bread bread)
     {
         this.bread = bread;

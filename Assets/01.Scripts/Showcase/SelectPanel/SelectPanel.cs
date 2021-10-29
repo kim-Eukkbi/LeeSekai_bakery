@@ -2,39 +2,43 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectPanel : MonoBehaviour
 {
-    public static SelectPanel instance;
-
+    private Bread selectedBread;
     [SerializeField]
-    private CanvasGroup showcasePanel;
-    private CanvasGroup selectPanel;
-
-    public Action<ShowcaseItem> openPanel = item => { };
+    public Button confirmBtn;
 
     private ShowcaseItem nowItem;
-    private Bread selectedBread;
 
-    private void Awake()
-    {
-        if(instance != null)
-        {
-            instance = this;
-        }
-    }
+    private ShowcaseManager sm;
 
     private void Start()
     {
-        openPanel += item =>
-        {
-            showcasePanel.alpha = 0f;
-            selectPanel.alpha = 1f;
+        sm = ShowcaseManager.instance;
 
-            nowItem = item;
-        };
+        //전시하기 버튼이 눌렸을 때
+        confirmBtn.onClick.AddListener(() =>
+        {
+            nowItem.bread = selectedBread;
+            sm.CloseSelectPanel();
+        });
     }
 
+    /// <summary>
+    /// 어떤 ShowcaseItem이 열렸는지 알기 위한 함수입니다
+    /// </summary>
+    /// <param name="item">열린 ShowcaseItem</param>
+    public void SetShowcaseItem(ShowcaseItem item)
+    {
+        nowItem = item;
+    }
+
+    /// <summary>
+    /// 선택된 빵을 알기 위한 함수입니다
+    /// </summary>
+    /// <param name="bread">선택된 빵</param>
     public void SelectBread(Bread bread)
     {
         selectedBread = bread;
