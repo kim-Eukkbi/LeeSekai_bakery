@@ -12,17 +12,13 @@ public class SelectPanel : MonoBehaviour
 
     private ShowcaseItem nowItem;
 
-    private ShowcaseManager sm;
-
     private void Start()
     {
-        sm = ShowcaseManager.instance;
-
         //전시하기 버튼이 눌렸을 때
         confirmBtn.onClick.AddListener(() =>
         {
             nowItem.bread = selectedBread;
-            sm.CloseSelectPanel();
+            ShowcaseManager.instance.CloseSelectPanel();
         });
     }
 

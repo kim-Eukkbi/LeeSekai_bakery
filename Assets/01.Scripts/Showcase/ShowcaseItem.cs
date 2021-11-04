@@ -8,23 +8,16 @@ public class ShowcaseItem : MonoBehaviour
     public Bread bread;
     public Button button;
 
-    private ShowcaseManager sm;
     private SelectPanel selectPanel;
-
-    private void Awake()
-    {
-        button = GetComponent<Button>();
-    }
 
     private void Start()
     {
-        sm = ShowcaseManager.instance;
-        selectPanel = sm.selectPanel;
+        selectPanel = ShowcaseManager.instance.selectPanel;
 
         button.onClick.AddListener(() =>
         {
             selectPanel.SetShowcaseItem(this);
-            sm.OpenSelectPanel();
+            ShowcaseManager.instance.OpenSelectPanel();
         });
     }
 
