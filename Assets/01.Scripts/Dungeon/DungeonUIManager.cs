@@ -34,28 +34,26 @@ public class DungeonUIManager : MonoBehaviour
     [Header("ECT")]
     public Canvas mainCanvas;
     public List<Tween> StateTweens;
-    private StateUI currentCharacter;
-    private GameObject currentPlayer;
+    [HideInInspector]
+    public StateUI currentCharacter;
+    [HideInInspector]
+    public GameObject currentPlayer;
     public void Start()
     {
         StateTweens = new List<Tween>();
-        buttons[0].GetComponent<Button>().onClick.AddListener(() =>
-        {
-            StartCoroutine(AttackCo());
-        });
-        buttons[1].GetComponent<Button>().onClick.AddListener(() =>
-        {
-            StartCoroutine(SkillUISet());
-        });
+       
         StartCoroutine(UpUI());
         
     }
 
-    public IEnumerator SkillUISet()
+    public void DownUI()
     {
-        DownfightUI();
-        yield return new WaitForSeconds(.8f);
-        skillPanel.transform.DOMoveY(ponCharacterStateObjs[0].GetComponentInParent<Transform>().position.y, .5f);
+        Sequence Uiseq = DOTween.Sequence();
+        foreach (var item in buttons) item.GetComponent<Button>().interactable = false;
+        Uiseq.Append(buttons[3].transform.DOMoveY(buttons[3].transform.position.y - 3.1f, .5f));
+        Uiseq.Insert(.1f, buttons[2].transform.DOMoveY(buttons[2].transform.position.y - 3.1f, .5f));
+        Uiseq.Insert(.2f, buttons[1].transform.DOMoveY(buttons[1].transform.position.y - 3.1f, .5f));
+        Uiseq.Insert(.3f, buttons[0].transform.DOMoveY(buttons[0].transform.position.y - 3.1f, .5f));
     }
 
     public IEnumerator UpUI()
@@ -70,6 +68,7 @@ public class DungeonUIManager : MonoBehaviour
         StartFightProcess();
     }
 
+    #region UI올리기
     public void StartFightProcess()
     {
         for (int i = 0; i < characterStateObjs.Count; i++)
@@ -79,7 +78,7 @@ public class DungeonUIManager : MonoBehaviour
             .DOValue(1, characterStateObjs[a].attackTime).SetEase(Ease.Linear).OnComplete(() =>
             {
                 monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack[0].Pause();
-                SetFight(a);
+                SetFightUI(a);
             }));
             StateTweens[i].SetAutoKill(false);
         }
@@ -91,8 +90,7 @@ public class DungeonUIManager : MonoBehaviour
             StateTweens[3 + a].Pause().SetAutoKill(false);
         }
     }
-
-    public void SetFight(int i)
+    public void SetFightUI(int i)
     {
         for (int j = 0; j < characterStateObjs.Count; j++)
         {
@@ -107,7 +105,6 @@ public class DungeonUIManager : MonoBehaviour
         monsterObj.transform.DOMoveX(monsterObj.transform.position.x + .5f, .5f);
         StartCoroutine(SetUIs(i)); 
     }
-
     public IEnumerator SetUIs(int i)
     {
         yield return new WaitForSeconds(.5f);
@@ -128,48 +125,7 @@ public class DungeonUIManager : MonoBehaviour
         Uiseq.Insert(.3f, buttons[3].transform.DOMoveY(buttons[3].transform.position.y + 3.1f, .5f)).OnComplete(() =>
         {foreach (var item in buttons) item.GetComponent<Button>().interactable = true;});
     }
-
-    public void DownfightUI()
-    {
-        Sequence Uiseq = DOTween.Sequence();
-        foreach (var item in buttons) item.GetComponent<Button>().interactable = false;
-        Uiseq.Append(buttons[3].transform.DOMoveY(buttons[3].transform.position.y - 3.1f, .5f));
-        Uiseq.Insert(.1f, buttons[2].transform.DOMoveY(buttons[2].transform.position.y - 3.1f, .5f));
-        Uiseq.Insert(.2f, buttons[1].transform.DOMoveY(buttons[1].transform.position.y - 3.1f, .5f));
-        Uiseq.Insert(.3f, buttons[0].transform.DOMoveY(buttons[0].transform.position.y - 3.1f, .5f));
-    }
-
-    public IEnumerator AttackCo()
-    {
-        DownfightUI();
-        //fightPanel.transform.DOMoveY(characterStatePanel.transform.position.y - 5f, .8f);
-        currentCharacter.transform.DOMoveY(currentCharacter.transform.position.y - 5, .8f);
-        for (int i = 0; i < 3; i++)
-        {
-            ponCharacterStateObjs[i].SetActive(true);
-        }
-        yield return new WaitForSeconds(.8f);
-        PlayerAttack();
-        for (int i = 0; i < 3; i++)
-        {
-            characterStateObjs[i].transform.position =
-                new Vector3(ponCharacterStateObjs[i].transform.position.x,
-                characterStateObjs[i].transform.position.y, characterStateObjs[i].transform.position.z);
-        }
-
-    }
-
-    public void PlayerAttack()
-    {
-        Sequence sequence = DOTween.Sequence();
-        Vector3 originPos = currentPlayer.transform.position;
-        sequence.Append(currentPlayer.transform.DOMove(monsterObj.transform.position, .3f)).SetEase(Ease.OutCirc);
-        sequence.Append(currentPlayer.transform.DOMove(originPos, .5f).SetEase(Ease.InBack).OnComplete(() =>
-        {
-            StartCoroutine(SetDefaultUI());
-        }));
-        sequence.Insert(.2f, Camera.main.DOShakeRotation(.1f, 5f));  //나중에 다시 생각해보기
-    }
+    #endregion
 
     public IEnumerator SetDefaultUI()
     {

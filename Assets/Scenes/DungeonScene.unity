@@ -2571,6 +2571,8 @@ MonoBehaviour:
   monsterObj: {fileID: 120634873}
   monsterStateUIobj: {fileID: 1625341401}
   mainCanvas: {fileID: 243677944}
+  currentCharacter: {fileID: 0}
+  currentPlayer: {fileID: 0}
 --- !u!1 &1205188964
 GameObject:
   m_ObjectHideFlags: 0
@@ -4027,6 +4029,8 @@ GameObject:
   - component: {fileID: 1999938975}
   - component: {fileID: 1999938977}
   - component: {fileID: 1999938976}
+  - component: {fileID: 1999938978}
+  - component: {fileID: 1999938979}
   m_Layer: 0
   m_Name: ButtonPanel
   m_TagString: Untagged
@@ -4095,6 +4099,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999938974}
   m_CullTransparentMesh: 1
+--- !u!114 &1999938978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999938974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a886ba471365d4eab0b54362a39be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1999938979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999938974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84df7c0e6eebf6843a05a68464425acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backBtn: {fileID: 817152223}
 --- !u!1 &2015600514
 GameObject:
   m_ObjectHideFlags: 0
