@@ -41,6 +41,7 @@ public class Attack : MonoBehaviour
         {
             StartCoroutine(DungeonUIManager.instance.SetDefaultUI());
         }));
+        DungeonUIManager.instance.AttackEachOther(true);
         sequence.Insert(.2f, Camera.main.DOShakeRotation(.1f, 5f));  //나중에 다시 생각해보기
     }
 }
