@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
     public StateUI stateUI;
     public MonsterStateUI monsterStateUI;
     public bool isMonster = false;
+    public bool isMeeleAttack;
 
     public void Awake()
     {
@@ -31,6 +32,7 @@ public class Character : MonoBehaviour
         stateUI.mp = mp;
         stateUI.attackDamage = attackDamage;
         stateUI.defense = defense;
+        stateUI.isMeeleAttack = isMeeleAttack;
     }
 
     public void MonsterInit()

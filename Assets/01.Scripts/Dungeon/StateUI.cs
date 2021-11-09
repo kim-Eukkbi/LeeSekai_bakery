@@ -15,4 +15,5 @@ public class StateUI : MonoBehaviour
     public float attackDamage;
     public float defense;
     public float attackTime;
+    public bool isMeeleAttack;
 }

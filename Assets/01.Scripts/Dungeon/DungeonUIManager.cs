@@ -162,5 +162,10 @@ public class DungeonUIManager : MonoBehaviour
         monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack[0].Play();
     }
 
+    public bool MeeleAttackCheck()
+    {
+        return currentCharacter.isMeeleAttack;
+    }
+
 
 }
