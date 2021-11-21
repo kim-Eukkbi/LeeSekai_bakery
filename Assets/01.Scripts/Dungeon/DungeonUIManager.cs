@@ -38,12 +38,28 @@ public class DungeonUIManager : MonoBehaviour
     public StateUI currentCharacter;
     [HideInInspector]
     public GameObject currentPlayer;
+    private float playerMaxHp;
+    private float monsterMaxHp;
     public void Start()
     {
         StateTweens = new List<Tween>();
-       
         StartCoroutine(UpUI());
-        
+        monsterMaxHp = monsterStateUIobj.GetComponent<MonsterStateUI>().hp;
+    }
+
+    public void AttackEachOther(bool isPlayer)
+    {
+        if(isPlayer)
+        {
+            MonsterStateUI monsterStateUI = monsterStateUIobj.GetComponent<MonsterStateUI>();
+            monsterStateUI.stateSliders[0].DOValue((monsterStateUI.hp - currentCharacter.attackDamage) / monsterMaxHp, .8f);
+            monsterStateUI.hp -= currentCharacter.attackDamage;
+        }
+        else
+        {
+            currentCharacter.stateSliders[0].DOValue((currentCharacter.hp - monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage) / playerMaxHp, .8f);
+            currentCharacter.hp -= monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage;
+        }
     }
 
     public void DownUI()
@@ -102,6 +118,7 @@ public class DungeonUIManager : MonoBehaviour
         }
         currentCharacter = characterStateObjs[i];
         currentPlayer = PlayerObjs[i];
+        playerMaxHp = currentCharacter.hp;
         monsterObj.transform.DOMoveX(monsterObj.transform.position.x + .5f, .5f);
         StartCoroutine(SetUIs(i)); 
     }
@@ -143,6 +160,11 @@ public class DungeonUIManager : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         for (int i = 0; i < 3; i++) StateTweens[i].Play();
         monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack[0].Play();
+    }
+
+    public bool MeeleAttackCheck()
+    {
+        return currentCharacter.isMeeleAttack;
     }
 
 

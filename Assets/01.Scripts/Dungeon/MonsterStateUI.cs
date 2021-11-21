@@ -53,6 +53,7 @@ public class MonsterStateUI : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
         sequence.Append(DungeonUIManager.instance.monsterObj.transform.DOMoveX
             (DungeonUIManager.instance.monsterObj.transform.position.x - 10f, .3f).SetLoops(2, LoopType.Yoyo));
+        DungeonUIManager.instance.AttackEachOther(false);
         sequence.Insert(.2f, Camera.main.DOShakeRotation(.1f, 5f));
         yield return new WaitForSeconds(1f);
         //Debug.Log("Rewind");
