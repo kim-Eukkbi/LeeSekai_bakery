@@ -83,6 +83,12 @@ TextureImporter:
   - first:
       213: 6288848799136293108
     second: isekai_tile_26
+  - first:
+      213: -7164238284838224106
+    second: isekai_tile_27
+  - first:
+      213: 4513953036736836359
+    second: isekai_tile_28
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -460,8 +466,8 @@ TextureImporter:
       name: isekai_tile_13
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 128
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -481,8 +487,8 @@ TextureImporter:
       name: isekai_tile_14
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 160
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -502,7 +508,7 @@ TextureImporter:
       name: isekai_tile_15
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 32
         width: 32
         height: 32
@@ -523,7 +529,7 @@ TextureImporter:
       name: isekai_tile_16
       rect:
         serializedVersion: 2
-        x: 96
+        x: 32
         y: 32
         width: 32
         height: 32
@@ -544,7 +550,7 @@ TextureImporter:
       name: isekai_tile_17
       rect:
         serializedVersion: 2
-        x: 128
+        x: 64
         y: 32
         width: 32
         height: 32
@@ -565,7 +571,7 @@ TextureImporter:
       name: isekai_tile_18
       rect:
         serializedVersion: 2
-        x: 160
+        x: 96
         y: 32
         width: 32
         height: 32
@@ -586,7 +592,7 @@ TextureImporter:
       name: isekai_tile_19
       rect:
         serializedVersion: 2
-        x: 192
+        x: 128
         y: 32
         width: 32
         height: 32
@@ -607,8 +613,8 @@ TextureImporter:
       name: isekai_tile_20
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 160
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -628,8 +634,8 @@ TextureImporter:
       name: isekai_tile_21
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 192
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -649,7 +655,7 @@ TextureImporter:
       name: isekai_tile_22
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -670,7 +676,7 @@ TextureImporter:
       name: isekai_tile_23
       rect:
         serializedVersion: 2
-        x: 96
+        x: 32
         y: 0
         width: 32
         height: 32
@@ -691,7 +697,7 @@ TextureImporter:
       name: isekai_tile_24
       rect:
         serializedVersion: 2
-        x: 128
+        x: 64
         y: 0
         width: 32
         height: 32
@@ -712,7 +718,7 @@ TextureImporter:
       name: isekai_tile_25
       rect:
         serializedVersion: 2
-        x: 160
+        x: 96
         y: 0
         width: 32
         height: 32
@@ -733,7 +739,7 @@ TextureImporter:
       name: isekai_tile_26
       rect:
         serializedVersion: 2
-        x: 192
+        x: 128
         y: 0
         width: 32
         height: 32
@@ -746,6 +752,48 @@ TextureImporter:
       bones: []
       spriteID: 4f029aeb9aa764750800000000000000
       internalID: 6288848799136293108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_tile_27
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61fb6f9dc33839c90800000000000000
+      internalID: -7164238284838224106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_tile_28
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703be77fe58c4ae30800000000000000
+      internalID: 4513953036736836359
       vertices: []
       indices: 
       edges: []

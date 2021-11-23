@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4fc4377e5008748bcf0d0a9e1b1058, type: 3}
+  m_Name: Tomato
+  m_EditorClassIdentifier: 
+  cropName: "\uCD95\uBCF5 \uD1A0\uB9C8\uD1A0"
+  growSprite:
+  - {fileID: 6509437560842045020, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  - {fileID: 4338778407143084305, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  - {fileID: 6442774223725367442, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  - {fileID: -7663601037615371526, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  prefab: {fileID: 2638594772849341224, guid: be4245a14cc6d0f449aa43ad3720c71b, type: 3}
+  growSeason: 0
+  growDay: 4
+  growTime: 0
