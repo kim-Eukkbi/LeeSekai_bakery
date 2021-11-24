@@ -237,7 +237,7 @@ MonoBehaviour:
   stateUI: {fileID: 1210160702}
   monsterStateUI: {fileID: 0}
   isMonster: 0
-  isMeeleAttack: 1
+  cJobs: 0
 --- !u!1 &29181550
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +541,7 @@ MonoBehaviour:
   stateUI: {fileID: 822927896}
   monsterStateUI: {fileID: 0}
   isMonster: 0
-  isMeeleAttack: 0
+  cJobs: 5
 --- !u!1 &89523740
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,7 +753,7 @@ MonoBehaviour:
   stateUI: {fileID: 0}
   monsterStateUI: {fileID: 598495423704506281}
   isMonster: 1
-  isMeeleAttack: 0
+  cJobs: 0
 --- !u!1 &163138910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2230,7 +2230,7 @@ MonoBehaviour:
   stateUI: {fileID: 2037734548}
   monsterStateUI: {fileID: 0}
   isMonster: 0
-  isMeeleAttack: 1
+  cJobs: 0
 --- !u!1 &925137550
 GameObject:
   m_ObjectHideFlags: 0

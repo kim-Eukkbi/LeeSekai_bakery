@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Jobs
+{
+    Knights,
+    MagicKnight,
+    Druid,
+    Hunter,
+    Priest,
+    Elementalist
+}
+
 public class Character : MonoBehaviour
 {
     public string cName;
@@ -15,7 +25,7 @@ public class Character : MonoBehaviour
     public StateUI stateUI;
     public MonsterStateUI monsterStateUI;
     public bool isMonster = false;
-    public bool isMeeleAttack;
+    public Jobs cJobs;
 
     public void Awake()
     {
@@ -32,7 +42,7 @@ public class Character : MonoBehaviour
         stateUI.mp = mp;
         stateUI.attackDamage = attackDamage;
         stateUI.defense = defense;
-        stateUI.isMeeleAttack = isMeeleAttack;
+        stateUI.cJobs = cJobs;
     }
 
     public void MonsterInit()
