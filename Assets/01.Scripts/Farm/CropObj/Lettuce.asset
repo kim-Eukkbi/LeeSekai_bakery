@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4fc4377e5008748bcf0d0a9e1b1058, type: 3}
+  m_Name: Lettuce
+  m_EditorClassIdentifier: 
+  cropName: "\uAC74\uAC15 \uC591\uC0C1\uCD94"
+  growSprite:
+  - {fileID: -7494304235670405288, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  prefab: {fileID: 2638594772849341224, guid: 872681b838c7f3a478da29f129e48afe, type: 3}
+  growSeason: 0
+  growDay: 3
+  growTime: 0

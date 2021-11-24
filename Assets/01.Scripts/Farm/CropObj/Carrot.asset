@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4fc4377e5008748bcf0d0a9e1b1058, type: 3}
+  m_Name: Carrot
+  m_EditorClassIdentifier: 
+  cropName: "\uB9D1\uC74C \uB2F9\uADFC"
+  growSprite:
+  - {fileID: -7407501471568579695, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  prefab: {fileID: 2638594772849341224, guid: 3c64986739fd3364b9450b135c3c476e, type: 3}
+  growSeason: 0
+  growDay: 5
+  growTime: 0
