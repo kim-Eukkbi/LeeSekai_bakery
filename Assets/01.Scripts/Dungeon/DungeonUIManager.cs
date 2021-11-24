@@ -113,7 +113,7 @@ public class DungeonUIManager : MonoBehaviour
             if (i == j) continue;
             StateTweens[j].Pause();
             characterStateObjs[j].transform.DOMoveY(characterStateObjs[j].transform.position.y - 5, .8f);
-            PlayerObjs[j].transform.DOMoveX(PlayerObjs[j].transform.position.x - .5f, .5f);
+            //PlayerObjs[j].transform.DOMoveX(PlayerObjs[j].transform.position.x - .5f, .5f);
             ponCharacterStateObjs[j].gameObject.SetActive(false);
         }
         currentCharacter = characterStateObjs[i];
@@ -131,7 +131,7 @@ public class DungeonUIManager : MonoBehaviour
             StateTweens[i].Rewind();
         });
 
-        PlayerObjs[i].transform.DOMoveX(PlayerObjs[i].transform.position.x + .5f, .5f);
+        //PlayerObjs[i].transform.DOMoveX(PlayerObjs[i].transform.position.x + .5f, .5f);
         characterStateObjs[i].transform.DOMove(ponCharacterStateObjs[i].transform.position, .8f);
         yield return new WaitForSeconds(.8f);
         Sequence Uiseq = DOTween.Sequence();
@@ -154,7 +154,7 @@ public class DungeonUIManager : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             int a = i;
-            PlayerObjs[a].transform.DOMoveX(currentPlayer.transform.position.x - .5f, .5f);
+           // PlayerObjs[a].transform.DOMoveX(currentPlayer.transform.position.x - .5f, .5f);
             characterStateObjs[a].transform.DOMoveY(ponCharacterStateObjs[a].transform.position.y, .5f);
         }
         yield return new WaitForSeconds(.5f);

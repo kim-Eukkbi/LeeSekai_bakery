@@ -40,8 +40,8 @@ public class Attack : MonoBehaviour
         if (isMeeleAttack)
         {
             Vector3 originPos = DungeonUIManager.instance.currentPlayer.transform.position;
-            sequence.Append(DungeonUIManager.instance.currentPlayer.transform.DOMove(DungeonUIManager.instance.monsterObj.transform.position, .3f)).SetEase(Ease.OutCirc);
-            sequence.Append(DungeonUIManager.instance.currentPlayer.transform.DOMove(originPos, .5f).SetEase(Ease.InBack).OnComplete(() =>
+            sequence.Append(DungeonUIManager.instance.currentPlayer.transform.DOMoveX(DungeonUIManager.instance.monsterObj.transform.position.x, .3f)).SetEase(Ease.OutCirc);
+            sequence.Append(DungeonUIManager.instance.currentPlayer.transform.DOMoveX(originPos.x, .5f).SetEase(Ease.InBack).OnComplete(() =>
             {
                 StartCoroutine(DungeonUIManager.instance.SetDefaultUI());
             }));
