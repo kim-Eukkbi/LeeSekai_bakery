@@ -10,8 +10,11 @@ public class FarmTile : MonoBehaviour
 
     private SpriteRenderer sr;
 
+
     //현재 젖어있는 상태인지
     public bool isWet = false;
+    //현재 작물이 심겨있는 상태인지
+    public bool isPlanted = false;
 
     private void Awake()
     {
@@ -28,9 +31,9 @@ public class FarmTile : MonoBehaviour
     }
 
     //물주는 함수
-    public void Water(bool isWet)
+    public void Water(bool isWatered)
     {
-        this.isWet = isWet;
+        isWet = isWatered;
 
         //예가 젖은상태임
         if(isWet)
@@ -41,5 +44,17 @@ public class FarmTile : MonoBehaviour
         {
             sr.sprite = farmSprites[0];
         }
+    }
+
+    //작물심는 함수
+    public void Plant(CropTypeSO crop)
+    {
+        //이미 작물이 심겨져있다면 리턴
+        if (isPlanted) return;
+
+        //작물이 심겼다고 알려줌
+        isPlanted = true;
+        //현재 위치에 작물을 생성
+        Instantiate(crop.prefab, transform.position, Quaternion.identity);
     }
 }

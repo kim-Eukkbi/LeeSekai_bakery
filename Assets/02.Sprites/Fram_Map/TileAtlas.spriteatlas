@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TileAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+    totalSpriteSurfaceArea: 29696
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 4513953036736836359, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -1108269619167751316, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 766912599466649728, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 689657994188008042, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 2010914282792341417, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 6191297823275330128, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -8963394123527568715, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -781954927028145456, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 3110944568651175876, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 8529324930688281878, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -6118718278389593146, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -4493937667721883486, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 5961952555522108665, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -5674008066813309488, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -5390738628628790191, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 7249015276671176221, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -3347367157116980405, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 4216726564779661616, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 2531627616904332697, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -7363693241110049933, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -4554598419419038526, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -3195657714542823144, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 350665465080983123, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -7164238284838224106, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 6288848799136293108, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -3089654816840612593, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: -8564548288050260060, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 4308052680098957358, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  - {fileID: 6945697138835975493, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - isekai_tile_28
+  - isekai_tile_5
+  - isekai_tile_4
+  - isekai_tile_7
+  - isekai_tile_6
+  - isekai_tile_1
+  - isekai_tile_0
+  - isekai_tile_3
+  - isekai_tile_2
+  - isekai_tile_9
+  - isekai_tile_8
+  - isekai_tile_18
+  - isekai_tile_19
+  - isekai_tile_14
+  - isekai_tile_15
+  - isekai_tile_16
+  - isekai_tile_17
+  - isekai_tile_10
+  - isekai_tile_11
+  - isekai_tile_12
+  - isekai_tile_13
+  - isekai_tile_25
+  - isekai_tile_24
+  - isekai_tile_27
+  - isekai_tile_26
+  - isekai_tile_21
+  - isekai_tile_20
+  - isekai_tile_23
+  - isekai_tile_22
+  m_RenderDataMap: {}
+  m_Tag: TileAtlas
+  m_IsVariant: 0

@@ -6496,7 +6496,7 @@ TilemapRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.016129017, y: 0.016129017, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -13865,20 +13865,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 565835613}
     m_ColliderPaths:
-    - - X: -200161280
-        Y: 100161288
-      - X: -200161280
-        Y: -120161288
-      - X: 130161288
-        Y: -120161288
-      - X: 130161288
-        Y: 100161288
+    - - X: 130000000
+        Y: 100000000
+      - X: -200000000
+        Y: 100000000
+      - X: -200000000
+        Y: -120000000
+      - X: 130000000
+        Y: -120000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 13.016099, y: -12.016129}
-      - {x: 13.016099, y: 10.016129}
-      - {x: -20.016129, y: 10.016099}
-      - {x: -20.0161, y: -12.016129}
+    - - {x: 12.99997, y: -12}
+      - {x: 12.99997, y: 10}
+      - {x: -20, y: 9.99997}
+      - {x: -19.999971, y: -12}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &565835612
@@ -33758,6 +33758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1880608468}
   - component: {fileID: 1880608469}
+  - component: {fileID: 1880608470}
   m_Layer: 0
   m_Name: ManageObject
   m_TagString: Untagged
@@ -33789,6 +33790,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dacdc42c7a65b254493369b153c96cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cropType: {fileID: 0}
+--- !u!114 &1880608470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880608467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e01fbdb5c6cc5844b595d37f8e70ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1881981514
