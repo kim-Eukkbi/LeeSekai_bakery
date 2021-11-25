@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: FarmTile
+    uniqueID: 1759970085
+    locked: 0
+  - name: Crop
+    uniqueID: 3235960061
+    locked: 0
+  - name: Player
+    uniqueID: 1486048241
+    locked: 0
