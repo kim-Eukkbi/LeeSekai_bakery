@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cropName: "\uB9D1\uC74C \uB2F9\uADFC"
   growSprite:
-  - {fileID: -7407501471568579695, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 9035215791827526736, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  - {fileID: -2968050767135126082, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  - {fileID: -4918209067963202321, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  - {fileID: 8209803149818722025, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
   prefab: {fileID: 2638594772849341224, guid: 3c64986739fd3364b9450b135c3c476e, type: 3}
   growSeason: 0
   growDay: 5
-  growTime: 0
+  growTime: 7200

@@ -15,10 +15,10 @@ MonoBehaviour:
   cropName: "\uD2BC\uD2BC \uAC10\uC790"
   growSprite:
   - {fileID: -5670601639670033582, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -7451081101742753150, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  - {fileID: -4550053297113165237, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  - {fileID: 3952885410470634090, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
   prefab: {fileID: 2638594772849341224, guid: 4bc22d8a3a3c96e41baffcbf1677efbd, type: 3}
   growSeason: 0
   growDay: 4
-  growTime: 0
+  growTime: 5760
