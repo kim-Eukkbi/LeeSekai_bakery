@@ -53,25 +53,25 @@ public class DungeonUIManager : MonoBehaviour
     {
         if(isPlayer)
         {
-            MonsterStateUI monsterStateUI = monsterStateUIobj.GetComponent<MonsterStateUI>();
-            monsterStateUI.stateSliders[0].DOValue((monsterStateUI.hp - currentCharacter.attackDamage) / monsterMaxHp, .8f);
-            if(monsterStateUI.hp <= 0)
+            MonsterStateUI monsterStateUI = monsterStateUIobj.GetComponent<MonsterStateUI>(); 
+            monsterStateUI.stateSliders[0].DOValue((monsterStateUI.hp - currentCharacter.attackDamage) / monsterMaxHp, .8f); //적의 체력 게이지에서 받은 데미지를 빼는 계산을 한다
+            if(monsterStateUI.hp <= 0) //만약 피가 0 이하라면 
             {
-                monsterStateUI.DeadMonster();
+                monsterStateUI.DeadMonster(); //적 죽음 함수를 실행
             }
             else
             {
-                monsterStateUI.hp -= currentCharacter.attackDamage;
+                monsterStateUI.hp -= currentCharacter.attackDamage; // 아니라면 피 깎기
             } 
         }
         else
         {
-            currentCharacter.stateSliders[0].DOValue((currentCharacter.hp - monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage) / playerMaxHp, .8f);
-            currentCharacter.hp -= monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage;
+            currentCharacter.stateSliders[0].DOValue((currentCharacter.hp - monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage) / playerMaxHp, .8f); //적이 나를 때렸을때 가장 최근에 공격한 플레이어의 체력 게이지를 계산 하여 깎음
+            currentCharacter.hp -= monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage; //피 깎기
         }
     }
 
-    public void DownFightUI() //준비되었을때 매뉴를 내리는 함수
+    public void DownFightUI() //한번의 타격이 끝난 후 전투매뉴를 내리는 함수
     {
         Sequence Uiseq = DOTween.Sequence();
         foreach (var item in fightbuttons) item.GetComponent<Button>().interactable = false; 
