@@ -6,7 +6,7 @@ using DG.Tweening;
 public class Attack : MonoBehaviour
 {
     [SerializeField]
-    private GameObject bullet;
+    private GameObject bullet; //원거리 공격할때 보여줄 오브젝트
     public void Start()
     {
         DungeonUIManager.instance.fightbuttons[0].GetComponent<Button>().onClick.AddListener(() =>

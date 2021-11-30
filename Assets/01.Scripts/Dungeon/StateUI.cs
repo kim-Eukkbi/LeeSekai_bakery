@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class StateUI : MonoBehaviour
+public class StateUI : MonoBehaviour //이니셜라이즈로 받아오는 수치들
 {
     public Text cName;
     public Image cImage;
