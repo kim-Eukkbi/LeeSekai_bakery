@@ -26,6 +26,7 @@ public class MonsterStateUI : MonoBehaviour //몬스터 수치를 이니셜 라이즈 해서 �
         readyAttack.Add(stateSliders[2].DOValue(0,.5f).SetEase(Ease.Linear)); //전투 준비 게이지를 줄여주는 트윈
         readyAttack[1].Pause().SetAutoKill(false);//전투 준비를 줄이는 트윈을 바로 실행하면 안되니 중지하고 Rewind 할 수 있게 AutoKill 을 꺼줌
         readyAttack[0].SetAutoKill(false);// 마찬가지로  Rewind 할 수 있게 AutoKill 을 꺼줌
+        DungeonUIManager.instance.monsterStateUIobj.transform.DOMoveX(DungeonUIManager.instance.monsterStateUIobj.transform.position.x - 6.5f, .8f); // 몬스터 UI를 셋팅
     }
 
 
@@ -73,7 +74,9 @@ public class MonsterStateUI : MonoBehaviour //몬스터 수치를 이니셜 라이즈 해서 �
 
     public void DeadMonster()// 몬스터가 죽었을때 처리를 위한 함수
     {
-        
+        DungeonUIManager.instance.monsterObj.SetActive(false); // 일단 그냥 꺼버리는 걸로 해보자
+        DungeonUIManager.instance.monsterStateUIobj.transform.DOMoveX(DungeonUIManager.instance.monsterStateUIobj.transform.position.x + 6.5f, .8f); // 몬스터 UI를 다시 오른쪽으로
+        readyAttack[1].Pause();
     }
 
 

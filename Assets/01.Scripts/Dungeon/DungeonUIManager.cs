@@ -55,14 +55,12 @@ public class DungeonUIManager : MonoBehaviour
         {
             MonsterStateUI monsterStateUI = monsterStateUIobj.GetComponent<MonsterStateUI>(); 
             monsterStateUI.stateSliders[0].DOValue((monsterStateUI.hp - currentCharacterStateUI.attackDamage) / monsterMaxHp, .8f); //적의 체력 게이지에서 받은 데미지를 빼는 계산을 한다
-            if(monsterStateUI.hp <= 0) //만약 피가 0 이하라면 
+
+            monsterStateUI.hp -= currentCharacterStateUI.attackDamage; // 피깎기
+            if (monsterStateUI.hp <= 0) //만약 피가 0 이하라면 
             {
                 monsterStateUI.DeadMonster(); //적 죽음 함수를 실행
             }
-            else
-            {
-                monsterStateUI.hp -= currentCharacterStateUI.attackDamage; // 아니라면 피 깎기
-            } 
         }
         else
         {
@@ -88,7 +86,6 @@ public class DungeonUIManager : MonoBehaviour
         Main.Append(characterStateObjs[0].transform.DOMove(ponCharacterStateObjs[0].transform.position, .5f));
         Main.Insert(.1f, characterStateObjs[1].transform.DOMove(ponCharacterStateObjs[1].transform.position, .5f));
         Main.Insert(.2f, characterStateObjs[2].transform.DOMove(ponCharacterStateObjs[2].transform.position, .5f));
-        Main.Join(monsterStateUIobj.transform.DOMoveX(monsterStateUIobj.transform.position.x - 6.5f, .8f));
     }
 
     #region 전투 시작
@@ -162,16 +159,8 @@ public class DungeonUIManager : MonoBehaviour
     {
         //몬스터 원위치
         monsterObj.transform.DOMoveX(monsterObj.transform.position.x - .5f, .5f); // 아까 살짝 민거 다시 땡기기
-        
-        for (int i = 0; i < 3; i++) //다시 3개의 캐릭터 UI를 올림 
-        {
-            int a = i;
-            //플레이어 오브젝트 원위치로
-            // PlayerObjs[a].transform.DOMoveX(currentPlayer.transform.position.x - .5f, .5f);
-            //StateUI 원위치로
-            characterStateObjs[a].transform.DOMoveY(ponCharacterStateObjs[a].transform.position.y, .5f);
-        }
-        yield return new WaitForSeconds(.5f);
+        StartCoroutine(UpStateUI());//StateUI를 원위치로
+        yield return new WaitForSeconds(.8f);
         for (int i = 0; i < 3; i++) StateTweens[i].Play(); // 다시 전투 게이지를 채워주는 트윈을 시작함
         monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack[0].Play(); //적 전투 게이지를 채워주는 트윈을 시작함
     }

@@ -232,7 +232,7 @@ MonoBehaviour:
   attackTime: 6
   hp: 400
   mp: 20
-  attackDamage: 300
+  attackDamage: 50
   defense: 344
   stateUI: {fileID: 1210160702}
   monsterStateUI: {fileID: 0}
@@ -536,7 +536,7 @@ MonoBehaviour:
   attackTime: 3
   hp: 400
   mp: 10
-  attackDamage: 10
+  attackDamage: 50
   defense: 100
   stateUI: {fileID: 822927896}
   monsterStateUI: {fileID: 0}
@@ -2225,7 +2225,7 @@ MonoBehaviour:
   attackTime: 7
   hp: 400
   mp: 12
-  attackDamage: 20
+  attackDamage: 50
   defense: 1111
   stateUI: {fileID: 2037734548}
   monsterStateUI: {fileID: 0}
@@ -2678,7 +2678,7 @@ MonoBehaviour:
   monsterObj: {fileID: 120634873}
   monsterStateUIobj: {fileID: 1625341401}
   mainCanvas: {fileID: 243677944}
-  currentCharacter: {fileID: 0}
+  currentCharacterStateUI: {fileID: 0}
   currentPlayer: {fileID: 0}
 --- !u!1 &1205188964
 GameObject:
