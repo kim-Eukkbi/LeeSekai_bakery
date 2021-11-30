@@ -30,7 +30,7 @@ public class Crop : MonoBehaviour
         //변수 초기화하고
         growTime = 0;
         //스프라이트 변화는 3번이니까 3개 분기로 나눠
-        growQuarter = growTime / 3;
+        growQuarter = cropType.growTime / 3;
 
         float temp = 0;
 
@@ -41,17 +41,29 @@ public class Crop : MonoBehaviour
             //한번 더해준값은 그대로 넣어놔
             growPoionts[i] = temp;
         }
+
+        StartCoroutine(GrowLogic());
     }
 
-    private void Update()
+    IEnumerator GrowLogic()
     {
-        //시간없으니까 100배속 가보자
-        growTime += Time.deltaTime * 100;
-
-        if(growTime >= growPoionts[pointIdx])
+        while (true)
         {
-            pointIdx++;
-            sr.sprite = cropType.growSprite[pointIdx];
+            //시간없으니까 100배속 가보자
+            growTime += Time.deltaTime * 500;
+
+            if (growTime >= growPoionts[pointIdx])
+            {
+                pointIdx++;
+                sr.sprite = cropType.growSprite[pointIdx];
+            }
+
+            if(pointIdx > 2)
+            {
+                yield break;
+            }
+
+            yield return null;
         }
     }
 }
