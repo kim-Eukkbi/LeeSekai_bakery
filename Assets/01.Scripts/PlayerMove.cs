@@ -17,6 +17,9 @@ public class PlayerMove : MonoBehaviour
     //달릴 떄 이동속도
     public float runSpeed;
 
+    //특정 행동(물주기, 씨뿌리기)하는 중인지
+    private bool isPlayingAnim;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -27,6 +30,8 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (isPlayingAnim) return;
+
         ChangeSpeed();
         Move();
         ChangeAnimation();
@@ -76,5 +81,15 @@ public class PlayerMove : MonoBehaviour
         }
 
         anim.SetFloat("moveSpeed", speed);
+    }
+
+    public void PlayWaterAnim()
+    {
+        anim.SetTrigger("water");
+    }
+
+    public void PlaySeedAnim()
+    {
+        anim.SetTrigger("seed");
     }
 }
