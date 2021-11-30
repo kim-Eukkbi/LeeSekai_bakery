@@ -14,6 +14,9 @@ public class FarmManager : MonoBehaviour
     //메인캠 담아놓는 변수
     private Camera mainCam;
 
+    //플레이어 담아놓는 변수
+    public PlayerMove player;
+
     private void Awake()
     {
         mainCam = Camera.main;
@@ -44,12 +47,14 @@ public class FarmManager : MonoBehaviour
                         {
                             //현재 선택되어있는 작물을 심는다
                             farmTile.Plant(CropManager.Instance.cropType);
+                            player.PlaySeedAnim();
                         }
                     }
                     //젖어있지 않은 상태라면
                     else
                     {
                         farmTile.Water(true);
+                        player.PlayWaterAnim();
                     }
                 }
             }
