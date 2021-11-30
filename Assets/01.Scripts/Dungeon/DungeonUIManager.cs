@@ -40,10 +40,11 @@ public class DungeonUIManager : MonoBehaviour
     public GameObject currentPlayer;
     private float playerMaxHp;
     private float monsterMaxHp;
+
     public void Start()
     {
         StateTweens = new List<Tween>();
-        StartCoroutine(UpStateUI());
+        StartCoroutine(UpStateUI()); 
         StartCoroutine(StartFightProcess());
         monsterMaxHp = monsterStateUIobj.GetComponent<MonsterStateUI>().hp;
     }
@@ -73,7 +74,7 @@ public class DungeonUIManager : MonoBehaviour
     public void DownFightUI() //준비되었을때 매뉴를 내리는 함수
     {
         Sequence Uiseq = DOTween.Sequence();
-        foreach (var item in fightbuttons) item.GetComponent<Button>().interactable = false;
+        foreach (var item in fightbuttons) item.GetComponent<Button>().interactable = false; 
         Uiseq.Append(fightbuttons[3].transform.DOMoveY(fightbuttons[3].transform.position.y - 3.1f, .5f));
         Uiseq.Insert(.1f, fightbuttons[2].transform.DOMoveY(fightbuttons[2].transform.position.y - 3.1f, .5f));
         Uiseq.Insert(.2f, fightbuttons[1].transform.DOMoveY(fightbuttons[1].transform.position.y - 3.1f, .5f));
@@ -113,50 +114,51 @@ public class DungeonUIManager : MonoBehaviour
             StateTweens[3 + a].Pause().SetAutoKill(false);  //바로 줄어들면 안되니까 닷트윈 멈추고 리와인드 
         }
     }
-    public void SetFightUI(int i) //
+    public void SetFightUI(int i) //3명중 2명 UI를 내리고 전투매뉴를 올림
     {
-        for (int j = 0; j < characterStateObjs.Count; j++)
+        for (int j = 0; j < characterStateObjs.Count; j++) //나머지 2명의 UI를 내리고 그들의 트윈도 중지함
         {
             if (i == j) continue;
-            StateTweens[j].Pause();
-            characterStateObjs[j].transform.DOMoveY(characterStateObjs[j].transform.position.y - 5, .8f);
-            //PlayerObjs[j].transform.DOMoveX(PlayerObjs[j].transform.position.x - .5f, .5f);
-            ponCharacterStateObjs[j].gameObject.SetActive(false);
+            StateTweens[j].Pause(); // 나머지 2명 트윈 중지
+            characterStateObjs[j].transform.DOMoveY(characterStateObjs[j].transform.position.y - 5, .8f);// 나머지 2명 UI 내리기
+            ponCharacterStateObjs[j].gameObject.SetActive(false); //부드러운 움직임을 위한 비어있는 오브젝트 꺼서 정렬 하기
         }
-        currentCharacter = characterStateObjs[i];
-        currentPlayer = PlayerObjs[i];
-        playerMaxHp = currentCharacter.hp;
-        monsterObj.transform.DOMoveX(monsterObj.transform.position.x + .5f, .5f);
-        StartCoroutine(SetUIs(i)); 
+        currentCharacter = characterStateObjs[i]; //선택된 캐릭터의 UI를 저장
+        currentPlayer = PlayerObjs[i]; //선택된 캐릭터의 오브젝트를 저장
+        playerMaxHp = currentCharacter.hp; // 선택된 캐릭터의 최대 채력을 저장
+
+
+        monsterObj.transform.DOMoveX(monsterObj.transform.position.x + .5f, .5f);// 몬스터의 위치를 조금 뒤로
+        StartCoroutine(SetFightMenuUiUP(i)); 
     }
-    public IEnumerator SetUIs(int i)
+    public IEnumerator SetFightMenuUiUP(int i) //2명의 UI를 내렸으니 선택된 캐릭터의 UI를 왼쪽으로 옴기고 전투 매뉴를 올림
     {
         yield return new WaitForSeconds(.5f);
-        StateTweens[3 + i].Rewind();
-        StateTweens[3 + i].Play().OnComplete(() =>
+        StateTweens[3 + i].Rewind(); //전투 게이지를 줄이는 트윈을 초기화 함
+        StateTweens[3 + i].Play().OnComplete(() => //전투게이지를 줄이고 초기화 한 뒤 시작하고 초기화를 완료하면 전투 게이지를 채우는 트윈을 초기화 함
         {
-            StateTweens[i].Rewind();
+            StateTweens[i].Rewind();//전투게이지 트윈 초기화
         });
 
         //PlayerObjs[i].transform.DOMoveX(PlayerObjs[i].transform.position.x + .5f, .5f);
-        characterStateObjs[i].transform.DOMove(ponCharacterStateObjs[i].transform.position, .8f);
+        characterStateObjs[i].transform.DOMove(ponCharacterStateObjs[i].transform.position, .8f); //선택된 캐릭터를 정렬되어있는 비어있는 오브젝트의 위치로 옴기는 트윈
         yield return new WaitForSeconds(.8f);
         Sequence Uiseq = DOTween.Sequence();
-        foreach(var item in fightbuttons) item.GetComponent<Button>().interactable = false;
+        foreach(var item in fightbuttons) item.GetComponent<Button>().interactable = false; //올라가는 중에 버튼이 눌리면 버그가 날 수 있으니 interactable을 꺼줌
         Uiseq.Append(fightbuttons[0].transform.DOMoveY(fightbuttons[0].transform.position.y + 3.1f, .5f));
         Uiseq.Insert(.1f, fightbuttons[1].transform.DOMoveY(fightbuttons[1].transform.position.y + 3.1f, .5f));
         Uiseq.Insert(.2f, fightbuttons[2].transform.DOMoveY(fightbuttons[2].transform.position.y + 3.1f, .5f));
-        Uiseq.Insert(.3f, fightbuttons[3].transform.DOMoveY(fightbuttons[3].transform.position.y + 3.1f, .5f)).OnComplete(() =>
-        {foreach (var item in fightbuttons) item.GetComponent<Button>().interactable = true;});
+        Uiseq.Insert(.3f, fightbuttons[3].transform.DOMoveY(fightbuttons[3].transform.position.y + 3.1f, .5f)).OnComplete(() => // 샤라락 올라오는 효과를 닷드윈 시퀸스로 만듬
+        {foreach (var item in fightbuttons) item.GetComponent<Button>().interactable = true;}); // 마지막 버튼까지 올라오고 나면 아까 꺼뒀던 interactable을 켜줌
     }
     #endregion
 
-    public IEnumerator SetDefaultUI()
+    public IEnumerator SetDefaultUI() //모든 UI를 초기상태로 돌려주는 함수
     {
         //몬스터 원위치
-        monsterObj.transform.DOMoveX(monsterObj.transform.position.x - .5f, .5f);
+        monsterObj.transform.DOMoveX(monsterObj.transform.position.x - .5f, .5f); // 아까 살짝 민거 다시 땡기기
         
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++) //다시 3개의 캐릭터 UI를 올림 
         {
             int a = i;
             //플레이어 오브젝트 원위치로
@@ -165,8 +167,8 @@ public class DungeonUIManager : MonoBehaviour
             characterStateObjs[a].transform.DOMoveY(ponCharacterStateObjs[a].transform.position.y, .5f);
         }
         yield return new WaitForSeconds(.5f);
-        for (int i = 0; i < 3; i++) StateTweens[i].Play();
-        monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack[0].Play();
+        for (int i = 0; i < 3; i++) StateTweens[i].Play(); // 다시 전투 게이지를 채워주는 트윈을 시작함
+        monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack[0].Play(); //적 전투 게이지를 채워주는 트윈을 시작함
     }
 
 
