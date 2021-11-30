@@ -9,14 +9,14 @@ public class Attack : MonoBehaviour
     private GameObject bullet;
     public void Start()
     {
-        DungeonUIManager.instance.buttons[0].GetComponent<Button>().onClick.AddListener(() =>
+        DungeonUIManager.instance.fightbuttons[0].GetComponent<Button>().onClick.AddListener(() =>
         {
             StartCoroutine(AttackCo());
         });
     }
     public IEnumerator AttackCo()
     {
-        DungeonUIManager.instance.DownUI();
+        DungeonUIManager.instance.DownFightUI();
         //fightPanel.transform.DOMoveY(characterStatePanel.transform.position.y - 5f, .8f);
         DungeonUIManager.instance.currentCharacter.transform.DOMoveY(DungeonUIManager.instance.currentCharacter.transform.position.y - 5, .8f);
         for (int i = 0; i < 3; i++)

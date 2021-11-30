@@ -20,7 +20,7 @@ public class MonsterStateUI : MonoBehaviour
     public void Start()
     {
         readyAttack = new List<Tween>();
-        readyAttack.Add(stateSliders[2].DOValue(1,attackTime).SetEase(Ease.Linear).OnComplete(() =>
+        readyAttack.Add(stateSliders[2].DOValue(1,attackTime).SetEase(Ease.Linear).OnComplete(() => //
         {
             SetMonsterAttack();
         }));
@@ -51,24 +51,33 @@ public class MonsterStateUI : MonoBehaviour
             readyAttack[0].Rewind();
         });
         Sequence sequence = DOTween.Sequence();
+
         sequence.Append(DungeonUIManager.instance.monsterObj.transform.DOMoveX
             (DungeonUIManager.instance.monsterObj.transform.position.x - 10f, .3f).SetLoops(2, LoopType.Yoyo));
+
         DungeonUIManager.instance.AttackEachOther(false);
+
         sequence.Insert(.2f, Camera.main.DOShakeRotation(.1f, 5f));
         yield return new WaitForSeconds(1f);
-        //Debug.Log("Rewind");
         StartCoroutine(EndAttackMonster());
     }
 
     public IEnumerator EndAttackMonster()
     {
-        //transform.DOMoveX(transform.position.x + 6.5f, .8f);
         for (int i = 0; i < 3; i++)
         {
             DungeonUIManager.instance.StateTweens[i].Play();
         }
         yield return null;
-        //Debug.Log("Play");
         readyAttack[0].Play();
     }
+
+    public void DeadMonster()
+    {
+        
+    }
+
+
+
+
 }

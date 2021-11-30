@@ -2627,7 +2627,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1177341348
 Transform:
@@ -2670,7 +2670,7 @@ MonoBehaviour:
   - {fileID: 2037734548}
   - {fileID: 1210160702}
   - {fileID: 822927896}
-  buttons:
+  fightbuttons:
   - {fileID: 1237484204}
   - {fileID: 1999168119}
   - {fileID: 1021832884}
