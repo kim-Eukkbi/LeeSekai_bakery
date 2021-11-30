@@ -35,7 +35,7 @@ public class DungeonUIManager : MonoBehaviour
     public Canvas mainCanvas;
     public List<Tween> StateTweens;
     [HideInInspector]
-    public StateUI currentCharacter;
+    public StateUI currentCharacterStateUI;
     [HideInInspector]
     public GameObject currentPlayer;
     private float playerMaxHp;
@@ -54,20 +54,20 @@ public class DungeonUIManager : MonoBehaviour
         if(isPlayer)
         {
             MonsterStateUI monsterStateUI = monsterStateUIobj.GetComponent<MonsterStateUI>(); 
-            monsterStateUI.stateSliders[0].DOValue((monsterStateUI.hp - currentCharacter.attackDamage) / monsterMaxHp, .8f); //적의 체력 게이지에서 받은 데미지를 빼는 계산을 한다
+            monsterStateUI.stateSliders[0].DOValue((monsterStateUI.hp - currentCharacterStateUI.attackDamage) / monsterMaxHp, .8f); //적의 체력 게이지에서 받은 데미지를 빼는 계산을 한다
             if(monsterStateUI.hp <= 0) //만약 피가 0 이하라면 
             {
                 monsterStateUI.DeadMonster(); //적 죽음 함수를 실행
             }
             else
             {
-                monsterStateUI.hp -= currentCharacter.attackDamage; // 아니라면 피 깎기
+                monsterStateUI.hp -= currentCharacterStateUI.attackDamage; // 아니라면 피 깎기
             } 
         }
         else
         {
-            currentCharacter.stateSliders[0].DOValue((currentCharacter.hp - monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage) / playerMaxHp, .8f); //적이 나를 때렸을때 가장 최근에 공격한 플레이어의 체력 게이지를 계산 하여 깎음
-            currentCharacter.hp -= monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage; //피 깎기
+            currentCharacterStateUI.stateSliders[0].DOValue((currentCharacterStateUI.hp - monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage) / playerMaxHp, .8f); //적이 나를 때렸을때 가장 최근에 공격한 플레이어의 체력 게이지를 계산 하여 깎음
+            currentCharacterStateUI.hp -= monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage; //피 깎기
         }
     }
 
@@ -123,9 +123,9 @@ public class DungeonUIManager : MonoBehaviour
             characterStateObjs[j].transform.DOMoveY(characterStateObjs[j].transform.position.y - 5, .8f);// 나머지 2명 UI 내리기
             ponCharacterStateObjs[j].gameObject.SetActive(false); //부드러운 움직임을 위한 비어있는 오브젝트 꺼서 정렬 하기
         }
-        currentCharacter = characterStateObjs[i]; //선택된 캐릭터의 UI를 저장
+        currentCharacterStateUI = characterStateObjs[i]; //선택된 캐릭터의 UI를 저장
         currentPlayer = PlayerObjs[i]; //선택된 캐릭터의 오브젝트를 저장
-        playerMaxHp = currentCharacter.hp; // 선택된 캐릭터의 최대 채력을 저장
+        playerMaxHp = currentCharacterStateUI.hp; // 선택된 캐릭터의 최대 채력을 저장
 
 
         monsterObj.transform.DOMoveX(monsterObj.transform.position.x + .5f, .5f);// 몬스터의 위치를 조금 뒤로
@@ -143,13 +143,18 @@ public class DungeonUIManager : MonoBehaviour
         //PlayerObjs[i].transform.DOMoveX(PlayerObjs[i].transform.position.x + .5f, .5f);
         characterStateObjs[i].transform.DOMove(ponCharacterStateObjs[i].transform.position, .8f); //선택된 캐릭터를 정렬되어있는 비어있는 오브젝트의 위치로 옴기는 트윈
         yield return new WaitForSeconds(.8f);
+        UPFightUI(); //FightUI를 올리는 함수
+    }
+
+    public void UPFightUI() //FightUI를 올리는 함수
+    {
         Sequence Uiseq = DOTween.Sequence();
-        foreach(var item in fightbuttons) item.GetComponent<Button>().interactable = false; //올라가는 중에 버튼이 눌리면 버그가 날 수 있으니 interactable을 꺼줌
+        foreach (var item in fightbuttons) item.GetComponent<Button>().interactable = false; //올라가는 중에 버튼이 눌리면 버그가 날 수 있으니 interactable을 꺼줌
         Uiseq.Append(fightbuttons[0].transform.DOMoveY(fightbuttons[0].transform.position.y + 3.1f, .5f));
         Uiseq.Insert(.1f, fightbuttons[1].transform.DOMoveY(fightbuttons[1].transform.position.y + 3.1f, .5f));
         Uiseq.Insert(.2f, fightbuttons[2].transform.DOMoveY(fightbuttons[2].transform.position.y + 3.1f, .5f));
         Uiseq.Insert(.3f, fightbuttons[3].transform.DOMoveY(fightbuttons[3].transform.position.y + 3.1f, .5f)).OnComplete(() => // 샤라락 올라오는 효과를 닷드윈 시퀸스로 만듬
-        {foreach (var item in fightbuttons) item.GetComponent<Button>().interactable = true;}); // 마지막 버튼까지 올라오고 나면 아까 꺼뒀던 interactable을 켜줌
+        { foreach (var item in fightbuttons) item.GetComponent<Button>().interactable = true; }); // 마지막 버튼까지 올라오고 나면 아까 꺼뒀던 interactable을 켜줌
     }
     #endregion
 

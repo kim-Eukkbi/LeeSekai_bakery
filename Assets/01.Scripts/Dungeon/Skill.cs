@@ -8,36 +8,30 @@ public class Skill : MonoBehaviour
     public Button backBtn;
     public void Start()
     {
-        backBtn.onClick.AddListener(() =>
+        backBtn.onClick.AddListener(() => //뒤로가기 버튼을 누르면 실행되는 함수를 넣어줌
         {
-            StartCoroutine(SkillUIDown());
+            StartCoroutine(SkillUIDown()); //뒤로가기 버튼
         });
-        DungeonUIManager.instance.fightbuttons[1].GetComponent<Button>().onClick.AddListener(() =>
+        DungeonUIManager.instance.fightbuttons[1].GetComponent<Button>().onClick.AddListener(() => //스킬 사용 버튼을 누르면 실행되는 함수
         {
-            StartCoroutine(SkillUISet());
+            StartCoroutine(SkillUIUp());//스킬 UI를 올림
         });
     }
 
-    public IEnumerator SkillUISet()
+    public IEnumerator SkillUIUp()
     {
-        DungeonUIManager.instance.DownFightUI();
+        DungeonUIManager.instance.DownFightUI(); //전투 선택 Ui를 내려주는 함수
         yield return new WaitForSeconds(.8f);
         DungeonUIManager.instance.skillPanel.transform.DOMoveY
-            (DungeonUIManager.instance.ponCharacterStateObjs[0].GetComponentInParent<Transform>().position.y, .5f);
+            (DungeonUIManager.instance.ponCharacterStateObjs[0].GetComponentInParent<Transform>().position.y, .5f); //전투 선택 Ui를 내렸으니까 스킬 UI를 내리는중
     }
 
     public IEnumerator SkillUIDown()
     {
         DungeonUIManager.instance.skillPanel.transform.DOMoveY
-            (DungeonUIManager.instance.fightPanel.transform.position.y, .5f);
+            (DungeonUIManager.instance.fightPanel.transform.position.y, .5f); //스킬 UI를 내리기
         yield return new WaitForSeconds(.8f);
-        Sequence Uiseq = DOTween.Sequence();
-        foreach (var item in DungeonUIManager.instance.fightbuttons) item.GetComponent<Button>().interactable = false;
-        Uiseq.Append(DungeonUIManager.instance.fightbuttons[0].transform.DOMoveY(DungeonUIManager.instance.fightbuttons[0].transform.position.y + 3.1f, .5f));
-        Uiseq.Insert(.1f, DungeonUIManager.instance.fightbuttons[1].transform.DOMoveY(DungeonUIManager.instance.fightbuttons[1].transform.position.y + 3.1f, .5f));
-        Uiseq.Insert(.2f, DungeonUIManager.instance.fightbuttons[2].transform.DOMoveY(DungeonUIManager.instance.fightbuttons[2].transform.position.y + 3.1f, .5f));
-        Uiseq.Insert(.3f, DungeonUIManager.instance.fightbuttons[3].transform.DOMoveY(DungeonUIManager.instance.fightbuttons[3].transform.position.y + 3.1f, .5f)).OnComplete(() =>
-        { foreach (var item in DungeonUIManager.instance.fightbuttons) item.GetComponent<Button>().interactable = true; });
+        DungeonUIManager.instance.UPFightUI();//스킬 UI를 내렸으니까 전투 선택 UI를 다시 올려주는 함수
     }
 
 }
