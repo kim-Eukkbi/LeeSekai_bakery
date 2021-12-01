@@ -27,12 +27,14 @@ public class FarmManager : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            Vector2 clickPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if(Physics.Raycast(ray, out hit))
             {
-                print(hit.transform.gameObject.name);
+                //print(hit.transform.gameObject.name);
 
                 //클릭한 타일을 가져온다
                 FarmTile farmTile = hit.transform.GetComponent<FarmTile>();
@@ -45,16 +47,54 @@ public class FarmManager : MonoBehaviour
                         //아무 작물도 심겨져있지 않다면
                         if(!farmTile.isPlanted)
                         {
-                            //현재 선택되어있는 작물을 심는다
-                            farmTile.Plant(CropManager.Instance.cropType);
-                            player.PlaySeedAnim();
+                            //만약 팔길이 안에 있다면
+                            if(player.IsInRange(clickPos))
+                            {
+                                //행동 할 수 있는 상태라면
+                                if (player.CanAction())
+                                {
+                                    //현재 선택되어있는 작물을 심는다
+                                    farmTile.Plant(CropManager.Instance.cropType);
+                                    player.PlayAnimation(player.PlantName);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //작물이 심겨져있는 상태니까 작물을 가져오자
+                            Crop crop = farmTile.plantedCrop;
+                            //만약 성장이 끝난 상태라면
+                            if(crop.isGrowEnd)
+                            {
+                                //만약 팔길이 안에 있다면
+                                if (player.IsInRange(clickPos))
+                                {
+                                    //그리고 행동할 수 있는 상태라면
+                                    if (player.CanAction())
+                                    {
+                                        //수확해버려
+                                        crop.Harvest();
+                                        player.PlayAnimation(player.HarvestName);
+                                        farmTile.Resetting();
+                                    }
+                                }
+                            }
                         }
                     }
                     //젖어있지 않은 상태라면
                     else
                     {
-                        farmTile.Water(true);
-                        player.PlayWaterAnim();
+                        //만약 팔길이 안에 있다면
+                        if (player.IsInRange(clickPos))
+                        {
+                            //그리고 행동할 수 있는 상태라면
+                            if (player.CanAction())
+                            {
+                                //물을 주자
+                                farmTile.Water(true);
+                                player.PlayAnimation(player.WaterName);
+                            }
+                        }
                     }
                 }
             }

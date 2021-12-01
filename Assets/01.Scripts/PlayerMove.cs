@@ -7,18 +7,36 @@ public class PlayerMove : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sr;
 
+    //InputName들
+    [Header("입력키")]
     public string horizontalName;
     public string verticalName;
 
-    //현재이동속도
-    private float speed;
+    //플레이어 애니메이션 이름들
+    [Header("애니메이션 이름들")]
+    public string WaterName;
+    public string PlantName;
+    public string HarvestName;
+
+    [Header("애니메이터 변수들")]
+    //에니메이터 bool 변수
+    public string isWalkName;
+    //에니메이터 스피드 변수
+    public string speedName;
+
+    [Header("속도 관련")]
     //원래 이동속도
     public float originSpeed;
     //달릴 떄 이동속도
     public float runSpeed;
+    //현재이동속도
+    private float speed;
+
+    [Header("플레이어 팔길이")]
+    public float range;
 
     //특정 행동(물주기, 씨뿌리기)하는 중인지
-    private bool isPlayingAnim;
+    private bool isPlayingAnim = false;
 
     private void Awake()
     {
@@ -30,8 +48,6 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if (isPlayingAnim) return;
-
         ChangeSpeed();
         Move();
         ChangeAnimation();
@@ -39,6 +55,8 @@ public class PlayerMove : MonoBehaviour
 
     public void Move()
     {
+        if (isPlayingAnim) return;
+
         float h = Input.GetAxisRaw(horizontalName);
         float v = Input.GetAxisRaw(verticalName);
 
@@ -47,7 +65,9 @@ public class PlayerMove : MonoBehaviour
 
     public void ChangeSpeed()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if (isPlayingAnim) return;
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             speed = runSpeed;
         }
@@ -60,36 +80,68 @@ public class PlayerMove : MonoBehaviour
 
     public void ChangeAnimation()
     {
-        if(Input.GetKey(KeyCode.A))
+        if (isPlayingAnim) return;
+
+        if (Input.GetKey(KeyCode.A))
         {
             sr.flipX = true;
-            anim.SetBool("isWalk", true);
+            anim.SetBool(isWalkName, true);
         }
         if(Input.GetKey(KeyCode.D))
         {
             sr.flipX = false;
-            anim.SetBool("isWalk", true);
+            anim.SetBool(isWalkName, true);
         }
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
-            anim.SetBool("isWalk", true);
+            anim.SetBool(isWalkName, true);
         }
 
-        if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
         {
-            anim.SetBool("isWalk", false);
+            anim.SetBool(isWalkName, false);
         }
 
-        anim.SetFloat("moveSpeed", speed);
+        anim.SetFloat(speedName, speed);
     }
 
-    public void PlayWaterAnim()
+    public void PlayAnimation(string animName)
     {
-        anim.SetTrigger("water");
+        //FarmManager에서 미리 isPlayAnim 검사하니까 여기서까지 처리할 필욘 없을듯
+
+        anim.SetBool(isWalkName, false);
+        anim.SetTrigger(animName);
+
+        isPlayingAnim = true;
     }
 
-    public void PlaySeedAnim()
+    public void AnimEnd()
     {
-        anim.SetTrigger("seed");
+        isPlayingAnim = false;
+    }
+
+    //행동 할 수 있는지 리턴
+    public bool CanAction()
+    {
+        return !isPlayingAnim;
+    }
+
+    //사정거리 안에 있는지
+    public bool IsInRange(Vector2 clickPos)
+    {
+        //거리체크 다 만들었다
+        Vector2 pos = new Vector2(transform.position.x, transform.position.y);
+
+        if(Vector2.Distance(pos, clickPos) > range)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }

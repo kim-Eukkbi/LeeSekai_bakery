@@ -4,27 +4,38 @@ using UnityEngine;
 
 public class Crop : MonoBehaviour
 {
-    public const float ONE_DAY_SEC = 1440f;
+    //하루가 몇초인지 상수로 선언해놓는다
+    public const float ONE_DAY_SEC = 3600f;
 
+    //농작물 정보가 담겨있는 ScriptableObject
     private CropTypeSO cropType;
+    //스프라이트 렌더러
     private SpriteRenderer sr;
 
     //성장 시간
     public float growTime;
     //성장 분기
     public float growQuarter;
+    //몇초마다 자라는지 분기점
     public float[] growPoionts = new float[3];
 
+    //지금 몇번째 스프라이트인지
     public int pointIdx = 0;
+
+    //성장이 끝났는지
+    public bool isGrowEnd = false;
 
     private void Awake()
     {
+        //스프라이트렌더러 가져오고
         sr = GetComponent<SpriteRenderer>();
+        //가지고있는 작물 타입도 뽑아와
         cropType = GetComponent<CropTypeHolder>().cropType;
 
+        //스프라이트는 맨 처음걸로 설정해주고
         sr.sprite = cropType.growSprite[0];
 
-        //자라는 시간은 자라는데 걸리는 시간 * 1440초(게임에서의 24시간)
+        //자라는 시간은 자라는데 걸리는 시간 * (게임에서의 24시간)
         cropType.growTime = cropType.growDay * ONE_DAY_SEC;
 
         //변수 초기화하고
@@ -47,10 +58,10 @@ public class Crop : MonoBehaviour
 
     IEnumerator GrowLogic()
     {
-        while (true)
+        while (!isGrowEnd)
         {
             //시간없으니까 100배속 가보자
-            growTime += Time.deltaTime * 500;
+            growTime += Time.deltaTime * 1000;
 
             if (growTime >= growPoionts[pointIdx])
             {
@@ -60,10 +71,20 @@ public class Crop : MonoBehaviour
 
             if(pointIdx > 2)
             {
-                yield break;
+                isGrowEnd = true;
             }
 
             yield return null;
         }
+    }
+
+    public void Harvest()
+    {
+        //뭐 미래에 인벤토리가 만들어지면 아이템을 추가해 주면 되겠죠?
+
+        //뭘 수확했는지도 알려주면 좋겠지?
+        print(gameObject.name);
+        //일단 지금은 없애기만 하자
+        Destroy(this.gameObject);
     }
 }
