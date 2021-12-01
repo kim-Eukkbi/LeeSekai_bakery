@@ -26,8 +26,6 @@ public class CropTypeSO : ScriptableObject
     //성장하는데 걸리는 날짜
     public float growDay;
     //이놈은 날짜를 시간으로 바꾼 값
-    [HideInInspector]
-    public float growTime;
 
     //시간에 따른 스프라이트 변화는 다른곳에서 해줘야 함
 }

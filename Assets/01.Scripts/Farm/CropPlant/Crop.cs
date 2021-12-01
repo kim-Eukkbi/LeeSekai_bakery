@@ -9,8 +9,11 @@ public class Crop : MonoBehaviour
     //스프라이트 렌더러
     private SpriteRenderer sr;
 
-    //성장 시간
+    //성장 하는데 걸리는 시간
     public float growTime;
+    //현재 흐른 시간
+    public float now_growTime;
+
     //성장 분기
     public float growQuarter;
     //몇초마다 자라는지 분기점
@@ -32,13 +35,16 @@ public class Crop : MonoBehaviour
         //스프라이트는 맨 처음걸로 설정해주고
         sr.sprite = cropType.growSprite[0];
 
-        //자라는 시간은 자라는데 걸리는 시간 * (게임에서의 24시간)
-        cropType.growTime = cropType.growDay * TimeManager.ONE_DAY_SEC;
-
         //변수 초기화하고
-        growTime = 0;
+        now_growTime = 0;
+
+        //자라는 시간은 자라는데 걸리는 시간 * (게임에서의 24시간)
+        growTime = cropType.growDay * TimeManager.ONE_DAY_SEC;
+        //단위를 분으로 바꿀꺼니까 분으로 나눠준다
+        growTime /= TimeManager.ONE_MIN_SEC;
+
         //스프라이트 변화는 3번이니까 3개 분기로 나눠
-        growQuarter = cropType.growTime / 3;
+        growQuarter = growTime / 3;
 
         float temp = 0;
 
@@ -49,30 +55,30 @@ public class Crop : MonoBehaviour
             //한번 더해준값은 그대로 넣어놔
             growPoionts[i] = temp;
         }
-
-        StartCoroutine(GrowLogic());
     }
 
-    IEnumerator GrowLogic()
+    private void Start()
     {
-        while (!isGrowEnd)
+        //분이 바뀔때마다 호출되는 함수를 구독한다
+        TimeManager.Instance.Add_Min += add_min =>
         {
-            //배속 변수를 곱해서 시간을 더해주자
-            //growTime += Time.deltaTime * TimeManager.Instance.multiplication;
+            //성장이 끝나면 리턴해주고
+            if (isGrowEnd) return;
 
-            if (growTime >= growPoionts[pointIdx])
+            //시간 변화량을 계속 더해준다
+            now_growTime += add_min;
+
+            if (now_growTime >= growPoionts[pointIdx])
             {
                 pointIdx++;
                 sr.sprite = cropType.growSprite[pointIdx];
             }
 
-            if(pointIdx > 2)
+            if (pointIdx > 2)
             {
                 isGrowEnd = true;
             }
-
-            yield return null;
-        }
+        };
     }
 
     public void Harvest()

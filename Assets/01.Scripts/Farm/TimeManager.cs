@@ -25,11 +25,17 @@ public class TimeManager : MonoBehaviour
     public const int NEED_HOUR = 24;
     public const int NEED_DAY = 30;
 
+    //요일을 담고있는 한글 배열
+    public readonly string[] dayOfWeeks =
+    {
+        "월", "화", "수", "목", "금", "토", "일"
+    };
+
     //시간 단위별로 바뀔 때마다 실행할 Action
-    public Action<int> Min_Change;
-    public Action<int> Hour_Change;
-    public Action<int> Day_Change;
-    public Action<int> Month_Change;
+    public Action<int> Add_Min = add_min => { };
+    public Action<int> Add_Hour = add_hour => { };
+    public Action<int> Add_Day = add_day => { };
+    public Action<int> Add_Month = add_month => { };
 
     [Header("날짜, 시간을 담을 변수들")]
     //분, 시간, 일, 달, 요일을 담을 변수가 필요해
@@ -37,9 +43,18 @@ public class TimeManager : MonoBehaviour
     public int now_hour;
     public int now_day;
     public int now_month;
-    public string now_weekOfDay;
+    public string now_dayOfWeek;
 
-    private WaitForSeconds ws_min;
+    private int dayOfWeekIndex;
+
+    [Header("날짜, 시간 텍스트")]
+    public Text timeText;
+    public Text dateText;
+
+    [Header("디버그용 배속 변수")]
+    public float multifilcation;
+
+    //private WaitForSeconds ws_min;
 
     private void Awake()
     {
@@ -48,44 +63,68 @@ public class TimeManager : MonoBehaviour
             Instance = this;
         }
 
-        ws_min = new WaitForSeconds(ONE_MIN_SEC);
+        //ws_min = new WaitForSeconds(ONE_MIN_SEC);
 
         UpdateText();
+
+        StartCoroutine(TimeLogic());
     }
 
-    private IEnumerator timeLogic()
+    //시간을 계속 더해주는 함수
+    private IEnumerator TimeLogic()
     {
-        //게임시간 1분마다 코루틴을 실행
-        yield return ws_min;
-
-        //게임시간 1분마다 1분을 더해준다
-        now_min++;
-
-        if(now_min >= NEED_MIN)
+        while(true)
         {
-            //한시간을 더해주고 현재 분을 초기화
-            now_hour++;
-            now_min = 0;
+            //게임시간 1분마다 코루틴을 실행
+            yield return new WaitForSeconds(ONE_MIN_SEC * multifilcation);
 
-            if(now_hour >= NEED_HOUR)
+            //게임시간 1분마다 1분을 더해준다
+            now_min++;
+
+            //1분이 변할때마다 함수 호출
+            Add_Min(1);
+
+            if (now_min >= NEED_MIN)
             {
-                //하루를 더해주고 현재 시간을 초기화
-                now_day++;
-                now_hour = 0;
+                //한시간을 더해주고 현재 분을 초기화
+                now_hour++;
+                now_min = 0;
 
-                if(now_day > NEED_DAY)
+                //1시간이 변할때 마다 함수 호출
+                Add_Hour(1);
+
+                if (now_hour >= NEED_HOUR)
                 {
-                    //한달을 더해주고 현재 날짜를 초기화
-                    now_month++;
-                    now_day = 0;
+                    //하루를 더해주고 현재 시간을 초기화
+                    now_day++;
+                    now_hour = 0;
+
+                    now_dayOfWeek = dayOfWeeks[++dayOfWeekIndex % dayOfWeeks.Length];
+
+                    //1일이 변할때 마다 함수 호출
+                    Add_Day(1);
+
+                    if (now_day > NEED_DAY)
+                    {
+                        //한달을 더해주고 현재 날짜를 초기화
+                        now_month++;
+                        //0일은 없으니까 1일로 초기화
+                        now_day = 1;
+
+                        //1달이 변할때 마다 함수 호출
+                        Add_Month(1);
+                    }
                 }
             }
+
+            //연산이 끝난 후 UI 업데이트
+            UpdateText();
         }
     }
 
     public void UpdateText()
     {
-        //timeText.text = string.Concat(now_hour.ToString("00"), ":", now_min.ToString("00"));
-        //dateText.text = string.Concat(now_month.ToString("00"), "월 ", now_day.ToString("00"), "일 ", now_dayOfWeek, "요일");
+        timeText.text = string.Concat(now_hour.ToString("00"), ":", now_min.ToString("00"));
+        dateText.text = string.Concat(now_month.ToString("00"), "월 ", now_day.ToString("00"), "일 ", now_dayOfWeek, "요일");
     }
 }
