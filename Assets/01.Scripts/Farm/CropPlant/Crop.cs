@@ -58,7 +58,7 @@ public class Crop : MonoBehaviour
         while (!isGrowEnd)
         {
             //배속 변수를 곱해서 시간을 더해주자
-            growTime += Time.deltaTime * TimeManager.Instance.multiplication;
+            //growTime += Time.deltaTime * TimeManager.Instance.multiplication;
 
             if (growTime >= growPoionts[pointIdx])
             {

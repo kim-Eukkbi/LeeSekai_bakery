@@ -33831,15 +33831,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38fecbd3ad0279f4c8a2f5dc7bd5443c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  now_sec: 0
   now_min: 0
   now_hour: 0
-  now_month: 1
   now_day: 29
-  now_dayOfWeek: "\uC6D4"
-  timeText: {fileID: 961536470}
-  dateText: {fileID: 607835429}
-  multiplication: 1000
+  now_month: 1
+  now_weekOfDay: 
 --- !u!1001 &1881981514
 PrefabInstance:
   m_ObjectHideFlags: 0
