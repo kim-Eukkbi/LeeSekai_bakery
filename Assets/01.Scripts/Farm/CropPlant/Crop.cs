@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Crop : MonoBehaviour
 {
-    //하루가 몇초인지 상수로 선언해놓는다
-    public const float ONE_DAY_SEC = 3600f;
-
     //농작물 정보가 담겨있는 ScriptableObject
     private CropTypeSO cropType;
     //스프라이트 렌더러
@@ -36,7 +33,7 @@ public class Crop : MonoBehaviour
         sr.sprite = cropType.growSprite[0];
 
         //자라는 시간은 자라는데 걸리는 시간 * (게임에서의 24시간)
-        cropType.growTime = cropType.growDay * ONE_DAY_SEC;
+        cropType.growTime = cropType.growDay * TimeManager.ONE_DAY_SEC;
 
         //변수 초기화하고
         growTime = 0;
@@ -60,8 +57,8 @@ public class Crop : MonoBehaviour
     {
         while (!isGrowEnd)
         {
-            //시간없으니까 100배속 가보자
-            growTime += Time.deltaTime * 1000;
+            //배속 변수를 곱해서 시간을 더해주자
+            growTime += Time.deltaTime * TimeManager.Instance.multiplication;
 
             if (growTime >= growPoionts[pointIdx])
             {

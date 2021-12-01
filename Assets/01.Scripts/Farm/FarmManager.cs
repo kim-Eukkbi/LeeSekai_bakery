@@ -27,8 +27,6 @@ public class FarmManager : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Vector2 clickPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -48,7 +46,7 @@ public class FarmManager : MonoBehaviour
                         if(!farmTile.isPlanted)
                         {
                             //만약 팔길이 안에 있다면
-                            if(player.IsInRange(clickPos))
+                            if(player.IsInRange())
                             {
                                 //행동 할 수 있는 상태라면
                                 if (player.CanAction())
@@ -67,7 +65,7 @@ public class FarmManager : MonoBehaviour
                             if(crop.isGrowEnd)
                             {
                                 //만약 팔길이 안에 있다면
-                                if (player.IsInRange(clickPos))
+                                if (player.IsInRange())
                                 {
                                     //그리고 행동할 수 있는 상태라면
                                     if (player.CanAction())
@@ -85,7 +83,7 @@ public class FarmManager : MonoBehaviour
                     else
                     {
                         //만약 팔길이 안에 있다면
-                        if (player.IsInRange(clickPos))
+                        if (player.IsInRange())
                         {
                             //그리고 행동할 수 있는 상태라면
                             if (player.CanAction())

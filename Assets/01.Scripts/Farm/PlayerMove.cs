@@ -35,6 +35,11 @@ public class PlayerMove : MonoBehaviour
     [Header("플레이어 팔길이")]
     public float range;
 
+    //메인캠
+    private Camera mainCam;
+    //마우스 클릭 위치
+    private Vector2 clickPos;
+
     //특정 행동(물주기, 씨뿌리기)하는 중인지
     private bool isPlayingAnim = false;
 
@@ -43,11 +48,17 @@ public class PlayerMove : MonoBehaviour
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
 
+        mainCam = Camera.main;
+
         speed = originSpeed;
     }
 
     void Update()
     {
+        //clickPos를 사용하는 곳이 플레이어밖에 없어서 여기있는게 나을듯
+        //나중에 InputManager 만들던가 해야지
+        clickPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+
         ChangeSpeed();
         Move();
         ChangeAnimation();
@@ -105,9 +116,12 @@ public class PlayerMove : MonoBehaviour
         anim.SetFloat(speedName, speed);
     }
 
+    //clickPos를 받는 이유는 클릭 위치에 따라서 스프라이트를 뒤집어주기 위해서
     public void PlayAnimation(string animName)
     {
         //FarmManager에서 미리 isPlayAnim 검사하니까 여기서까지 처리할 필욘 없을듯
+
+        sr.flipX = clickPos.x < transform.position.x;
 
         anim.SetBool(isWalkName, false);
         anim.SetTrigger(animName);
@@ -127,7 +141,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     //사정거리 안에 있는지
-    public bool IsInRange(Vector2 clickPos)
+    public bool IsInRange()
     {
         //거리체크 다 만들었다
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
