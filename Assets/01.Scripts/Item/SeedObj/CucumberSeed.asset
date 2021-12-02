@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: CucumberSeed
   itemSprite: {fileID: 8906396895658735580, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
-  cropType: {fileID: 0}
+  canNest: 1
+  cropType: {fileID: 11400000, guid: 95d25219c040a114392b26f0ae6e6bf7, type: 2}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -50,6 +51,16 @@ public class InventoryManager : MonoBehaviour
         //부모의 자식오브젝트들의 컴포넌트를 리스트로 긁어온다
         quickSlots = quickSlockParent.GetComponentsInChildren<InventorySlot>().ToList();
         inventorySlots = inventorySlockParent.GetComponentsInChildren<InventorySlot>().ToList();
+
+        for (int i = 0; i < quickSlots.Count; i++)
+        {
+            int a = i;
+
+            quickSlots[a].GetComponentInChildren<Button>().onClick.AddListener(() =>
+            {
+                SelectInventory(a);
+            });
+        }
 
         //시작할땐 1번을 선택한상태로
         SelectInventory(0);
