@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 949d8f05634fd72469ddf477a8a03bc7, type: 3}
+  m_Name: CarrotSeed
+  m_EditorClassIdentifier: 
+  itemName: CarrotSeed
+  itemSprite: {fileID: 9035215791827526736, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  cropType: {fileID: 11400000, guid: cc797e9fb32550247b1e4f79c1b8c792, type: 2}

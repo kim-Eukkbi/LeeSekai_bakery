@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CropManager : MonoBehaviour
 {
+    //이 스크립트는 더이상 사용하지 않습니다
+    //씨앗이 없던 시절 작물 선택하던 스크립트
+
     public static CropManager Instance;
 
     //작물 리스트
