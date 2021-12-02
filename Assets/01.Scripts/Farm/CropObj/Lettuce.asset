@@ -21,4 +21,3 @@ MonoBehaviour:
   prefab: {fileID: 2638594772849341224, guid: 872681b838c7f3a478da29f129e48afe, type: 3}
   growSeason: 0
   growDay: 3
-  growTime: 4320

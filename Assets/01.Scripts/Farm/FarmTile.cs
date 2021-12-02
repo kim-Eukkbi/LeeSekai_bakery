@@ -8,13 +8,16 @@ public class FarmTile : MonoBehaviour
     [SerializeField]
     private List<Sprite> farmSprites;
 
+    //스프라이트 렌더러
     private SpriteRenderer sr;
-
 
     //현재 젖어있는 상태인지
     public bool isWet = false;
     //현재 작물이 심겨있는 상태인지
     public bool isPlanted = false;
+
+    //현재 심겨져 있는 작물
+    public Crop plantedCrop = null;
 
     private void Awake()
     {
@@ -54,7 +57,13 @@ public class FarmTile : MonoBehaviour
 
         //작물이 심겼다고 알려줌
         isPlanted = true;
-        //현재 위치에 작물을 생성
-        Instantiate(crop.prefab, transform.position, Quaternion.identity);
+        //현재 위치에 작물을 생성 하면서 변수에 담아두자
+        plantedCrop = Instantiate(crop.prefab, transform.position, Quaternion.identity).GetComponent<Crop>();
+    }
+
+    public void Resetting()
+    {
+        isPlanted = false;
+        plantedCrop = null;
     }
 }
