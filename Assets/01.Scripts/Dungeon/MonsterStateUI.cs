@@ -14,6 +14,7 @@ public class MonsterStateUI : MonoBehaviour //몬스터 수치를 이니셜 라이즈 해서 �
     public float attackDamage;
     public float defense;
     public float attackTime;
+    public State state;
 
     public List<Tween> readyAttack = new List<Tween>(); //트윈 리스트
 
@@ -76,7 +77,10 @@ public class MonsterStateUI : MonoBehaviour //몬스터 수치를 이니셜 라이즈 해서 �
     {
         DungeonUIManager.instance.monsterObj.SetActive(false); // 일단 그냥 꺼버리는 걸로 해보자
         DungeonUIManager.instance.monsterStateUIobj.transform.DOMoveX(DungeonUIManager.instance.monsterStateUIobj.transform.position.x + 6.5f, .8f); // 몬스터 UI를 다시 오른쪽으로
-        readyAttack[1].Pause();
+        readyAttack[0].Pause();
+        DungeonUIManager.instance.StateTweens[0].Pause();
+        DungeonUIManager.instance.StateTweens[1].Pause();
+        DungeonUIManager.instance.StateTweens[2].Pause();
     }
 
 

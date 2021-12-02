@@ -25,10 +25,12 @@ public class DungeonUIManager : MonoBehaviour
     public List<GameObject> ponCharacterStateObjs;
     public List<StateUI> characterStateObjs;
     public List<GameObject> fightbuttons;
+    public State playerCurrentState;
 
     [Header("몬스터")]
     public GameObject monsterObj;
     public GameObject monsterStateUIobj;
+    public State monsterCurrentState;
 
 
     [Header("ECT")]
@@ -43,6 +45,8 @@ public class DungeonUIManager : MonoBehaviour
 
     public void Start()
     {
+        monsterCurrentState = State.Live; // 몬스터의 현재 상태를 정의
+        playerCurrentState = State.Live; // 캐릭터의 현재 상태를 정의
         StateTweens = new List<Tween>();
         StartCoroutine(UpStateUI()); 
         StartCoroutine(StartFightProcess());
@@ -60,6 +64,7 @@ public class DungeonUIManager : MonoBehaviour
             if (monsterStateUI.hp <= 0) //만약 피가 0 이하라면 
             {
                 monsterStateUI.DeadMonster(); //적 죽음 함수를 실행
+                monsterCurrentState = State.Dead;
             }
         }
         else

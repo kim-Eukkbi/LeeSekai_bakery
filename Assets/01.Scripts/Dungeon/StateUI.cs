@@ -16,4 +16,5 @@ public class StateUI : MonoBehaviour //이니셜라이즈로 받아오는 수치들
     public float defense;
     public float attackTime;
     public Jobs cJobs;
+    public State state;
 }

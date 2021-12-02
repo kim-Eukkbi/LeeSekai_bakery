@@ -536,7 +536,7 @@ MonoBehaviour:
   attackTime: 3
   hp: 400
   mp: 10
-  attackDamage: 50
+  attackDamage: 1200
   defense: 100
   stateUI: {fileID: 822927896}
   monsterStateUI: {fileID: 0}

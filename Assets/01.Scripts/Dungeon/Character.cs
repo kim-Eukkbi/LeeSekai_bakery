@@ -13,6 +13,13 @@ public enum Jobs //플레이어의 직업들
     Elementalist
 }
 
+public enum State
+{
+    Live,
+    Ready,
+    Dead
+}
+
 public class Character : MonoBehaviour
 {
     public string cName; //캐릭터 이름
@@ -26,6 +33,7 @@ public class Character : MonoBehaviour
     public MonsterStateUI monsterStateUI; // 몬스터 UI
     public bool isMonster = false; // 이 캐릭터가 몬스터인지 플레이어인지 bool
     public Jobs cJobs; // 이 캐릭터의 직업
+    public State state; // 이 캐릭터의 현재 상태
 
     public void Awake()
     {
@@ -43,6 +51,7 @@ public class Character : MonoBehaviour
         stateUI.attackDamage = attackDamage;
         stateUI.defense = defense;
         stateUI.cJobs = cJobs;
+        stateUI.state = state;
     }
 
     public void MonsterInit() //몬스터한테 이니셜라이징
@@ -54,5 +63,6 @@ public class Character : MonoBehaviour
         monsterStateUI.mp = mp;
         monsterStateUI.attackDamage = attackDamage;
         monsterStateUI.defense = defense;
+        monsterStateUI.state = state;
     }
 }
