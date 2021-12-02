@@ -11,6 +11,8 @@ public class InventoryManager : MonoBehaviour
     //인벤토리 매니저는 인벤토리를 총괄하는 녀석이다
     //지금 퀵슬롯이 어딘지, 인벤토리 슬롯끼리의 아이템을 바꾸던지 등등을 해주는 곳이다
 
+    //내일 해야할 일 아이템을 추가하면 비어잇는 슬롯을 찾아서 할당해주는거 일단 만들어야될듯
+
     //인벤토리들이 담겨있을 부모오브젝트를 가져오자
     [SerializeField]
     private GameObject quickSlockParent;
