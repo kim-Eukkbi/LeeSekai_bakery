@@ -229,15 +229,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cName: "\uC138\uB80C"
   image: {fileID: 21300000, guid: 06a094d3ba0bc3b4b9c5515222d4086f, type: 3}
-  attackTime: 6
+  sp: 2
   hp: 400
   mp: 20
-  attackDamage: 50
-  defense: 344
+  str: 200
+  mag: 2
+  def: 150
   stateUI: {fileID: 1210160702}
   monsterStateUI: {fileID: 0}
   isMonster: 0
   cJobs: 0
+  state: 0
 --- !u!1 &29181550
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,15 +535,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cName: "\uB9AC\uC554"
   image: {fileID: 21300000, guid: f96356457f607f6498bf302cf62a7550, type: 3}
-  attackTime: 3
+  sp: 4
   hp: 400
-  mp: 10
-  attackDamage: 1200
-  defense: 100
+  mp: 200
+  str: 12
+  mag: 500
+  def: 30
   stateUI: {fileID: 822927896}
   monsterStateUI: {fileID: 0}
   isMonster: 0
   cJobs: 5
+  state: 0
 --- !u!1 &89523740
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,15 +749,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cName: "\uC790\uC774\uC5B8\uD2B8 \uD638\uADF8"
   image: {fileID: 21300000, guid: 8bb563043abcfe748afdef7cb265e6a4, type: 3}
-  attackTime: 5
+  sp: 6
   hp: 1000
   mp: 100
-  attackDamage: 100
-  defense: 100
+  str: 123
+  mag: 0
+  def: 20
   stateUI: {fileID: 0}
   monsterStateUI: {fileID: 598495423704506281}
   isMonster: 1
   cJobs: 0
+  state: 0
 --- !u!1 &163138910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,127 +1209,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295490885}
   m_CullTransparentMesh: 1
---- !u!1 &297384511
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 297384512}
-  - component: {fileID: 297384515}
-  - component: {fileID: 297384514}
-  - component: {fileID: 297384513}
-  m_Layer: 0
-  m_Name: Skill_3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &297384512
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297384511}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
-  m_Children:
-  - {fileID: 753594938}
-  m_Father: {fileID: 2015600515}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &297384513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297384511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 297384514}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &297384514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297384511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 6881416610548282942, guid: 8a50ac95aeca2b240b23e075e43d78bd, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &297384515
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297384511}
-  m_CullTransparentMesh: 1
 --- !u!1 &388359046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,85 +1460,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &753594937
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 753594938}
-  - component: {fileID: 753594940}
-  - component: {fileID: 753594939}
-  m_Layer: 0
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &753594938
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753594937}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 297384512}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &753594939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753594937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 69
-    m_FontStyle: 3
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 137
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Skill1
---- !u!222 &753594940
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753594937}
-  m_CullTransparentMesh: 1
 --- !u!1 &817152221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,15 +2028,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cName: "\uB9AC\uC2A4"
   image: {fileID: 21300000, guid: e0274560cbd9c6546aad5d1e6c2b63fa, type: 3}
-  attackTime: 7
+  sp: 7
   hp: 400
   mp: 12
-  attackDamage: 50
-  defense: 1111
+  str: 150
+  mag: 2
+  def: 50
   stateUI: {fileID: 2037734548}
   monsterStateUI: {fileID: 0}
   isMonster: 0
   cJobs: 0
+  state: 0
 --- !u!1 &925137550
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,8 +2483,10 @@ MonoBehaviour:
   - {fileID: 1999168119}
   - {fileID: 1021832884}
   - {fileID: 421345385}
+  playerCurrentState: 0
   monsterObj: {fileID: 120634873}
   monsterStateUIobj: {fileID: 1625341401}
+  monsterCurrentState: 0
   mainCanvas: {fileID: 243677944}
   currentCharacterStateUI: {fileID: 0}
   currentPlayer: {fileID: 0}
@@ -4265,7 +4075,6 @@ RectTransform:
   - {fileID: 1568170384}
   - {fileID: 163138911}
   - {fileID: 234451602}
-  - {fileID: 297384512}
   m_Father: {fileID: 1674488463}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

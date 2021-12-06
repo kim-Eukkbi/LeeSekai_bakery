@@ -48,19 +48,23 @@ public class DungeonUIManager : MonoBehaviour
         monsterCurrentState = State.Live; // 몬스터의 현재 상태를 정의
         playerCurrentState = State.Live; // 캐릭터의 현재 상태를 정의
         StateTweens = new List<Tween>();
-        StartCoroutine(UpStateUI()); 
+        StartCoroutine(UpStateUI());
         StartCoroutine(StartFightProcess());
         monsterMaxHp = monsterStateUIobj.GetComponent<MonsterStateUI>().hp;
     }
 
     public void AttackEachOther(bool isPlayer) //서로 때리는걸 계산하는 부분
     {
-        if(isPlayer)
+        if (isPlayer)
         {
-            MonsterStateUI monsterStateUI = monsterStateUIobj.GetComponent<MonsterStateUI>(); 
-            monsterStateUI.stateSliders[0].DOValue((monsterStateUI.hp - currentCharacterStateUI.attackDamage) / monsterMaxHp, .8f); //적의 체력 게이지에서 받은 데미지를 빼는 계산을 한다
+            MonsterStateUI monsterStateUI = monsterStateUIobj.GetComponent<MonsterStateUI>();
+            float result = currentCharacterStateUI.str - monsterStateUI.defense < 0 ? 1f : currentCharacterStateUI.str - monsterStateUI.defense;
+            Debug.Log(result);
+            monsterStateUI.stateSliders[0].DOValue((monsterStateUI.hp - result) / monsterMaxHp, .8f); //적의 체력 게이지에서 받은 데미지를 빼는 계산을 한다
 
-            monsterStateUI.hp -= currentCharacterStateUI.attackDamage; // 피깎기
+            monsterStateUI.hp -= result; // 피깎기
+
+
             if (monsterStateUI.hp <= 0) //만약 피가 0 이하라면 
             {
                 monsterStateUI.DeadMonster(); //적 죽음 함수를 실행
@@ -69,15 +73,17 @@ public class DungeonUIManager : MonoBehaviour
         }
         else
         {
-            currentCharacterStateUI.stateSliders[0].DOValue((currentCharacterStateUI.hp - monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage) / playerMaxHp, .8f); //적이 나를 때렸을때 가장 최근에 공격한 플레이어의 체력 게이지를 계산 하여 깎음
-            currentCharacterStateUI.hp -= monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage; //피 깎기
+            float result = monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage - currentCharacterStateUI.def < 0 ? 1f : monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage - currentCharacterStateUI.def;
+            Debug.Log(result);
+            currentCharacterStateUI.stateSliders[0].DOValue((currentCharacterStateUI.hp - result) / playerMaxHp, .8f); //적이 나를 때렸을때 가장 최근에 공격한 플레이어의 체력 게이지를 계산 하여 깎음
+            currentCharacterStateUI.hp -= result; //피 깎기
         }
     }
 
     public void DownFightUI() //한번의 타격이 끝난 후 전투매뉴를 내리는 함수
     {
         Sequence Uiseq = DOTween.Sequence();
-        foreach (var item in fightbuttons) item.GetComponent<Button>().interactable = false; 
+        foreach (var item in fightbuttons) item.GetComponent<Button>().interactable = false;
         Uiseq.Append(fightbuttons[3].transform.DOMoveY(fightbuttons[3].transform.position.y - 3.1f, .5f));
         Uiseq.Insert(.1f, fightbuttons[2].transform.DOMoveY(fightbuttons[2].transform.position.y - 3.1f, .5f));
         Uiseq.Insert(.2f, fightbuttons[1].transform.DOMoveY(fightbuttons[1].transform.position.y - 3.1f, .5f));
@@ -101,7 +107,7 @@ public class DungeonUIManager : MonoBehaviour
         {
             int a = i;
             StateTweens.Add(characterStateObjs[a].stateSliders[2]
-            .DOValue(1, characterStateObjs[a].attackTime).SetEase(Ease.Linear).OnComplete(() => //플레이어의 전투게이지를 채우는 코드
+            .DOValue(1, characterStateObjs[a].sp).SetEase(Ease.Linear).OnComplete(() => //플레이어의 전투게이지를 채우는 코드
             {
                 monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack[0].Pause(); // 플레이어의 전투게이지가 꽉 찼다면 몬스터의 전투 게이지를 멈춤
                 SetFightUI(a); //전투매뉴를 올림 a는 3명중 하나를 알기 위한 Index
@@ -131,7 +137,7 @@ public class DungeonUIManager : MonoBehaviour
 
 
         monsterObj.transform.DOMoveX(monsterObj.transform.position.x + .5f, .5f);// 몬스터의 위치를 조금 뒤로
-        StartCoroutine(SetFightMenuUiUP(i)); 
+        StartCoroutine(SetFightMenuUiUP(i));
     }
     public IEnumerator SetFightMenuUiUP(int i) //2명의 UI를 내렸으니 선택된 캐릭터의 UI를 왼쪽으로 옴기고 전투 매뉴를 올림
     {
