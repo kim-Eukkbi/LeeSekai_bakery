@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 949d8f05634fd72469ddf477a8a03bc7, type: 3}
-  m_Name: CarrotSeed
+  m_Script: {fileID: 11500000, guid: e24759e19fa6b5744a834229ee864e5c, type: 3}
+  m_Name: CarrotItem
   m_EditorClassIdentifier: 
-  itemName: CarrotSeed
-  itemSprite: {fileID: 9035215791827526736, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
-  cropType: {fileID: 11400000, guid: cc797e9fb32550247b1e4f79c1b8c792, type: 2}
+  itemName: Carrot
+  itemSprite: {fileID: 2137353687615899911, guid: 97edc1edd4e337148b86d7a5974913e8, type: 3}
+  canNest: 1

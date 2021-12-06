@@ -98,35 +98,48 @@ public class InventoryManager : MonoBehaviour
         return selectedQuickSlot;
     }
 
-    public void UpdateAllInventoryUI()
-    {
-        //모든 인벤토리의 UI를 업데이트해준다
-
-        foreach (InventorySlot inventory in quickSlots)
-        {
-            inventory.UpdateUI();
-        }
-
-        foreach (InventorySlot inventory in inventorySlots)
-        {
-            inventory.UpdateUI();
-        }
-    }
-
-    public void AddItem(Item item)
+    public void AddItem(Item item, int amount = 1)
     {
         //이 함수는 아이템을 받아서 비어있는 인벤토리에 넣어주는 함수이다
         //넣어주는 순서는 퀵슬롯부터 채운 후 인벤토리에서는 위에서부터 채울 예정이다
 
+        //비어있는 슬롯을 찾기전에 이미 같은 아이템슬롯이 있는지 찾아봐
+        InventorySlot slot = FindSameItemSlot(item);
+
+        if(slot != null)
+        {
+            //같은 아이템슬롯을 찾았다면 갯수만큼 더해주고 리턴
+            slot.AddItem(amount);
+            return;
+        }
+
+        //같은 아이템 슬롯이 없으니까 빈슬롯을 찾아본다
+        slot = FindEmptySlot();
+
+        if(slot != null)
+        {
+            //빈 슬롯을 찾았다면 아이템 갯수만큼 넣어주고 리턴
+            slot.SetItem(item, amount);
+            return;
+        }
+
+        //여기까지 왔다는건 인벤토리가 꽉찼다는 거다
+        print("인벤토리가 꽉 찼습니다");
+
+        //지금 SelectedSlot에서 Harvest를 호출하면 수확이 씹히는 버그가 있다
+    }
+
+    public InventorySlot FindEmptySlot()
+    {
         InventorySlot emptySlot = null;
 
         //퀵슬롯 중에 비어있는 슬롯을 찾아
-        foreach (InventorySlot inventory in quickSlots)
+        foreach (InventorySlot slot in quickSlots)
         {
             //비어있는 솔롯을 찾아서 empty슬롯에 할당해줘
-            if (inventory.IsEmpty())
+            if (slot.IsEmpty())
             {
-                emptySlot = inventory;
+                emptySlot = slot;
                 break;
             }
         }
@@ -134,24 +147,54 @@ public class InventoryManager : MonoBehaviour
         if (emptySlot == null)
         {
             //퀵슬롯을 다돌았는데도 없으면 인벤토리 슬롯을 뒤져바
-            foreach (InventorySlot inventory in inventorySlots)
+            foreach (InventorySlot slot in inventorySlots)
             {
                 //비어있는 솔롯을 찾아서 empty슬롯에 할당해줘
-                if (inventory.IsEmpty())
+                if (slot.IsEmpty())
                 {
-                    emptySlot = inventory;
+                    emptySlot = slot;
                     break;
                 }
             }
         }
 
-        if (emptySlot == null)
+        //여기까지 왔는데 없으면 인벤토리 슬롯이 꽉찬거
+        return emptySlot;
+    }
+
+    public InventorySlot FindSameItemSlot(Item item)
+    {
+        //item을 가지고 있는 슬롯이 이미 있을경우 슬롯을 찾아준다
+
+        InventorySlot sameItemSlot = null;
+
+        //퀵슬롯부터 뒤져보자
+        foreach (InventorySlot slot in quickSlots)
         {
-            //이경우에는 인벤토리가 꽉찬거니까 리턴을 박아주는게 맞겠지?
-            return;
+            if(slot.NowItem() == item)
+            {
+                //슬롯에있는 아이템과 아이템이 같다면 브레이크
+                sameItemSlot = slot;
+                break;
+            }
         }
 
-        //비어있는 솔롯을 찾았다면 아이템을 넣어줘
-        emptySlot.SetItem(item);
+        //퀵슬롯을 뒤졌는데도 없어 그러면?
+        if(sameItemSlot == null)
+        {
+            //인벤토리 슬롯도 뒤져봐 한번
+            foreach (InventorySlot slot in inventorySlots)
+            {
+                if (slot.NowItem() == item)
+                {
+                    //슬롯에있는 아이템과 아이템이 같다면 브레이크
+                    sameItemSlot = slot;
+                    break;
+                }
+            }
+        }
+
+        //여기까지 왔는데도 null이면 같은게 없는거다
+        return sameItemSlot;
     }
 }

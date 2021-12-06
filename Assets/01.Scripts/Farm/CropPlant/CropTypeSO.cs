@@ -19,6 +19,8 @@ public class CropTypeSO : ScriptableObject
     public string cropName;
     //이건 성장하는 스프라이트들
     public List<Sprite> growSprite;
+    //이건 뭐냐, 바로 수확했을 때 주는 아이템
+    public ItemSO harvestItem;
     //프리팹
     public Transform prefab;
     //성장 가능한 계절

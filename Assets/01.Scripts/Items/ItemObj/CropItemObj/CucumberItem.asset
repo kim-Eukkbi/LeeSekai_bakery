@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 949d8f05634fd72469ddf477a8a03bc7, type: 3}
-  m_Name: TomatoSeed
+  m_Script: {fileID: 11500000, guid: e24759e19fa6b5744a834229ee864e5c, type: 3}
+  m_Name: CucumberItem
   m_EditorClassIdentifier: 
-  itemName: TomatoSeed
-  itemSprite: {fileID: 6509437560842045020, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
-  cropType: {fileID: 11400000, guid: 522453f243490f445977c4fef4902509, type: 2}
+  itemName: Cucumber
+  itemSprite: {fileID: 6108182826611319935, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  canNest: 1
