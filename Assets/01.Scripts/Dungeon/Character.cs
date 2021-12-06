@@ -24,11 +24,12 @@ public class Character : MonoBehaviour
 {
     public string cName; //캐릭터 이름
     public Sprite image; //캐릭터 이미지
-    public float attackTime; //캐릭터 전투준비 게이지가 차오르는 시간
+    public float sp; //캐릭터 전투준비 게이지가 차오르는 시간 // 캐릭터 스피드
     public float hp;//캐릭터 체력
     public float mp;//캐릭터 마력
-    public float attackDamage;//캐릭터 데미지 
-    public float defense;//캐릭터 방어력
+    public float str;//캐릭터 기본 (물리) 데미지 
+    public float mag;//캐릭터 마법 데미지
+    public float def;//캐릭터 방어력
     public StateUI stateUI;//캐릭터 UI
     public MonsterStateUI monsterStateUI; // 몬스터 UI
     public bool isMonster = false; // 이 캐릭터가 몬스터인지 플레이어인지 bool
@@ -45,11 +46,12 @@ public class Character : MonoBehaviour
     {
         stateUI.cName.text = cName;
         stateUI.cImage.sprite = image;
-        stateUI.attackTime = attackTime;
+        stateUI.sp = sp;
         stateUI.hp = hp;
         stateUI.mp = mp;
-        stateUI.attackDamage = attackDamage;
-        stateUI.defense = defense;
+        stateUI.str = str;
+        stateUI.mag = mag;
+        stateUI.def = def;
         stateUI.cJobs = cJobs;
         stateUI.state = state;
     }
@@ -58,11 +60,11 @@ public class Character : MonoBehaviour
     {
         monsterStateUI.mName.text = cName;
         monsterStateUI.mImage.sprite = image;
-        monsterStateUI.attackTime = attackTime;
+        monsterStateUI.attackTime = sp;
         monsterStateUI.hp = hp;
         monsterStateUI.mp = mp;
-        monsterStateUI.attackDamage = attackDamage;
-        monsterStateUI.defense = defense;
+        monsterStateUI.attackDamage = str;
+        monsterStateUI.defense = def;
         monsterStateUI.state = state;
     }
 }

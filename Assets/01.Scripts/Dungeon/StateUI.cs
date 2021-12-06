@@ -12,9 +12,10 @@ public class StateUI : MonoBehaviour //이니셜라이즈로 받아오는 수치들
     public List<Slider> stateSliders;
     public float hp;
     public float mp;
-    public float attackDamage;
-    public float defense;
-    public float attackTime;
+    public float str;
+    public float mag;
+    public float def;
+    public float sp;
     public Jobs cJobs;
     public State state;
 }
