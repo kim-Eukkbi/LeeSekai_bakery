@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a407ff16bfcacb84aa7c5db9f445f265, type: 3}
-  m_Name: WateringCan
+  m_Script: {fileID: 11500000, guid: c999721252047074ca5f53c619e6f4e4, type: 3}
+  m_Name: Hand
   m_EditorClassIdentifier: 
-  itemName: WateringCan
-  itemSprite: {fileID: 5508725064705088119, guid: a635e1473579e6143ad7a8635fc80cb8, type: 3}
+  itemName: Hand
+  itemSprite: {fileID: -4481832748183578771, guid: 8a50ac95aeca2b240b23e075e43d78bd, type: 3}
   canNest: 0

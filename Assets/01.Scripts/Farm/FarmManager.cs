@@ -24,7 +24,6 @@ public class FarmManager : MonoBehaviour
         mainCam = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
@@ -36,8 +35,8 @@ public class FarmManager : MonoBehaviour
             {
                 //print(hit.transform.gameObject.name);
 
-                Item item = InventoryManager.Instance.NowSelectedItem();
-                item.UseItem(hit, player);
+                InventorySlot inventorySlot = InventoryManager.Instance.NowSelectedInventory();
+                inventorySlot.UseItem(hit, player);
             }
         }
     }

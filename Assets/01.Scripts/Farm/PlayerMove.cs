@@ -156,6 +156,8 @@ public class PlayerMove : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        //나중에 피직스2D 사각형 써가지고?
+        //클릭지점에서 제일 가까운놈 가져오는것도 괜춘할듯
         Gizmos.DrawWireSphere(transform.position, range);
     }
 }

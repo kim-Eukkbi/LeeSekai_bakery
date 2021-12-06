@@ -92,8 +92,66 @@ public class InventoryManager : MonoBehaviour
         selectedInventoryTrm.anchoredPosition = new Vector2(selectedInventoryXPoints[idx], selectedInventoryYPoint);
     }
 
-    public Item NowSelectedItem()
+    public InventorySlot NowSelectedInventory()
     {
-        return selectedQuickSlot.item;
+        //선택되어있는 퀵슬롯을 리턴
+        return selectedQuickSlot;
+    }
+
+    public void UpdateAllInventoryUI()
+    {
+        //모든 인벤토리의 UI를 업데이트해준다
+
+        foreach (InventorySlot inventory in quickSlots)
+        {
+            inventory.UpdateUI();
+        }
+
+        foreach (InventorySlot inventory in inventorySlots)
+        {
+            inventory.UpdateUI();
+        }
+    }
+
+    public void AddItem(Item item)
+    {
+        //이 함수는 아이템을 받아서 비어있는 인벤토리에 넣어주는 함수이다
+        //넣어주는 순서는 퀵슬롯부터 채운 후 인벤토리에서는 위에서부터 채울 예정이다
+
+        InventorySlot emptySlot = null;
+
+        //퀵슬롯 중에 비어있는 슬롯을 찾아
+        foreach (InventorySlot inventory in quickSlots)
+        {
+            //비어있는 솔롯을 찾아서 empty슬롯에 할당해줘
+            if (inventory.IsEmpty())
+            {
+                emptySlot = inventory;
+                break;
+            }
+        }
+
+        if (emptySlot == null)
+        {
+            //퀵슬롯을 다돌았는데도 없으면 인벤토리 슬롯을 뒤져바
+            foreach (InventorySlot inventory in inventorySlots)
+            {
+                //비어있는 솔롯을 찾아서 empty슬롯에 할당해줘
+                if (inventory.IsEmpty())
+                {
+                    emptySlot = inventory;
+                    break;
+                }
+            }
+        }
+
+        if (emptySlot == null)
+        {
+            //이경우에는 인벤토리가 꽉찬거니까 리턴을 박아주는게 맞겠지?
+            return;
+        }
+
+        //비어있는 솔롯을 찾았다면 아이템을 넣어줘
+        emptySlot.SetItem(item);
     }
 }
