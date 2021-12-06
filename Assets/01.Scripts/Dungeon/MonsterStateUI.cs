@@ -11,16 +11,16 @@ public class MonsterStateUI : MonoBehaviour //¸ó½ºÅÍ ¼öÄ¡¸¦ ÀÌ´Ï¼È ¶óÀÌÁî ÇØ¼­ °
     public List<Slider> stateSliders;
     public float hp;
     public float mp;
-    public float attackDamage;
-    public float defense;
-    public float attackTime;
+    public float str;
+    public float def;
+    public float sp;
     public State state;
 
     public List<Tween> readyAttack = new List<Tween>(); //Æ®À© ¸®½ºÆ®
 
     public void Start()
     {
-        readyAttack.Add(stateSliders[2].DOValue(1,attackTime).SetEase(Ease.Linear).OnComplete(() => //¸ó½ºÅÍÀÇ ÀüÅõ°ÔÀÌÁö¸¦ Ã¤¿öÁÖ´Â Æ®À©À» ¸®½ºÆ®¿¡ Ãß°¡
+        readyAttack.Add(stateSliders[2].DOValue(1,sp).SetEase(Ease.Linear).OnComplete(() => //¸ó½ºÅÍÀÇ ÀüÅõ°ÔÀÌÁö¸¦ Ã¤¿öÁÖ´Â Æ®À©À» ¸®½ºÆ®¿¡ Ãß°¡
         {
             SetMonsterAttack();//°ÔÀÌÁö°¡ ²Ë Ã¡´Ù¸é ¸ó½ºÅÍ°¡ Å¸°ÝÇÏµµ·Ï ÇÔ¼ö Ãß°¡
         }));
@@ -37,7 +37,7 @@ public class MonsterStateUI : MonoBehaviour //¸ó½ºÅÍ ¼öÄ¡¸¦ ÀÌ´Ï¼È ¶óÀÌÁî ÇØ¼­ °
         DungeonUIManager.instance.SetDefaultUI(); //¸ó½ºÅÍ°¡ ¶§¸®±â ¶§¹®¿¡ ¸ðµç UI¸¦ ÃÊ±âÈ­ ÇØÁÙ ÇÊ¿ä°¡ ÀÖÀ½
         for (int i = 0; i < 3; i++)
         {
-            DungeonUIManager.instance.StateTweens[i].Pause(); //¸ðµç ÇÃ·¹ÀÌ¾îÀÇ °ÔÀÌÁö°¡ Â÷´Â°É ¸ØÃã
+            DungeonUIManager.instance.stateTweens[i].Pause(); //¸ðµç ÇÃ·¹ÀÌ¾îÀÇ °ÔÀÌÁö°¡ Â÷´Â°É ¸ØÃã
         }
        
         StartCoroutine(AttackMonster()); // ¸ó½ºÅÍ°¡ Å¸°ÝÇÏ±â À§ÇÑ ÇÔ¼ö
@@ -67,7 +67,13 @@ public class MonsterStateUI : MonoBehaviour //¸ó½ºÅÍ ¼öÄ¡¸¦ ÀÌ´Ï¼È ¶óÀÌÁî ÇØ¼­ °
     {
         for (int i = 0; i < 3; i++)
         {
-            DungeonUIManager.instance.StateTweens[i].Play(); // ´Ù½Ã ¸ðµç Ä³¸¯ÅÍÀÇ ÀüÅõ ÁØºñ °ÔÀÌÁö¸¦ ¿Ã·ÁÁÖ´Â ÇÔ¼ö¸¦ ÄÑÁÜ
+            if (DungeonUIManager.instance.playerState[i].Equals(State.Dead))
+            {
+                DungeonUIManager.instance.stateTweens[i].Pause();
+                Debug.Log("Stop Living");
+                continue;
+            }
+            DungeonUIManager.instance.stateTweens[i].Play(); // ´Ù½Ã ¸ðµç Ä³¸¯ÅÍÀÇ ÀüÅõ ÁØºñ °ÔÀÌÁö¸¦ ¿Ã·ÁÁÖ´Â ÇÔ¼ö¸¦ ÄÑÁÜ
         }
         yield return null; //ÇÑÇÁ·¹ÀÓ ±â´Ù·È´Ù°¡
         readyAttack[0].Play(); // ´Ù½Ã ¸ó½ºÅÍµµ ÀüÅõÁØºñ °ÔÀÌÁö¸¦ Ã¤¿ò
@@ -78,9 +84,9 @@ public class MonsterStateUI : MonoBehaviour //¸ó½ºÅÍ ¼öÄ¡¸¦ ÀÌ´Ï¼È ¶óÀÌÁî ÇØ¼­ °
         DungeonUIManager.instance.monsterObj.SetActive(false); // ÀÏ´Ü ±×³É ²¨¹ö¸®´Â °É·Î ÇØº¸ÀÚ
         DungeonUIManager.instance.monsterStateUIobj.transform.DOMoveX(DungeonUIManager.instance.monsterStateUIobj.transform.position.x + 6.5f, .8f); // ¸ó½ºÅÍ UI¸¦ ´Ù½Ã ¿À¸¥ÂÊÀ¸·Î
         readyAttack[0].Pause();
-        DungeonUIManager.instance.StateTweens[0].Pause();
-        DungeonUIManager.instance.StateTweens[1].Pause();
-        DungeonUIManager.instance.StateTweens[2].Pause();
+        DungeonUIManager.instance.stateTweens[0].Pause();
+        DungeonUIManager.instance.stateTweens[1].Pause();
+        DungeonUIManager.instance.stateTweens[2].Pause();
     }
 
 

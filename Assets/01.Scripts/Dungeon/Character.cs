@@ -60,11 +60,11 @@ public class Character : MonoBehaviour
     {
         monsterStateUI.mName.text = cName;
         monsterStateUI.mImage.sprite = image;
-        monsterStateUI.attackTime = sp;
+        monsterStateUI.sp = sp;
         monsterStateUI.hp = hp;
         monsterStateUI.mp = mp;
-        monsterStateUI.attackDamage = str;
-        monsterStateUI.defense = def;
+        monsterStateUI.str = str;
+        monsterStateUI.def = def;
         monsterStateUI.state = state;
     }
 }

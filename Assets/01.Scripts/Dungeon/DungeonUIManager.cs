@@ -35,30 +35,46 @@ public class DungeonUIManager : MonoBehaviour
 
     [Header("ECT")]
     public Canvas mainCanvas;
-    public List<Tween> StateTweens;
+    public List<Tween> stateTweens;
     [HideInInspector]
     public StateUI currentCharacterStateUI;
     [HideInInspector]
     public GameObject currentPlayer;
     private float playerMaxHp;
     private float monsterMaxHp;
+    [HideInInspector]
+    public List<State> playerState = new List<State>();// 캐릭터의 현재 상태를 정의
+    private int currentPlayerIndex = 0;
+
+
 
     public void Start()
     {
         monsterCurrentState = State.Live; // 몬스터의 현재 상태를 정의
-        playerCurrentState = State.Live; // 캐릭터의 현재 상태를 정의
-        StateTweens = new List<Tween>();
+        playerCurrentState = State.Live;
+        stateTweens = new List<Tween>();
         StartCoroutine(UpStateUI());
         StartCoroutine(StartFightProcess());
         monsterMaxHp = monsterStateUIobj.GetComponent<MonsterStateUI>().hp;
+        playerState.Add(State.Live);
+        playerState.Add(State.Live);
+        playerState.Add(State.Live);
     }
+
+ /*   public void Update()
+    {
+        if(playerState[currentPlayerIndex] == State.Dead)
+        {
+            stateTweens[currentPlayerIndex].Pause(); //공격 트윈 중지
+        }*/
+    //}
 
     public void AttackEachOther(bool isPlayer) //서로 때리는걸 계산하는 부분
     {
         if (isPlayer)
         {
             MonsterStateUI monsterStateUI = monsterStateUIobj.GetComponent<MonsterStateUI>();
-            float result = currentCharacterStateUI.str - monsterStateUI.defense < 0 ? 1f : currentCharacterStateUI.str - monsterStateUI.defense;
+            float result = currentCharacterStateUI.str - monsterStateUI.def < 0 ? 1f : currentCharacterStateUI.str - monsterStateUI.def;
             Debug.Log(result);
             monsterStateUI.stateSliders[0].DOValue((monsterStateUI.hp - result) / monsterMaxHp, .8f); //적의 체력 게이지에서 받은 데미지를 빼는 계산을 한다
 
@@ -73,11 +89,27 @@ public class DungeonUIManager : MonoBehaviour
         }
         else
         {
-            float result = monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage - currentCharacterStateUI.def < 0 ? 1f : monsterStateUIobj.GetComponent<MonsterStateUI>().attackDamage - currentCharacterStateUI.def;
+            float result = monsterStateUIobj.GetComponent<MonsterStateUI>().str - currentCharacterStateUI.def <
+                0 ? 1f : monsterStateUIobj.GetComponent<MonsterStateUI>().str - currentCharacterStateUI.def;
             Debug.Log(result);
             currentCharacterStateUI.stateSliders[0].DOValue((currentCharacterStateUI.hp - result) / playerMaxHp, .8f); //적이 나를 때렸을때 가장 최근에 공격한 플레이어의 체력 게이지를 계산 하여 깎음
             currentCharacterStateUI.hp -= result; //피 깎기
+
+            if(currentCharacterStateUI.hp <= 0) // 만약 피가 0이하라면
+            {
+                playerState[currentPlayerIndex] = State.Dead;
+                PlayerDead(); // 플레이어 죽음 함수
+               // Debug.Log(playerState[currentPlayerIndex]);
+            }
         }
+    }
+
+    public void PlayerDead()
+    {
+        currentCharacterStateUI.GetComponentInChildren<CanvasGroup>().DOFade(1, .5f); //켄버스 그룹에서 찾아 어둡게 하는 함수
+        stateTweens[currentPlayerIndex].Pause(); //공격 트윈 중지
+        stateTweens[3 + currentPlayerIndex].Pause(); //공격 트윈 중지
+        PlayerObjs[currentPlayerIndex].SetActive(false); //플레이어 오브젝트 끄기
     }
 
     public void DownFightUI() //한번의 타격이 끝난 후 전투매뉴를 내리는 함수
@@ -106,20 +138,20 @@ public class DungeonUIManager : MonoBehaviour
         for (int i = 0; i < characterStateObjs.Count; i++)
         {
             int a = i;
-            StateTweens.Add(characterStateObjs[a].stateSliders[2]
+            stateTweens.Add(characterStateObjs[a].stateSliders[2]
             .DOValue(1, characterStateObjs[a].sp).SetEase(Ease.Linear).OnComplete(() => //플레이어의 전투게이지를 채우는 코드
             {
                 monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack[0].Pause(); // 플레이어의 전투게이지가 꽉 찼다면 몬스터의 전투 게이지를 멈춤
                 SetFightUI(a); //전투매뉴를 올림 a는 3명중 하나를 알기 위한 Index
             }));
-            StateTweens[i].SetAutoKill(false); //닷트윈을 Rewind 시키기 위한 오토킬 해제
+            stateTweens[i].SetAutoKill(false); //닷트윈을 Rewind 시키기 위한 오토킬 해제
         }
 
         for (int i = 0; i < characterStateObjs.Count; i++) //전투 게이지가 꽉 찼을때 자연스럽게 줄여주는 닷트윈을 추가
         {
             int a = i; //닷트윈은 i 바로 쓰면 안됨
-            StateTweens.Add(characterStateObjs[a].stateSliders[2].DOValue(0, .5f).SetEase(Ease.Linear));  //줄여주는 닷트윈을 원래 있던 채우는 트윈 뒷쪽에 추가
-            StateTweens[3 + a].Pause().SetAutoKill(false);  //바로 줄어들면 안되니까 닷트윈 멈추고 리와인드 
+            stateTweens.Add(characterStateObjs[a].stateSliders[2].DOValue(0, .5f).SetEase(Ease.Linear));  //줄여주는 닷트윈을 원래 있던 채우는 트윈 뒷쪽에 추가
+            stateTweens[3 + a].Pause().SetAutoKill(false);  //바로 줄어들면 안되니까 닷트윈 멈추고 리와인드 
         }
     }
     public void SetFightUI(int i) //3명중 2명 UI를 내리고 전투매뉴를 올림
@@ -127,12 +159,14 @@ public class DungeonUIManager : MonoBehaviour
         for (int j = 0; j < characterStateObjs.Count; j++) //나머지 2명의 UI를 내리고 그들의 트윈도 중지함
         {
             if (i == j) continue;
-            StateTweens[j].Pause(); // 나머지 2명 트윈 중지
+            stateTweens[j].Pause(); // 나머지 2명 트윈 중지
             characterStateObjs[j].transform.DOMoveY(characterStateObjs[j].transform.position.y - 5, .8f);// 나머지 2명 UI 내리기
             ponCharacterStateObjs[j].gameObject.SetActive(false); //부드러운 움직임을 위한 비어있는 오브젝트 꺼서 정렬 하기
         }
+        currentPlayerIndex = i;
         currentCharacterStateUI = characterStateObjs[i]; //선택된 캐릭터의 UI를 저장
         currentPlayer = PlayerObjs[i]; //선택된 캐릭터의 오브젝트를 저장
+        playerCurrentState = playerState[i];
         playerMaxHp = currentCharacterStateUI.hp; // 선택된 캐릭터의 최대 채력을 저장
 
 
@@ -142,10 +176,10 @@ public class DungeonUIManager : MonoBehaviour
     public IEnumerator SetFightMenuUiUP(int i) //2명의 UI를 내렸으니 선택된 캐릭터의 UI를 왼쪽으로 옴기고 전투 매뉴를 올림
     {
         yield return new WaitForSeconds(.5f);
-        StateTweens[3 + i].Rewind(); //전투 게이지를 줄이는 트윈을 초기화 함
-        StateTweens[3 + i].Play().OnComplete(() => //전투게이지를 줄이고 초기화 한 뒤 시작하고 초기화를 완료하면 전투 게이지를 채우는 트윈을 초기화 함
+        stateTweens[3 + i].Rewind(); //전투 게이지를 줄이는 트윈을 초기화 함
+        stateTweens[3 + i].Play().OnComplete(() => //전투게이지를 줄이고 초기화 한 뒤 시작하고 초기화를 완료하면 전투 게이지를 채우는 트윈을 초기화 함
         {
-            StateTweens[i].Rewind();//전투게이지 트윈 초기화
+            stateTweens[i].Rewind();//전투게이지 트윈 초기화
         });
 
         //PlayerObjs[i].transform.DOMoveX(PlayerObjs[i].transform.position.x + .5f, .5f);
@@ -172,7 +206,17 @@ public class DungeonUIManager : MonoBehaviour
         monsterObj.transform.DOMoveX(monsterObj.transform.position.x - .5f, .5f); // 아까 살짝 민거 다시 땡기기
         StartCoroutine(UpStateUI());//StateUI를 원위치로
         yield return new WaitForSeconds(.8f);
-        for (int i = 0; i < 3; i++) StateTweens[i].Play(); // 다시 전투 게이지를 채워주는 트윈을 시작함
+        for (int i = 0; i < 3; i++)
+        {
+            if (playerState[i].Equals(State.Dead))
+            {
+                stateTweens[i].Pause();
+                Debug.Log("Stop Living");
+                continue;
+            }
+                
+            stateTweens[i].Play(); // 다시 전투 게이지를 채워주는 트윈을 시작함
+        }
         monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack[0].Play(); //적 전투 게이지를 채워주는 트윈을 시작함
     }
 
