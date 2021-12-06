@@ -31805,7 +31805,7 @@ MonoBehaviour:
   now_dayOfWeek: "\uC6D4"
   timeText: {fileID: 961536470}
   dateText: {fileID: 607835429}
-  multifilcation: 1
+  multifilcation: -1
 --- !u!114 &1880608472
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!1 &2076732373108295496
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nullSprite: {fileID: -4481832748183578771, guid: 8a50ac95aeca2b240b23e075e43d78bd, type: 3}
-  handItem: {fileID: 11400000, guid: 7f84c0d0c93b56e4a9dde5e367306314, type: 2}
+  nullItem: {fileID: 11400000, guid: 7f84c0d0c93b56e4a9dde5e367306314, type: 2}
   image: {fileID: 2076732373944602920}
   countText: {fileID: 1413288202019710245}
   item: {fileID: 0}

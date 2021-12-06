@@ -84,9 +84,11 @@ public class Crop : MonoBehaviour
     public void Harvest()
     {
         //뭐 미래에 인벤토리가 만들어지면 아이템을 추가해 주면 되겠죠?
+        InventoryManager.Instance.AddItem(cropType.harvestItem);
 
         //뭘 수확했는지도 알려주면 좋겠지?
-        print(gameObject.name);
+        //print(gameObject.name);
+
         //일단 지금은 없애기만 하자
         Destroy(this.gameObject);
     }

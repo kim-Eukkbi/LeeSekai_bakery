@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 949d8f05634fd72469ddf477a8a03bc7, type: 3}
-  m_Name: LettuceSeed
+  m_Name: PotatoSeed
   m_EditorClassIdentifier: 
-  itemName: Lettuce_Seed
-  itemSprite: {fileID: 2363096859119756165, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
-  cropType: {fileID: 11400000, guid: f72aa555ac0adff459a0379e73052f2a, type: 2}
+  itemName: PotatoSeed
+  itemSprite: {fileID: 6761164967045977113, guid: a635e1473579e6143ad7a8635fc80cb8, type: 3}
+  canNest: 1
+  cropType: {fileID: 11400000, guid: 4dd3b8efae880b94c878a71018ef66ce, type: 2}
