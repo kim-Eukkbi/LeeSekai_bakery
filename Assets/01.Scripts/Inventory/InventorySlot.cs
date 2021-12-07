@@ -8,8 +8,8 @@ public class InventorySlot : MonoBehaviour
     //인벤토리 슬롯은 말그대로 인벤토리 슬롯이 하나씩 달고있을 스크립트다
 
     //아무것도 없을 때 이미지
-    public Sprite nullSprite;
-    public Item nullItem;
+    public Sprite handSprite;
+    public Item handItem;
 
     //스프라이트 이미지
     public Image image;
@@ -21,14 +21,14 @@ public class InventorySlot : MonoBehaviour
     private Item item;
     //몇개나 가지고있는지
     [SerializeField]
-    private int count;
+    private int count = 0;
 
     private void Awake()
     {
         if(item == null)
         {
             //아이템이 없다면 아이템은 손으로 해준다
-            item = nullItem;
+            item = handItem;
         }
 
         //UI 한번 업데이트 해주고
@@ -76,26 +76,30 @@ public class InventorySlot : MonoBehaviour
         //UseItem 호출해준다
         tryUse = item.UseItem(hit, player);
 
-        //아이템이 중첩 가능하다면 && 아이템 사용에 성공했다면
-        if (item.canNest && tryUse)
+        //아이템 사용에 성공했다면
+        if(tryUse)
         {
-            //하나를 빼주고
-            count--;
-            //만약에 없다면 손으로 바꿔주고
-            if (count <= 0)
+            //아이템이 중첩 가능하다면
+            if (item.canNest)
             {
-                item = nullItem;
-            }
+                //하나를 빼주고
+                count--;
+                //만약에 없다면 손으로 바꿔주고
+                if (count < 0)
+                {
+                    item = handItem;
+                }
 
-            //UI도 업데이트 해준다
-            UpdateUI();
+                //UI도 업데이트 해준다
+                UpdateUI();
+            }
         }
     }
 
     public bool IsEmpty()
     {
         //item이 없으면 true 있으면 false를 반환하겠지? 아니? 그래야만 해
-        return item == null || item == nullItem;
+        return item == null || item == handItem;
     }
 
     public void UpdateUI()
@@ -121,7 +125,7 @@ public class InventorySlot : MonoBehaviour
         else
         {
             //없으면 이미지도 없에고 카운트도 없에
-            image.sprite = nullSprite;
+            image.sprite = handSprite;
             countText.text = string.Empty;
         }
 

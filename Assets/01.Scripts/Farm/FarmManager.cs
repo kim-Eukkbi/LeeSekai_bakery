@@ -36,8 +36,22 @@ public class FarmManager : MonoBehaviour
             {
                 //print(hit.transform.gameObject.name);
                 
+                //현재 선택된 슬롯 뽑아오고
                 InventorySlot inventorySlot = InventoryManager.Instance.NowSelectedInventory();
-                inventorySlot.UseItem(hit, player);
+
+                //UseItem과 Harvest 분리 성공
+
+                //만약 선택된 슬롯의 현재 아이템이 손이라면
+                if(inventorySlot.NowItem() == inventorySlot.handItem)
+                {
+                    //수확해버려
+                    inventorySlot.NowItem().UseItem(hit, player);
+                }
+                else
+                {
+                    //아니라면 그대로 아이템 사용
+                    inventorySlot.UseItem(hit, player);
+                }
             }
         }
     }

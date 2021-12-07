@@ -40,9 +40,6 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]
     private List<InventorySlot> inventorySlots;
 
-    //아이템에 따라서 어떻게 사용하면 되는지를 알려주는 딕셔너리
-    //public Dictionary<Item, Action<RaycastHit, PlayerMove>> useItemActionDic;
-
     private void Awake()
     {
         if(Instance == null)
@@ -53,8 +50,6 @@ public class InventoryManager : MonoBehaviour
         //메모리를 할당해주자
         quickSlots = new List<InventorySlot>();
         inventorySlots = new List<InventorySlot>();
-
-        //useItemActionDic = new Dictionary<Item, Action<RaycastHit, PlayerMove>>();
 
         //부모의 자식오브젝트들의 컴포넌트를 리스트로 긁어온다
         quickSlots = quickSlockParent.GetComponentsInChildren<InventorySlot>().ToList();

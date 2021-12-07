@@ -488,8 +488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62e199d8ce20e745a43a525a89f8bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nullSprite: {fileID: -4481832748183578771, guid: 8a50ac95aeca2b240b23e075e43d78bd, type: 3}
-  nullItem: {fileID: 11400000, guid: 7f84c0d0c93b56e4a9dde5e367306314, type: 2}
+  handSprite: {fileID: -7617189025601368061, guid: 8a50ac95aeca2b240b23e075e43d78bd, type: 3}
+  handItem: {fileID: 11400000, guid: 7f84c0d0c93b56e4a9dde5e367306314, type: 2}
   image: {fileID: 2919730507071267296}
   countText: {fileID: 7553908432806481705}
   item: {fileID: 0}

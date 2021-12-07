@@ -13,32 +13,26 @@ public class SeedItemSO : Item
         //클릭한 곳에 있는 타일을 가져온다
         FarmTile farmTile = hit.transform.GetComponent<FarmTile>();
 
-        //아이템을 사용하려고 시도
-        bool tryUse = false;
-
         //farmTile이 없다면 리턴
-        if (farmTile == null) return tryUse;
+        if (farmTile == null) return false;
 
         //플레이어 팔길이보다 멀리 있다면 리턴
-        if (!player.IsInRange()) return tryUse;
+        if (!player.IsInRange()) return false;
 
         //젖어있지 않다면 리턴
-        if (!farmTile.isWet) return tryUse;
+        if (!farmTile.isWet) return false;
 
         //이미 작물이 심겨져 있다면 리턴
-        if (farmTile.isPlanted) return tryUse;
+        if (farmTile.isPlanted) return false;
 
         //플레이어가 동작할 수 없는 상태라면 리턴
-        if (!player.CanAction()) return tryUse;
-
-        //여기까지 와야 시도 성공
-        tryUse = true;
+        if (!player.CanAction()) return false;
 
         //이제 여기까지 왔으면 심을 수 있다는 거니까 심자
         farmTile.Plant(cropType);
         //애니메이션 재생해주는것도 잊지 말고
         player.PlayAnimation(player.PlantName);
 
-        return tryUse;
+        return true;
     }
 }
