@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CarrotItem
   m_EditorClassIdentifier: 
   itemName: Carrot
-  itemSprite: {fileID: 2137353687615899911, guid: 97edc1edd4e337148b86d7a5974913e8, type: 3}
+  itemSprite: {fileID: -291724316815980060, guid: 2c0afd2edfc0f3a49849e29b64d70744, type: 3}
   canNest: 1

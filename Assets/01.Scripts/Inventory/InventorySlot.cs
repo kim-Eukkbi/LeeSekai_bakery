@@ -85,7 +85,7 @@ public class InventorySlot : MonoBehaviour
                 //하나를 빼주고
                 count--;
                 //만약에 없다면 손으로 바꿔주고
-                if (count < 0)
+                if (count <= 0)
                 {
                     item = handItem;
                 }

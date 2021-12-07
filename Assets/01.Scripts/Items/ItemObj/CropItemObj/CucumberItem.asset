@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CucumberItem
   m_EditorClassIdentifier: 
   itemName: Cucumber
-  itemSprite: {fileID: 6108182826611319935, guid: aa1ee925d54efe942a1bf84bf4ca2964, type: 3}
+  itemSprite: {fileID: 97819316447809887, guid: 2c0afd2edfc0f3a49849e29b64d70744, type: 3}
   canNest: 1

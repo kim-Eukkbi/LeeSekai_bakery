@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TomatoItem
   m_EditorClassIdentifier: 
   itemName: Tomato
-  itemSprite: {fileID: 4719606397493336204, guid: 97edc1edd4e337148b86d7a5974913e8, type: 3}
+  itemSprite: {fileID: -1257365520308775443, guid: 2c0afd2edfc0f3a49849e29b64d70744, type: 3}
   canNest: 1
