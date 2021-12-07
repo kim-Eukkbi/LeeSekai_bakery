@@ -17,7 +17,7 @@ public class Crop : MonoBehaviour
     //성장 분기
     public float growQuarter;
     //몇초마다 자라는지 분기점
-    public float[] growPoionts = new float[3];
+    public float[] growPoionts = new float[5];
 
     //지금 몇번째 스프라이트인지
     public int pointIdx = 0;
@@ -43,12 +43,12 @@ public class Crop : MonoBehaviour
         //단위를 분으로 바꿀꺼니까 분으로 나눠준다
         growTime /= TimeManager.ONE_MIN_SEC;
 
-        //스프라이트 변화는 3번이니까 3개 분기로 나눠
-        growQuarter = growTime / 3;
+        //스프라이트 변화는 4번이니까 list.Count - 1로 나누자
+        growQuarter = growTime / 4;
 
         float temp = 0;
 
-        for (int i = 0; i < growPoionts.Length; i++)
+        for (int i = 0; i < 4; i++)
         {
             //임시 변수에 변화량을 계속 더해준다
             temp += growQuarter;
@@ -70,11 +70,13 @@ public class Crop : MonoBehaviour
 
             if (now_growTime >= growPoionts[pointIdx])
             {
+                //이러면 한번 자란거임
                 pointIdx++;
                 sr.sprite = cropType.growSprite[pointIdx];
             }
 
-            if (pointIdx > 2)
+            //4번 자라고 나면 리턴
+            if (pointIdx == 4)
             {
                 isGrowEnd = true;
             }

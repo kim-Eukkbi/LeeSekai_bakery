@@ -35,6 +35,7 @@ public class HandItemSO : Item
         tryUse = true;
 
         //여기까지 왔다면 작물을 수확해주자
+        //성공적으로 수확을 했으면 return false;
         farmTile.plantedCrop.Harvest();
         //타일도 리셋해주고
         farmTile.Resetting();

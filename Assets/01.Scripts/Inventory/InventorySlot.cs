@@ -47,6 +47,8 @@ public class InventorySlot : MonoBehaviour
             count += amount;
         }
 
+        print($"{this.gameObject.name}, {item.itemName}");
+
         //일단 UI업데이트 해주고
         UpdateUI();
     }
@@ -122,5 +124,7 @@ public class InventorySlot : MonoBehaviour
             image.sprite = nullSprite;
             countText.text = string.Empty;
         }
+
+        //Debug.Log(image.sprite.name);
     }
 }

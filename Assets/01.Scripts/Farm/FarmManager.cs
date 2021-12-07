@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class FarmManager : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class FarmManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -34,7 +35,7 @@ public class FarmManager : MonoBehaviour
             if(Physics.Raycast(ray, out hit))
             {
                 //print(hit.transform.gameObject.name);
-
+                
                 InventorySlot inventorySlot = InventoryManager.Instance.NowSelectedInventory();
                 inventorySlot.UseItem(hit, player);
             }

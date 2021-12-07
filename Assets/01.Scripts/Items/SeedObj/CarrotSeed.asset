@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CarrotSeed
   m_EditorClassIdentifier: 
   itemName: CarrotSeed
-  itemSprite: {fileID: 6761164967045977113, guid: a635e1473579e6143ad7a8635fc80cb8, type: 3}
+  itemSprite: {fileID: 4648594594396168457, guid: 64aa00d6afc478b4ea1628f7c8b81575, type: 3}
   canNest: 1
   cropType: {fileID: 11400000, guid: cc797e9fb32550247b1e4f79c1b8c792, type: 2}
