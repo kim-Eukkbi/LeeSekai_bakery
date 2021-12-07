@@ -35,6 +35,8 @@ public class Character : MonoBehaviour
     public bool isMonster = false; // 이 캐릭터가 몬스터인지 플레이어인지 bool
     public Jobs cJobs; // 이 캐릭터의 직업
     public State state; // 이 캐릭터의 현재 상태
+    public Sprite dropItemSprite; //몬스터가 떨어뜨리는 아이템의 이미지
+    public int dropItemIndex; //몬스터가 떨어뜨리는 아이템의 갯수
 
     public void Awake()
     {
@@ -66,5 +68,7 @@ public class Character : MonoBehaviour
         monsterStateUI.str = str;
         monsterStateUI.def = def;
         monsterStateUI.state = state;
+        monsterStateUI.dropItemSprite = dropItemSprite;
+        monsterStateUI.dropItemIndex = dropItemIndex;
     }
 }

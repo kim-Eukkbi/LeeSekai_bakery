@@ -15,6 +15,8 @@ public class MonsterStateUI : MonoBehaviour //몬스터 수치를 이니셜 라이즈 해서 �
     public float def;
     public float sp;
     public State state;
+    public Sprite dropItemSprite; //몬스터가 떨어뜨리는 아이템의 이미지
+    public int dropItemIndex; //몬스터가 떨어뜨리는 아이템의 갯수
 
     public List<Tween> readyAttack = new List<Tween>(); //트윈 리스트
 
@@ -83,10 +85,23 @@ public class MonsterStateUI : MonoBehaviour //몬스터 수치를 이니셜 라이즈 해서 �
     {
         DungeonUIManager.instance.monsterObj.SetActive(false); // 일단 그냥 꺼버리는 걸로 해보자
         DungeonUIManager.instance.monsterStateUIobj.transform.DOMoveX(DungeonUIManager.instance.monsterStateUIobj.transform.position.x + 6.5f, .8f); // 몬스터 UI를 다시 오른쪽으로
-        readyAttack[0].Pause();
-        DungeonUIManager.instance.stateTweens[0].Pause();
+        readyAttack[0].Pause(); //몬스터 전투준비 게이지 멈춰
+        DungeonUIManager.instance.stateTweens[0].Pause(); // 플레이어도 다 멈춰
         DungeonUIManager.instance.stateTweens[1].Pause();
         DungeonUIManager.instance.stateTweens[2].Pause();
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(DungeonUIManager.instance.gameEndObj.GetComponent<CanvasGroup>().DOFade(1, .8f));
+
+        sequence.Append(DungeonUIManager.instance.gameEndObjDoma.GetComponent<Image>().DOFade(1, .8f));
+
+        sequence.Append(DungeonUIManager.instance.gameEndObjDomainsideImg.GetComponentInChildren<Image>().DOFade(1, .8f));
+        sequence.Join(DungeonUIManager.instance.gameEndObjDomainsideImg.transform.DOLocalMoveY(-.1f, .8f));
+
+        sequence.Append(DungeonUIManager.instance.gameEndObjDomainsideIndex.GetComponentInChildren<Text>().DOFade(1, .8f));
+
+        sequence.Append(DungeonUIManager.instance.gameEndObjVic.GetComponent<Text>().DOFade(1, .8f));
+
+        sequence.Append(DungeonUIManager.instance.gameEndObjContinue.GetComponent<Text>().DOFade(1, .8f));
     }
 
 
