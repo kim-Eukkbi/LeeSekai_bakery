@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TomatoSeed
   m_EditorClassIdentifier: 
   itemName: TomatoSeed
-  itemSprite: {fileID: 6761164967045977113, guid: a635e1473579e6143ad7a8635fc80cb8, type: 3}
+  itemSprite: {fileID: 3907696827991431997, guid: 64aa00d6afc478b4ea1628f7c8b81575, type: 3}
   canNest: 1
   cropType: {fileID: 11400000, guid: 522453f243490f445977c4fef4902509, type: 2}

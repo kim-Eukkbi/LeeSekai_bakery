@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PotatoSeed
   m_EditorClassIdentifier: 
   itemName: PotatoSeed
-  itemSprite: {fileID: 6761164967045977113, guid: a635e1473579e6143ad7a8635fc80cb8, type: 3}
+  itemSprite: {fileID: -7926941685212891487, guid: 64aa00d6afc478b4ea1628f7c8b81575, type: 3}
   canNest: 1
   cropType: {fileID: 11400000, guid: 4dd3b8efae880b94c878a71018ef66ce, type: 2}

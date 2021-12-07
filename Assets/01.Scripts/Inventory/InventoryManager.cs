@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,9 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]
     private List<InventorySlot> inventorySlots;
 
+    //아이템에 따라서 어떻게 사용하면 되는지를 알려주는 딕셔너리
+    //public Dictionary<Item, Action<RaycastHit, PlayerMove>> useItemActionDic;
+
     private void Awake()
     {
         if(Instance == null)
@@ -49,6 +53,8 @@ public class InventoryManager : MonoBehaviour
         //메모리를 할당해주자
         quickSlots = new List<InventorySlot>();
         inventorySlots = new List<InventorySlot>();
+
+        //useItemActionDic = new Dictionary<Item, Action<RaycastHit, PlayerMove>>();
 
         //부모의 자식오브젝트들의 컴포넌트를 리스트로 긁어온다
         quickSlots = quickSlockParent.GetComponentsInChildren<InventorySlot>().ToList();
@@ -120,6 +126,7 @@ public class InventoryManager : MonoBehaviour
         {
             //빈 슬롯을 찾았다면 아이템 갯수만큼 넣어주고 리턴
             slot.SetItem(item, amount);
+
             return;
         }
 
@@ -127,6 +134,7 @@ public class InventoryManager : MonoBehaviour
         print("인벤토리가 꽉 찼습니다");
 
         //지금 SelectedSlot에서 Harvest를 호출하면 수확이 씹히는 버그가 있다
+        //UpdateUI 시점에 뭐가 있는건 알겠는데 그게 뭐지?
     }
 
     public InventorySlot FindEmptySlot()

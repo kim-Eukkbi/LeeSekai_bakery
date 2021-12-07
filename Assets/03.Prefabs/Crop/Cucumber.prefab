@@ -96,6 +96,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e0d40fa5c3a5c44ba2e187a5273839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  growTime: 0
+  now_growTime: 0
+  growQuarter: 0
+  growPoionts:
+  - 0
+  - 0
+  - 0
+  - 0
+  pointIdx: 0
+  isGrowEnd: 0
 --- !u!114 &2771283780636794351
 MonoBehaviour:
   m_ObjectHideFlags: 0
