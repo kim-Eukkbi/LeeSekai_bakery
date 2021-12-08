@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Cinemachine;
 
 public class DungeonUIManager : MonoBehaviour
 {
@@ -45,12 +46,14 @@ public class DungeonUIManager : MonoBehaviour
     [HideInInspector]
     public List<State> playerState = new List<State>();// 캐릭터의 현재 상태를 정의
     private int currentPlayerIndex = 0;
+    public GameObject attackSpot;
     public GameObject gameEndObj;   
     public GameObject gameEndObjDoma;   
     public GameObject gameEndObjDomainsideImg;   
     public GameObject gameEndObjDomainsideIndex;   
     public GameObject gameEndObjVic;   
-    public GameObject gameEndObjContinue;   
+    public GameObject gameEndObjContinue;
+    public CinemachineVirtualCamera vCam;
 
 
 

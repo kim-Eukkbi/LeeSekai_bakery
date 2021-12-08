@@ -95,7 +95,7 @@ public class MonsterStateUI : MonoBehaviour //몬스터 수치를 이니셜 라이즈 해서 �
         sequence.Append(DungeonUIManager.instance.gameEndObjDoma.GetComponent<Image>().DOFade(1, .8f));
 
         sequence.Append(DungeonUIManager.instance.gameEndObjDomainsideImg.GetComponentInChildren<Image>().DOFade(1, .8f));
-        sequence.Join(DungeonUIManager.instance.gameEndObjDomainsideImg.transform.DOLocalMoveY(-.1f, .8f));
+        sequence.Join(DungeonUIManager.instance.gameEndObjDomainsideImg.transform.DOLocalMoveY(-1f, .8f));
 
         sequence.Append(DungeonUIManager.instance.gameEndObjDomainsideIndex.GetComponentInChildren<Text>().DOFade(1, .8f));
 
