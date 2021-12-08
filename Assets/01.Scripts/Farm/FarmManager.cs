@@ -103,6 +103,10 @@ public class FarmManager : MonoBehaviour
                 {
                     //µŒ∞≥∏¶ πŸ≤„¡‡
                     InventoryManager.Instance.SwapInventoryItem(firstSlot, secondSlot);
+
+                    //ΩΩ∑‘ µŒ∞≥ √ ±‚»≠
+                    firstSlot = null;
+                    secondSlot = null;
                 }
             }
         }

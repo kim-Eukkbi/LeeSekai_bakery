@@ -100,13 +100,9 @@ public class InventoryManager : MonoBehaviour
         Item firstItem = firstSlot.CurrentItem();
         int firstCount = firstSlot.CurrentCount();
 
-        //두개 스왑해주고
+        //두개 스왑해준다
         firstSlot.SetItem(secondSlot.CurrentItem(), secondSlot.CurrentCount());
         secondSlot.SetItem(firstItem, firstCount);
-
-        //UI 업데이트
-        //firstSlot.UpdateUI();
-        //secondSlot.UpdateUI();
     }
 
     public InventorySlot NowSelectedInventory()
