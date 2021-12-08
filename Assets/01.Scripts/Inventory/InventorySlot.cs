@@ -62,10 +62,16 @@ public class InventorySlot : MonoBehaviour
         UpdateUI();
     }
 
-    public Item NowItem()
+    public Item CurrentItem()
     {
         //현재 어떤 아이템을 가지고있는지 리턴해준다
         return item;
+    }
+
+    public int CurrentCount()
+    {
+        //현재 아이템을 몇개나 가지고 있는지
+        return count;
     }
 
     public void UseItem(RaycastHit hit, PlayerMove player)

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
@@ -93,10 +94,50 @@ public class InventoryManager : MonoBehaviour
         selectedInventoryTrm.anchoredPosition = new Vector2(selectedInventoryXPoints[idx], selectedInventoryYPoint);
     }
 
+    public void SwapInventoryItem(InventorySlot firstSlot, InventorySlot secondSlot)
+    {
+        //첫번째 슬롯 복사해놓고
+        Item firstItem = firstSlot.CurrentItem();
+        int firstCount = firstSlot.CurrentCount();
+
+        //두개 스왑해주고
+        firstSlot.SetItem(secondSlot.CurrentItem(), secondSlot.CurrentCount());
+        secondSlot.SetItem(firstItem, firstCount);
+
+        //UI 업데이트
+        //firstSlot.UpdateUI();
+        //secondSlot.UpdateUI();
+    }
+
     public InventorySlot NowSelectedInventory()
     {
         //선택되어있는 퀵슬롯을 리턴
         return selectedQuickSlot;
+    }
+
+    public InventorySlot FindNearestSlot(PointerEventData pointer, GraphicRaycaster graphicRaycaster)
+    {
+        //클릭 지점에서 가장 가까운 인벤토리 슬롯을 리턴해준다
+
+        //임시저장 변수
+        InventorySlot tmpSlot = null;
+
+        //포인터 위치를 옮겨준다
+        pointer.position = Input.mousePosition;
+
+        //포인터에서 제일 가까운 순서대로 리스트에 담아준다
+        List<RaycastResult> reslut = new List<RaycastResult>();
+        graphicRaycaster.Raycast(pointer, reslut);
+
+        //없으면 실행 안해야되니까 조건식 써주고
+        if (reslut.Count > 0)
+        {
+            //가장 가까운놈의 컴포넌트를 가져오고
+            tmpSlot = reslut[0].gameObject.transform.parent.GetComponent<InventorySlot>();
+        }
+
+        //슬롯을 리턴해줘
+        return tmpSlot;
     }
 
     public void AddItem(Item item, int amount = 1)
@@ -174,7 +215,7 @@ public class InventoryManager : MonoBehaviour
         //퀵슬롯부터 뒤져보자
         foreach (InventorySlot slot in quickSlots)
         {
-            if(slot.NowItem() == item)
+            if(slot.CurrentItem() == item)
             {
                 //슬롯에있는 아이템과 아이템이 같다면 브레이크
                 sameItemSlot = slot;
@@ -188,7 +229,7 @@ public class InventoryManager : MonoBehaviour
             //인벤토리 슬롯도 뒤져봐 한번
             foreach (InventorySlot slot in inventorySlots)
             {
-                if (slot.NowItem() == item)
+                if (slot.CurrentItem() == item)
                 {
                     //슬롯에있는 아이템과 아이템이 같다면 브레이크
                     sameItemSlot = slot;
