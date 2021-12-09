@@ -82,17 +82,26 @@ public class Attack : MonoBehaviour
             case Jobs.Priest:
             case Jobs.Elementalist: //원거리 공격이면
                 {
-                    DungeonUIManager.instance.AttackEachOther(true); // 데미지를 계산하기 위한 함수를 실행
-                    GameObject currB = Instantiate(bullet, DungeonUIManager.instance.currentPlayer.transform); //던질 오브젝트를 생성
-                    sequence.Append(currB.transform.DOMove(DungeonUIManager.instance.monsterObj.transform.position, .3f)).SetEase(Ease.OutCirc).OnComplete(() => //오브젝트 던지기
-                    {
-                        Destroy(currB, .3f); // 던진후 좀 이따가 삭제
-                        if (DungeonUIManager.instance.monsterCurrentState.Equals(State.Dead))// 만약 적이 죽었으면 중지해야하기 때문에 리턴
-                            return;
-                        StartCoroutine(DungeonUIManager.instance.SetDefaultUI()); // 다 때렸으니까 UI 초기화
-                    });
+                    CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                    DungeonUIManager.instance.currentPlayer.GetComponent<PlayableDirector>().Play();
 
-                    sequence.Insert(.2f, Camera.main.DOShakeRotation(.1f, 5f));  //카메라 셰이크
+                    yield return new WaitForSeconds(1.15f);
+                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 20f;
+                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 1f;
+                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.red;
+                    yield return new WaitForSeconds(.1f);
+                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
+                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 0f;
+                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.white;
+
+
+                    if (DungeonUIManager.instance.monsterCurrentState.Equals(State.Dead))// 만약 적이 죽었으면 중지해야하기 때문에 리턴
+                        yield break;
+
+
+                    StartCoroutine(DungeonUIManager.instance.SetDefaultUI()); // 다 때렸으니까 UI 초기화
+
+                    DungeonUIManager.instance.AttackEachOther(true);  // 데미지를 계산하기 위한 함수를 실행
                     break;
                 }
         }
