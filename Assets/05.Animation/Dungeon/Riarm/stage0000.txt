@@ -1,0 +1,32 @@
+{"name": "Stage" , "data":[
+	{"name": "Platforms" , "data":[
+			{"name":"Single Left", "sprite":"Single Left", "x":"-2.5", "y":"-0.5""},
+			{"name":"Single", "sprite":"Single", "x":"-1.5", "y":"-0.5""},
+			{"name":"Single Right", "sprite":"Single Right", "x":"-0.5", "y":"-0.5""},
+			{"name":"Bottom Left", "sprite":"Bottom Left", "x":"1.5", "y":"-2.5""},
+			{"name":"Bottom", "sprite":"Bottom", "x":"2.5", "y":"-2.5""},
+			{"name":"Bottom", "sprite":"Bottom", "x":"3.5", "y":"-2.5""},
+			{"name":"Bottom", "sprite":"Bottom", "x":"4.5", "y":"-2.5""},
+			{"name":"Bottom Right", "sprite":"Bottom Right", "x":"5.5", "y":"-2.5""},
+			{"name":"Middle Left", "sprite":"Middle Left", "x":"1.5", "y":"-1.5""},
+			{"name":"Middle", "sprite":"Middle", "x":"2.5", "y":"-1.5""},
+			{"name":"Middle", "sprite":"Middle", "x":"3.5", "y":"-1.5""},
+			{"name":"Middle", "sprite":"Middle", "x":"4.5", "y":"-1.5""},
+			{"name":"Middle Right", "sprite":"Middle Right", "x":"5.5", "y":"-1.5""},
+			{"name":"Top Left", "sprite":"Top Left", "x":"1.5", "y":"-0.5""},
+			{"name":"Top", "sprite":"Top", "x":"2.5", "y":"-0.5""},
+			{"name":"Top Right", "sprite":"Top Right", "x":"5.5", "y":"-0.5""},
+			{"name":"Slope Left", "sprite":"Slope Left", "x":"3.5", "y":"0.5""},
+			{"name":"Slope Right", "sprite":"Slope Right", "x":"4.5", "y":"0.5""},
+			{"name":"Slope Under Right", "sprite":"Slope Under Right", "x":"4.5", "y":"-0.5""},
+			{"name":"Slope Under Left", "sprite":"Slope Under Left", "x":"3.5", "y":"-0.5""}
+]},
+		{"name":"Player", "sprite":"Idle 0", "x":"-2", "y":"0.4549998""},
+		{"name":"Enemy", "sprite":"Idle 0", "x":"-0.5", "y":"0.46498""},
+		{"name":"Spike", "sprite":"Spike", "x":"2", "y":"0.5""},
+		{"name":"Finish", "sprite":"Finish", "x":"5.5", "y":"0.5""},
+		{"name":"Bronze", "sprite":"Bronze 0", "x":"-2.5", "y":"1.5""},
+		{"name":"Gold", "sprite":"Gold 0", "x":"-0.5", "y":"1.5""},
+		{"name":"Silver", "sprite":"Silver 0", "x":"-1.5", "y":"1.5""}
+]}
+}

@@ -85,7 +85,7 @@ public class Attack : MonoBehaviour
                     CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
                     DungeonUIManager.instance.currentPlayer.GetComponent<PlayableDirector>().Play();
 
-                    yield return new WaitForSeconds(1.15f);
+                    yield return new WaitForSeconds(.6f);
                     cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 20f;
                     cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 1f;
                     DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.red;
