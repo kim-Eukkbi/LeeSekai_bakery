@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SelectItem : MonoBehaviour
 {
-    public Bread bread;
+    public BreadSO bread;
     private Button button;
 
     private SelectPanel selectPanel;
@@ -29,7 +29,7 @@ public class SelectItem : MonoBehaviour
     /// 빵을 세팅해주는 함수입니다
     /// </summary>
     /// <param name="bread">세팅할 빵</param>
-    public void SetBread(Bread bread)
+    public void SetBread(BreadSO bread)
     {
         this.bread = bread;
     }

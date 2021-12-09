@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b337ca2a4fd5204d805ffbfbc476aff, type: 3}
-  m_Name: FarmTileSpriteListSO
+  m_Script: {fileID: 11500000, guid: 4509d055b452d0c42a978b626a9a300a, type: 3}
+  m_Name: TestBread
   m_EditorClassIdentifier: 
-  farmTileSprites:
-  - {fileID: 2010914282792341417, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
-  - {fileID: -6118718278389593146, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  itemName: TestBread
+  itemSprite: {fileID: 21300000, guid: c40b687a031bfad41b0900a67ac249bb, type: 3}
+  canNest: 1

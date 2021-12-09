@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShowcaseItem : MonoBehaviour
 {
-    public Bread bread;
+    public BreadSO bread;
     public Button button;
 
     private SelectPanel selectPanel;
@@ -21,7 +21,7 @@ public class ShowcaseItem : MonoBehaviour
         });
     }
 
-    public void SetBread(Bread bread)
+    public void SetBread(BreadSO bread)
     {
         this.bread = bread;
     }

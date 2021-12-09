@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 1759970085
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1108269619167751316, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
+  m_Sprite: {fileID: 2010914282792341417, guid: d6d92fdc7fcce4e428b51e43e5d11971, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   farmSprites: []
   isWet: 0
   isPlanted: 0
+  plantedCrop: {fileID: 0}
 --- !u!65 &3879147302186950354
 BoxCollider:
   m_ObjectHideFlags: 0

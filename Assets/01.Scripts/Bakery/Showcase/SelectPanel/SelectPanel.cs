@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SelectPanel : MonoBehaviour
 {
-    private Bread selectedBread;
+    private BreadSO selectedBread;
     [SerializeField]
     public Button confirmBtn;
 
@@ -35,7 +35,7 @@ public class SelectPanel : MonoBehaviour
     /// 선택된 빵을 알기 위한 함수입니다
     /// </summary>
     /// <param name="bread">선택된 빵</param>
-    public void SelectBread(Bread bread)
+    public void SelectBread(BreadSO bread)
     {
         selectedBread = bread;
     }
