@@ -635,7 +635,7 @@ PlayableDirector:
   m_GameObject: {fileID: 88963725}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: b64f27b1b17e9c641a9018c4cd242d1b, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 0ba6c444e8364734da186c7bd0e673d7, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -668,6 +668,26 @@ PlayableDirector:
   - key: {fileID: 1653233704228317380, guid: b64f27b1b17e9c641a9018c4cd242d1b, type: 2}
     value: {fileID: 2054092165}
   - key: {fileID: 5807257048431219566, guid: b64f27b1b17e9c641a9018c4cd242d1b, type: 2}
+    value: {fileID: 445516253}
+  - key: {fileID: 6727626933706242179, guid: f7667d4af5ed8024b985ebb3b0f736a2, type: 2}
+    value: {fileID: 705904374}
+  - key: {fileID: 7565718272555090726, guid: f7667d4af5ed8024b985ebb3b0f736a2, type: 2}
+    value: {fileID: 957090740}
+  - key: {fileID: 4424655459643330006, guid: f7667d4af5ed8024b985ebb3b0f736a2, type: 2}
+    value: {fileID: 2129116358}
+  - key: {fileID: 6742205884948562515, guid: f7667d4af5ed8024b985ebb3b0f736a2, type: 2}
+    value: {fileID: 2054092165}
+  - key: {fileID: 1007171699253671017, guid: f7667d4af5ed8024b985ebb3b0f736a2, type: 2}
+    value: {fileID: 445516253}
+  - key: {fileID: -860387319793242411, guid: f7667d4af5ed8024b985ebb3b0f736a2, type: 2}
+    value: {fileID: 88963730}
+  - key: {fileID: 5204952580992131933, guid: f7667d4af5ed8024b985ebb3b0f736a2, type: 2}
+    value: {fileID: 957090740}
+  - key: {fileID: 5053433476639551680, guid: f7667d4af5ed8024b985ebb3b0f736a2, type: 2}
+    value: {fileID: 2129116358}
+  - key: {fileID: -2384636335538967778, guid: f7667d4af5ed8024b985ebb3b0f736a2, type: 2}
+    value: {fileID: 2054092165}
+  - key: {fileID: 2685594391519543608, guid: f7667d4af5ed8024b985ebb3b0f736a2, type: 2}
     value: {fileID: 445516253}
   m_ExposedReferences:
     m_References:
@@ -1725,7 +1745,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445516251}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.26033336, y: 0.879, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
@@ -2831,7 +2851,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957090736}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.27958602, w: 0.9601207}
   m_LocalPosition: {x: -0.296, y: 0.343, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.7618077}
   m_Children: []
@@ -5769,9 +5789,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054092163}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.37866673, y: -0.694, z: 0}
-  m_LocalScale: {x: 0.33333334, y: 0.3333333, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 88963726}
   m_RootOrder: 2
@@ -5834,7 +5854,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5699133857902899649, guid: 02a4e615204bd074eb06a077ee94ec8f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5988,9 +6008,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129116355}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.46000004, y: -0.11333331, z: 0}
-  m_LocalScale: {x: 0.33333334, y: 0.3333333, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 88963726}
   m_RootOrder: 1
