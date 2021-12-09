@@ -45,21 +45,26 @@ public class Attack : MonoBehaviour
             case Jobs.Knights:
             case Jobs.MagicKnight: // 근거리 공격이면
                 {
+                    CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
                     DungeonUIManager.instance.currentPlayer.GetComponent<PlayableDirector>().Play();
 
                     yield return new WaitForSeconds(.5f);
-                    DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 20f;
-                    DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 1f;
+                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 20f;
+                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 1f;
+                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.red;
                     yield return new WaitForSeconds(.1f);
-                    DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0f;
-                    DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 0f;
+                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
+                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 0f;
+                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.white;
 
                     yield return new WaitForSeconds(.2f);
-                    DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 20f;
-                    DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 1f;
+                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 20f;
+                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 1f;
+                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.red;
                     yield return new WaitForSeconds(.1f);
-                    DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0f;
-                    DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 0f;
+                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
+                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 0f;
+                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.white;
 
                     yield return new WaitForSeconds(.6f);
 
