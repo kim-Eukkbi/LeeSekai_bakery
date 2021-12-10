@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: -8568497204307178151, guid: 97edc1edd4e337148b86d7a5974913e8, type: 3}
   - {fileID: 8883592219348833136, guid: 97edc1edd4e337148b86d7a5974913e8, type: 3}
   - {fileID: -4573226962135372988, guid: 97edc1edd4e337148b86d7a5974913e8, type: 3}
-  harvestItem: {fileID: 11400000, guid: a032cbd9d14406a43996412181fa5b26, type: 2}
+  harvestItem: {fileID: 11400000, guid: 0663a055d71fbec4eb88c36074c17bfc, type: 2}
   prefab: {fileID: 2638594772849341224, guid: 4bc22d8a3a3c96e41baffcbf1677efbd, type: 3}
   growSeason: 0
   growDay: 4

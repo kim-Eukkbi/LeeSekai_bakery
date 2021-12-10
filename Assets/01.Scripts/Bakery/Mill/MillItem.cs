@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MillItem : MonoBehaviour
 {
-    [HideInInspector]
+    //아이템의 UI들
     public RectTransform rect;
     public Image breadImage;
 
