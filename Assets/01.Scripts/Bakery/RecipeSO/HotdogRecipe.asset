@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d70d0dd97dc8e1449d1cc8e20387a6c, type: 3}
+  m_Name: HotdogRecipe
+  m_EditorClassIdentifier: 
+  bread: {fileID: 11400000, guid: 4f64d7ebb459ee24896cc1ce442f5857, type: 2}
+  ingredients:
+  - {fileID: 11400000, guid: 43a7a792213ec2940ae479d317091cb6, type: 2}
+  - {fileID: 11400000, guid: 043d49d332eaa4847920a21d725c40a6, type: 2}
+  - {fileID: 11400000, guid: 0ed3c23b745147142972633bfcf8f90d, type: 2}

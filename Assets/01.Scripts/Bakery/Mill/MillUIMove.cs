@@ -6,18 +6,17 @@ using DG.Tweening;
 
 public class MillUIMove : MonoBehaviour
 {
-    //이미지들의 리스트
-    public List<MillItem> items = new List<MillItem>();
+    //아이템들의 리스트
+    private List<MillItem> items = new List<MillItem>();
     //왼쪽에 숨겨진 이미지
-    public MillItem leftInvisibleItem;
+    private MillItem leftInvisibleItem;
     //오른쪽에 숨겨진 이미지
-    public MillItem rightInvisibleItem;
+    private MillItem rightInvisibleItem;
 
     private int[] xpos = new int[]
     {
         -670, -360, 0, 360, 670
     };
-
     private float[] scale = new float[]
     {
         0.75f, 0.9f, 1f, 0.9f, 0.75f
@@ -26,10 +25,30 @@ public class MillUIMove : MonoBehaviour
     private Color visibleColor = new Color(1, 1, 1, 1);
     private Color invisibleColor = new Color(1, 1, 1, 0);
 
+    //하이라키 상의 정렬정보를 담아놓은 리스트
     public List<int> sort = new List<int>();
+
+    public bool isMoveEnd = true;
+
+    public void SetMillItems(List<MillItem> items, MillItem left, MillItem right)
+    {
+        this.items = items;
+        this.leftInvisibleItem = left;
+        this.rightInvisibleItem = right;
+
+        //sorting정보도 받아준다
+        for (int i = 0; i < items.Count; i++)
+        {
+            sort.Add(items[i].transform.GetSiblingIndex());
+        }
+    }
 
     public void MoveLeft()
     {
+        if (!isMoveEnd) return;
+
+        isMoveEnd = false;
+
         Sequence moveSeq = DOTween.Sequence();
 
         //왼쪽 끝에있던 이미지를 투명하게 해준다
@@ -63,6 +82,14 @@ public class MillUIMove : MonoBehaviour
             };
 
             items = temp;
+
+            //정렬해주자
+            for (int i = 0; i < items.Count; i++)
+            {
+                items[i].transform.SetSiblingIndex(sort[i]);
+            }
+
+            isMoveEnd = true;
         });
 
         #region 이미지가 튀어나오고 들어가는 애니메이션
@@ -91,6 +118,10 @@ public class MillUIMove : MonoBehaviour
     }
     public void MoveRight()
     {
+        if (!isMoveEnd) return;
+
+        isMoveEnd = false;
+
         Sequence moveSeq = DOTween.Sequence();
 
         //오른쪽 끝에있던 이미지를 투명하게 해준다
@@ -124,6 +155,14 @@ public class MillUIMove : MonoBehaviour
             };
 
             items = temp;
+
+            //정렬해주자
+            for (int i = 0; i < items.Count; i++)
+            {
+                items[i].transform.SetSiblingIndex(sort[i]);
+            }
+
+            isMoveEnd = true;
         });
 
         #region 이미지가 튀어나오고 들어가는 애니메이션
@@ -150,6 +189,4 @@ public class MillUIMove : MonoBehaviour
         });
         #endregion
     }
-
-    //인덱스 정렬 아직 안했음 ㅋ
 }

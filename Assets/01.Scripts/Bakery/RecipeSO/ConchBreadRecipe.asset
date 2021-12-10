@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d70d0dd97dc8e1449d1cc8e20387a6c, type: 3}
+  m_Name: ConchBreadRecipe
+  m_EditorClassIdentifier: 
+  bread: {fileID: 11400000, guid: 9e98a7fbe91714d41879fc89a82c7bfb, type: 2}
+  ingredients:
+  - {fileID: 11400000, guid: 5fe2e6803a5bde5419776c1c4ef64f8d, type: 2}
+  - {fileID: 11400000, guid: 09430c4b2f0068e46a23ddbadab95623, type: 2}
+  - {fileID: 11400000, guid: ac6bd970ff3aeb542a71f0b4a4286ff0, type: 2}
