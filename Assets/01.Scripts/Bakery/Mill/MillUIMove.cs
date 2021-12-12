@@ -8,33 +8,29 @@ public class MillUIMove : MonoBehaviour
 {
     //아이템들의 리스트
     private List<MillItem> items = new List<MillItem>();
-    //왼쪽에 숨겨진 이미지
-    private MillItem leftInvisibleItem;
-    //오른쪽에 숨겨진 이미지
-    private MillItem rightInvisibleItem;
 
     private int[] xpos = new int[]
     {
-        -670, -360, 0, 360, 670
+        -670, -670, -360, 0, 360, 670, 670
     };
     private float[] scale = new float[]
     {
-        0.75f, 0.9f, 1f, 0.9f, 0.75f
+        0, 0.75f, 0.9f, 1f, 0.9f, 0.75f, 0
     };
 
     private Color visibleColor = new Color(1, 1, 1, 1);
     private Color invisibleColor = new Color(1, 1, 1, 0);
 
+    private const float DURATION = 0.5f;
+
     //하이라키 상의 정렬정보를 담아놓은 리스트
-    public List<int> sort = new List<int>();
+    private List<int> sort = new List<int>();
 
     public bool isMoveEnd = true;
 
-    public void SetMillItems(List<MillItem> items, MillItem left, MillItem right)
+    public void SetMillItems(List<MillItem> items)
     {
         this.items = items;
-        this.leftInvisibleItem = left;
-        this.rightInvisibleItem = right;
 
         //sorting정보도 받아준다
         for (int i = 0; i < items.Count; i++)
@@ -51,71 +47,60 @@ public class MillUIMove : MonoBehaviour
 
         Sequence moveSeq = DOTween.Sequence();
 
-        //왼쪽 끝에있던 이미지를 투명하게 해준다
-        moveSeq.AppendCallback(() =>
-        {
-            items[0].breadImage.color = invisibleColor;
-        });
-
-        for (int i = 1; i < 5; i++)
+        for (int i = 0; i < items.Count; i++)
         {
             int a = i;
 
-            Vector2 nextPos = new Vector2(xpos[a - 1], 0);
-            Vector2 nextScale = new Vector2(scale[a - 1], scale[a - 1]);
+            if (a == 0)
+            {
+                //맨왼쪽 안보이는거
+                //이놈이 좀 문젠데 아닌가?
+                //예는 그냥 반대편으로 옮겨주기만 하면 됨
+                moveSeq.Join(items[a].rect.DOLocalMoveX(xpos[6], DURATION));
+            }
+            else
+            {
+                if (a == items.Count - 1)
+                {
+                    //맨오른쪽 안보이는거
+                    //이건 한칸 밀고 스캐일 0.75로 바꾸고 투명에서 원래대로 해야됨
+                    moveSeq.Join(items[a].breadImage.DOColor(visibleColor, DURATION));
+                }
+                else if (a == 1)
+                {
+                    //보이는거중에 왼쪽
+                    //예는 다음위치로 옮겨도 그대로니까 옮겨주고 스케일 0으로 바꾸고 투명하게 해줘야됨
+                    moveSeq.Join(items[a].breadImage.DOColor(invisibleColor, DURATION));
+                }
 
-            moveSeq.Join(DOTween.To(() => items[a].rect.anchoredPosition, curPos => items[a].rect.anchoredPosition = curPos, nextPos, 0.5f));
-            moveSeq.Join(items[a].rect.DOScale(nextScale, 0.5f));
+                //평범한 경우는 아무것도 안해도 됨
+                //위에 두 경우들도 색만 바꿔주면 됨
+
+                //그냥 한칸씩 밀고 크기 바꿔주면 됨
+                moveSeq.Join(items[a].rect.DOLocalMoveX(xpos[a - 1], DURATION));
+                moveSeq.Join(items[a].rect.DOScale(scale[a - 1], DURATION));
+            }
         }
 
-        moveSeq.AppendCallback(() =>
+        moveSeq.AppendCallback(() => isMoveEnd = true);
+
+        //이제 리스트 덮어써주고 시블링인가? 뭐시기 해주면 됨
+        //한칸씩 밀렸으니까 이렇게 해주자
+        List<MillItem> temp = new List<MillItem>()
         {
-            //맨 왼쪽이미지를 맨 오른쪽으로 옮겨준다
-            items[0].rect.anchoredPosition = new Vector2(670, 0);
-            //옮긴 이미지를 다시 보이게 해준다
-            items[0].breadImage.color = visibleColor;
+            items[1], items[2], items[3], items[4], items[5], items[6], items[0],
+        };
 
-            //바뀐 값에 맞게 리스트를 덮어써준다
-            List<MillItem> temp = new List<MillItem>()
-            {
-                items[1], items[2], items[3], items[4], items[0]
-            };
+        //덮어써주자
+        items = temp;
 
-            items = temp;
+        //매니저에있는거도 덮어써
+        MillManager.Instance.items = this.items;
 
-            //정렬해주자
-            for (int i = 0; i < items.Count; i++)
-            {
-                items[i].transform.SetSiblingIndex(sort[i]);
-            }
-
-            isMoveEnd = true;
-        });
-
-        #region 이미지가 튀어나오고 들어가는 애니메이션
-        Sequence animSeq = DOTween.Sequence();
-
-        animSeq.AppendCallback(() =>
-        {
-            leftInvisibleItem.rect.localScale = new Vector2(1, 1);
-            leftInvisibleItem.breadImage.color = visibleColor;
-        });
-
-        //오른쪽 끝 이미지 튀어나오게 해주고
-        animSeq.Join(rightInvisibleItem.rect.DOScale(0.75f, 0.5f));
-        animSeq.Join(rightInvisibleItem.breadImage.DOColor(visibleColor, 0.5f));
-
-        //왼쪽 끝 이미지가 들어가게 해준다
-        animSeq.Join(leftInvisibleItem.rect.DOScale(0f, 0.5f));
-        animSeq.Join(leftInvisibleItem.breadImage.DOColor(invisibleColor, 0.5f));
-
-        animSeq.AppendCallback(() =>
-        {
-            rightInvisibleItem.rect.localScale = new Vector2(0, 0);
-            rightInvisibleItem.breadImage.color = invisibleColor;
-        });
-        #endregion
+        //정렬도 해주자
+        SortingSiblingIndex();
     }
+
     public void MoveRight()
     {
         if (!isMoveEnd) return;
@@ -124,69 +109,65 @@ public class MillUIMove : MonoBehaviour
 
         Sequence moveSeq = DOTween.Sequence();
 
-        //오른쪽 끝에있던 이미지를 투명하게 해준다
-        moveSeq.AppendCallback(() =>
-        {
-            items[4].breadImage.color = invisibleColor;
-        });
-
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < items.Count; i++)
         {
             int a = i;
 
-            Vector2 nextPos = new Vector2(xpos[a + 1], 0);
-            Vector2 nextScale = new Vector2(scale[a + 1], scale[a + 1]);
+            if (a == items.Count - 1)
+            {
+                //맨오른쪽 안보이는거
+                //이놈이 좀 문젠데 아닌가?
+                //예는 그냥 반대편으로 옮겨주기만 하면 됨
+                moveSeq.Join(items[a].rect.DOLocalMoveX(xpos[0], DURATION));
+            }
+            else
+            {
+                if (a == 0)
+                {
+                    //맨왼쪽 안보이는거
+                    //이건 한칸 밀고 스캐일 0.75로 바꾸고 투명에서 원래대로 해야됨
+                    moveSeq.Join(items[a].breadImage.DOColor(visibleColor, DURATION));
+                }
+                else if (a == items.Count - 2)
+                {
+                    //보이는거중에 오른쪽
+                    //예는 다음위치로 옮겨도 그대로니까 옮겨주고 스케일 0으로 바꾸고 투명하게 해줘야됨
+                    moveSeq.Join(items[a].breadImage.DOColor(invisibleColor, DURATION));
+                }
 
-            moveSeq.Join(DOTween.To(() => items[a].rect.anchoredPosition, curPos => items[a].rect.anchoredPosition = curPos, nextPos, 0.5f));
-            moveSeq.Join(items[a].rect.DOScale(nextScale, 0.5f));
+                //평범한 경우는 아무것도 안해도 됨
+                //위에 두 경우들도 색만 바꿔주면 됨
+
+                //그냥 한칸씩 밀고 크기 바꿔주면 됨
+                moveSeq.Join(items[a].rect.DOLocalMoveX(xpos[a + 1], DURATION));
+                moveSeq.Join(items[a].rect.DOScale(scale[a + 1], DURATION));
+            }
         }
 
-        moveSeq.AppendCallback(() =>
+        moveSeq.AppendCallback(() => isMoveEnd = true);
+
+        //이제 리스트 덮어써주고 시블링인가? 뭐시기 해주면 됨
+        //한칸씩 밀렸으니까 이렇게 해주자
+        List<MillItem> temp = new List<MillItem>()
         {
-            //맨 오른쪽이미지를 맨 왼쪽으로 옮겨준다
-            items[4].rect.anchoredPosition = new Vector2(-670, 0);
-            //옮긴 이미지를 다시 보이게 해준다
-            items[4].breadImage.color = visibleColor;
+            items[6], items[0], items[1], items[2], items[3], items[4], items[5],
+        };
 
-            //바뀐 값에 맞게 리스트를 덮어써준다
-            List<MillItem> temp = new List<MillItem>()
-            {
-                items[4], items[0], items[1], items[2], items[3]
-            };
+        //덮어써주자
+        items = temp;
 
-            items = temp;
+        //매니저에있는거도 덮어써
+        MillManager.Instance.items = this.items;
 
-            //정렬해주자
-            for (int i = 0; i < items.Count; i++)
-            {
-                items[i].transform.SetSiblingIndex(sort[i]);
-            }
+        //정렬도 해주자
+        SortingSiblingIndex();
+    }
 
-            isMoveEnd = true;
-        });
-
-        #region 이미지가 튀어나오고 들어가는 애니메이션
-        Sequence animSeq = DOTween.Sequence();
-
-        animSeq.AppendCallback(() =>
+    private void SortingSiblingIndex()
+    {
+        for (int i = 0; i < items.Count; i++)
         {
-            rightInvisibleItem.rect.localScale = new Vector2(1, 1);
-            rightInvisibleItem.breadImage.color = visibleColor;
-        });
-
-        //왼쪽 끝 이미지 튀어나오게 해주고
-        animSeq.Join(leftInvisibleItem.rect.DOScale(0.75f, 0.5f));
-        animSeq.Join(leftInvisibleItem.breadImage.DOColor(visibleColor, 0.5f));
-
-        //오른쪽 끝 이미지가 들어가게 해준다
-        animSeq.Join(rightInvisibleItem.rect.DOScale(0f, 0.5f));
-        animSeq.Join(rightInvisibleItem.breadImage.DOColor(invisibleColor, 0.5f));
-
-        animSeq.AppendCallback(() =>
-        {
-            leftInvisibleItem.rect.localScale = new Vector2(0, 0);
-            leftInvisibleItem.breadImage.color = invisibleColor;
-        });
-        #endregion
+            items[i].transform.SetSiblingIndex(sort[i]);
+        }
     }
 }

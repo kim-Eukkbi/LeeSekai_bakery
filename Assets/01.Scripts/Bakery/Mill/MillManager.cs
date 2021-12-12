@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MillManager : MonoBehaviour
 {
-    public MillManager Instance = null;
+    public static MillManager Instance = null;
 
     //이놈은 제작소 UI의 모든것을 관리해준다
 
@@ -13,10 +13,6 @@ public class MillManager : MonoBehaviour
 
     //아이템들의 리스트
     public List<MillItem> items = new List<MillItem>();
-    //왼쪽에 숨겨진 이미지
-    public MillItem leftInvisibleItem;
-    //오른쪽에 숨겨진 이미지
-    public MillItem rightInvisibleItem;
 
     //레시피 리스트
     [SerializeField]
@@ -45,7 +41,7 @@ public class MillManager : MonoBehaviour
     private void Start()
     {
         //정보를 보내준다
-        uIMove.SetMillItems(items, leftInvisibleItem, rightInvisibleItem);
+        uIMove.SetMillItems(items);
     }
 
     void Update()
@@ -61,10 +57,12 @@ public class MillManager : MonoBehaviour
 
             if (startPos < endPos)
             {
+                //---> 드래그
                 uIMove.MoveRight();
             }
             else if (startPos > endPos)
             {
+                //<--- 드래그
                 uIMove.MoveLeft();
             }
         }
