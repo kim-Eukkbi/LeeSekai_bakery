@@ -78,7 +78,28 @@ public class Attack : MonoBehaviour
                 }
             case Jobs.Druid:
             case Jobs.Hunter: //윤서가 만들어준거면
-                break;
+                {
+                    CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                    DungeonUIManager.instance.currentPlayer.GetComponent<PlayableDirector>().Play();
+
+                    yield return new WaitForSeconds(1f);
+                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 20f;
+                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 1f;
+                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.red;
+                    yield return new WaitForSeconds(.1f);
+                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
+                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 0f;
+                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.white;
+
+                    DungeonUIManager.instance.AttackEachOther(true); // 데미지를 계산하기 위한 함수를 실행
+
+                    if (DungeonUIManager.instance.monsterCurrentState.Equals(State.Dead)) // 만약 적이 죽었으면 중지해야하기 때문에 리턴
+                        yield break;
+
+                    StartCoroutine(DungeonUIManager.instance.SetDefaultUI());
+                    break;
+                }
+               
             case Jobs.Priest:
             case Jobs.Elementalist: //원거리 공격이면
                 {
