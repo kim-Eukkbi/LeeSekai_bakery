@@ -9,7 +9,7 @@ public class IngredientItem : MonoBehaviour
     public Text nameText;
     public Text amountText;
 
-    public void UpdateUI(IngredientSO ingredient, int amount)
+    public void UpdateUI(IngredientSO ingredient, int amount = 0)
     {
         //UI 업데이트 해주자
         image.sprite = ingredient.itemSprite;

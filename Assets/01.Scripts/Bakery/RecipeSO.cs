@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "BakerySO/RecipeSO")]
 public class RecipeSO : ScriptableObject
 {
-    public BreadSO bread;
+    public ItemSO bread;
     public List<IngredientSO> ingredients;
 }

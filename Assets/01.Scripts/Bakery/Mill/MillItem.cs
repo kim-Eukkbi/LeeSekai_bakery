@@ -8,7 +8,7 @@ public class MillItem : MonoBehaviour
     //아이템의 UI들
     public RectTransform rect;
     public Image breadImage;
-    public Text breadNameTxt;
+    public Image backGroundImage;
 
     //이놈이 가지고 있는 레시피
     public RecipeSO recipe;
@@ -24,6 +24,5 @@ public class MillItem : MonoBehaviour
         this.recipe = recipe;
         //UI 업데이트
         breadImage.sprite = recipe.bread.itemSprite;
-        breadNameTxt.text = recipe.bread.itemName;
     }
 }

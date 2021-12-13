@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DragonSausage
   m_EditorClassIdentifier: 
   itemName: "\uC6A9\uACE0\uAE30 \uC18C\uC2DC\uC9C0"
-  itemSprite: {fileID: 1978560316486328459, guid: 1ce05bc83ae717b489664def6c79a398, type: 3}
+  itemSprite: {fileID: -8177377192618470870, guid: 9273ef51c16c94b478ddb2701704e2e6, type: 3}
   canNest: 1

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BeefPatty
   m_EditorClassIdentifier: 
   itemName: "\uC18C\uACE0\uAE30\uD328\uD2F0"
-  itemSprite: {fileID: 8228377701477776005, guid: 1ce05bc83ae717b489664def6c79a398, type: 3}
+  itemSprite: {fileID: -8861218972254054100, guid: 9273ef51c16c94b478ddb2701704e2e6, type: 3}
   canNest: 1

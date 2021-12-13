@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DragonTail
   m_EditorClassIdentifier: 
   itemName: "\uC6A9\uC758 \uAF2C\uB9AC"
-  itemSprite: {fileID: -2282427025849096547, guid: 1ce05bc83ae717b489664def6c79a398, type: 3}
+  itemSprite: {fileID: -447735316555055506, guid: 9273ef51c16c94b478ddb2701704e2e6, type: 3}
   canNest: 1

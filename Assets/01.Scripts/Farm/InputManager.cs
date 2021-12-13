@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class FarmManager : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     //여기서는 뭘 해주냐
     //일단 클릭한 밭이 어떤놈인지 가져와
@@ -16,6 +16,8 @@ public class FarmManager : MonoBehaviour
     //이제는 그냥 이름만 FarmManager고 InputManager가 맞는듯 ㅇㅇ
 
     //메인캠 담아놓는 변수
+    public static InputManager Instance = null;
+
     private Camera mainCam;
 
     //그래픽 레이케스터 한번 써보자
@@ -28,13 +30,23 @@ public class FarmManager : MonoBehaviour
     //플레이어 담아놓는 변수
     public PlayerMove player;
 
-    [SerializeField]
+    [Header("제작UI들")]
+    public CanvasGroup fryUI;
+    public CanvasGroup ovenUI;
+    public CanvasGroup domaUI;
+
     private InventorySlot firstSlot;
-    [SerializeField]
     private InventorySlot secondSlot;
+
+    public bool isUIOpen = false;
 
     private void Awake()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+
         mainCam = Camera.main;
 
         pointer = new PointerEventData(eventSystem);
@@ -42,6 +54,8 @@ public class FarmManager : MonoBehaviour
 
     void Update()
     {
+        if (isUIOpen) return;
+
         if(Input.GetMouseButtonDown(0))
         {
             //UI를 클릭한게 아니라면
@@ -107,6 +121,50 @@ public class FarmManager : MonoBehaviour
                     //슬롯 두개 초기화
                     firstSlot = null;
                     secondSlot = null;
+                }
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            //e키를 누르면 주변의 컬라이더를 가져온다
+            Collider2D[] cols = Physics2D.OverlapCircleAll(player.transform.position, 1f);
+
+            foreach (var col in cols)
+            {
+                if(col.gameObject.CompareTag("BakeryHouse"))
+                {
+                    //만약 빵집오브젝트라면
+                    player.Teleport(player.bakeryTpPos, player.bakeryVcamConfiner);
+                    break;
+                }
+                else if(col.gameObject.CompareTag("Fry"))
+                {
+                    fryUI.alpha = 1;
+                    fryUI.interactable = true;
+                    fryUI.blocksRaycasts = true;
+                    isUIOpen = true;
+                    break;
+                }
+                else if(col.gameObject.CompareTag("Oven"))
+                {
+                    ovenUI.alpha = 1;
+                    ovenUI.interactable = true;
+                    ovenUI.blocksRaycasts = true;
+                    isUIOpen = true;
+                    break;
+                }
+                else if(col.gameObject.CompareTag("Doma"))
+                {
+                    domaUI.alpha = 1;
+                    domaUI.interactable = true;
+                    domaUI.blocksRaycasts = true;
+                    isUIOpen = true;
+                    break;
+                }
+                else if(col.gameObject.CompareTag("HorseCar"))
+                {
+                    //마차를 탔을 때 해줄 일을 하면 댐
                 }
             }
         }

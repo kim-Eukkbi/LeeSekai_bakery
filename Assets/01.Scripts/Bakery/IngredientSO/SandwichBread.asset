@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SandwichBread
   m_EditorClassIdentifier: 
   itemName: "\uC0CC\uB4DC\uC704\uCE58\uBE75"
-  itemSprite: {fileID: 535444436382651937, guid: 1ce05bc83ae717b489664def6c79a398, type: 3}
+  itemSprite: {fileID: 6491824915575482331, guid: 9273ef51c16c94b478ddb2701704e2e6, type: 3}
   canNest: 1

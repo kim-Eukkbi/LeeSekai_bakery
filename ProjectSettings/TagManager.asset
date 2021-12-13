@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BakeryHouse
+  - RoadPortal
+  - BakeryPortal
+  - Fry
+  - Oven
+  - Doma
+  - HorseCar
   layers:
   - Default
   - TransparentFX

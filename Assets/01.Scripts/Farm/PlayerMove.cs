@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -32,6 +33,17 @@ public class PlayerMove : MonoBehaviour
     //현재이동속도
     private float speed;
 
+    [Header("TP관련")]
+    public Vector2 farmTpPos;
+    public Vector2 roadTpPos;
+    public Vector2 bakeryTpPos;
+    public Vector2 bakeryFrontTpPos;
+    public bool isFarm = true;
+    public CinemachineConfiner vcam;
+    public Collider2D farmVcamConfiner;
+    public Collider2D roadVcamConfiner;
+    public Collider2D bakeryVcamConfiner;
+
     [Header("플레이어 팔길이")]
     public float range;
 
@@ -42,6 +54,7 @@ public class PlayerMove : MonoBehaviour
 
     //특정 행동(물주기, 씨뿌리기)하는 중인지
     private bool isPlayingAnim = false;
+    public bool canMove = false;
 
     private void Awake()
     {
@@ -159,5 +172,33 @@ public class PlayerMove : MonoBehaviour
         //나중에 피직스2D 사각형 써가지고?
         //클릭지점에서 제일 가까운놈 가져오는것도 괜춘할듯
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        //만약 도로포탈이라면
+        if(col.CompareTag("RoadPortal"))
+        {
+            if(isFarm)
+            {
+                Teleport(roadTpPos, roadVcamConfiner);
+            }
+            else
+            {
+                Teleport(farmTpPos, farmVcamConfiner);
+            }
+
+            isFarm = !isFarm;
+        }
+        else if(col.CompareTag("BakeryPortal"))
+        {
+            Teleport(bakeryFrontTpPos, roadVcamConfiner);
+        }
+    }
+
+    public void Teleport(Vector2 position, Collider2D vcamConfiner)
+    {
+        transform.position = position;
+        vcam.m_BoundingShape2D = vcamConfiner;
     }
 }

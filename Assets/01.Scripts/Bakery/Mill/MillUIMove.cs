@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class MillUIMove : MonoBehaviour
 {
+    private MillManager millManager;
+
     //아이템들의 리스트
     private List<MillItem> items = new List<MillItem>();
 
@@ -27,6 +29,11 @@ public class MillUIMove : MonoBehaviour
     private List<int> sort = new List<int>();
 
     public bool isMoveEnd = true;
+
+    private void Awake()
+    {
+        millManager = GetComponent<MillManager>();
+    }
 
     public void SetMillItems(List<MillItem> items)
     {
@@ -95,7 +102,7 @@ public class MillUIMove : MonoBehaviour
         items = temp;
 
         //매니저에있는거도 덮어써
-        MillManager.Instance.items = this.items;
+        millManager.millItems = this.items;
 
         //정렬도 해주자
         SortingSiblingIndex();
@@ -157,7 +164,7 @@ public class MillUIMove : MonoBehaviour
         items = temp;
 
         //매니저에있는거도 덮어써
-        MillManager.Instance.items = this.items;
+        millManager.millItems = this.items;
 
         //정렬도 해주자
         SortingSiblingIndex();

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Ketchup
   m_EditorClassIdentifier: 
   itemName: "\uCE90\uCCA9"
-  itemSprite: {fileID: 8231867974100764791, guid: 1ce05bc83ae717b489664def6c79a398, type: 3}
+  itemSprite: {fileID: 8115724246118922408, guid: 9273ef51c16c94b478ddb2701704e2e6, type: 3}
   canNest: 1
