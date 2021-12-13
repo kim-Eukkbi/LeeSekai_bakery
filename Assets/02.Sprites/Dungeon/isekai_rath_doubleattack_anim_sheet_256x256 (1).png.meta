@@ -1,40 +1,52 @@
 fileFormatVersion: 2
-guid: 20150efe447f15d46a2b03dd2480cc89
+guid: 49caa7d69d9c5e642a5b6f95b323c74d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1878996688490468879
-    second: isekai_riam_spirit_fire_attack_anim_sheet_128x256_0
+      213: -4827748805472373179
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_0
   - first:
-      213: -4078565353042517360
-    second: isekai_riam_spirit_fire_attack_anim_sheet_128x256_1
+      213: -779929089852176523
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_1
   - first:
-      213: -1753293943668018661
-    second: isekai_riam_spirit_fire_attack_anim_sheet_128x256_2
+      213: -4975164097715695425
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_2
   - first:
-      213: 7114040702251798969
-    second: isekai_riam_spirit_fire_attack_anim_sheet_128x256_3
+      213: 2147109286267229263
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_3
   - first:
-      213: -136059457100634441
-    second: isekai_riam_spirit_fire_attack_anim_sheet_128x256_4
+      213: -4732123048326505511
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_4
   - first:
-      213: 3890758886557916512
-    second: isekai_riam_spirit_fire_attack_anim_sheet_128x256_5
+      213: -8711954333038275967
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_5
   - first:
-      213: -7756134114009273568
-    second: isekai_riam_spirit_fire_attack_anim_sheet_128x256_6
+      213: -5825654062080254997
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_6
   - first:
-      213: 3580857596495422727
-    second: isekai_riam_spirit_fire_attack_anim_sheet_128x256_7
+      213: 5082318883060835005
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_7
   - first:
-      213: 1043036802606868246
-    second: isekai_riam_spirit_fire_attack_anim_sheet_128x256_8
+      213: 3794289180009388305
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_8
   - first:
-      213: -8141898434418470422
-    second: isekai_riam_spirit_fire_attack_anim_sheet_128x256_9
+      213: -8614178292553460305
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_9
   - first:
-      213: 1618634220177748993
-    second: isekai_riam_spirit_fire_attack_anim_sheet_128x256_10
+      213: -1712059838893461100
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_10
+  - first:
+      213: -275680920351255903
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_11
+  - first:
+      213: -5351163353482120895
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_12
+  - first:
+      213: -1157167657827313516
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_13
+  - first:
+      213: 2440947138939350868
+    second: isekai_rath_doubleattack_anim_sheet_256x256 (1)_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -148,180 +160,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: isekai_riam_spirit_fire_attack_anim_sheet_128x256_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 512
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f9e36897767ce5e0800000000000000
-      internalID: -1878996688490468879
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: isekai_riam_spirit_fire_attack_anim_sheet_128x256_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 512
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0926faaab660667c0800000000000000
-      internalID: -4078565353042517360
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: isekai_riam_spirit_fire_attack_anim_sheet_128x256_2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 512
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b12f2d4927c0ba7e0800000000000000
-      internalID: -1753293943668018661
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: isekai_riam_spirit_fire_attack_anim_sheet_128x256_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 512
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b1936fa3562ab260800000000000000
-      internalID: 7114040702251798969
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: isekai_riam_spirit_fire_attack_anim_sheet_128x256_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 256
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b62f2705ae9c1ef0800000000000000
-      internalID: -136059457100634441
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: isekai_riam_spirit_fire_attack_anim_sheet_128x256_5
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06d9afbd790cef530800000000000000
-      internalID: 3890758886557916512
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: isekai_riam_spirit_fire_attack_anim_sheet_128x256_6
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02b2038fd1dac5490800000000000000
-      internalID: -7756134114009273568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: isekai_riam_spirit_fire_attack_anim_sheet_128x256_7
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7056e560303c1b130800000000000000
-      internalID: 3580857596495422727
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: isekai_riam_spirit_fire_attack_anim_sheet_128x256_8
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -330,40 +174,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 617aa0b127c997e00800000000000000
-      internalID: 1043036802606868246
+      spriteID: 546b0093a04600db0800000000000000
+      internalID: -4827748805472373179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: isekai_riam_spirit_fire_attack_anim_sheet_128x256_9
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae19d23f28a220f80800000000000000
-      internalID: -8141898434418470422
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: isekai_riam_spirit_fire_attack_anim_sheet_128x256_10
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_1
       rect:
         serializedVersion: 2
         x: 256
         y: 0
-        width: 128
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -372,8 +195,281 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1047cf25f3b867610800000000000000
-      internalID: 1618634220177748993
+      spriteID: 5770e5100a22d25f0800000000000000
+      internalID: -779929089852176523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb01168dc9aa4fab0800000000000000
+      internalID: -4975164097715695425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4496ed15801ccd10800000000000000
+      internalID: 2147109286267229263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db5f0fc82f145eb0800000000000000
+      internalID: -4732123048326505511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18214d721bbe81780800000000000000
+      internalID: -8711954333038275967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb15650f7e172fa0800000000000000
+      internalID: -5825654062080254997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db2e91cc816088640800000000000000
+      internalID: 5082318883060835005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_8
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 119519df7e508a430800000000000000
+      internalID: 3794289180009388305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_9
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa558789b7a447880800000000000000
+      internalID: -8614178292553460305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 491fa8cb5aa8d38e0800000000000000
+      internalID: -1712059838893461100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_11
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a25c1fd9a59c2cf0800000000000000
+      internalID: -275680920351255903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_12
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1413c9c1849dcb5b0800000000000000
+      internalID: -5351163353482120895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_13
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 498d1a9652ae0ffe0800000000000000
+      internalID: -1157167657827313516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_rath_doubleattack_anim_sheet_256x256 (1)_14
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45f6cfb7d7cffd120800000000000000
+      internalID: 2440947138939350868
       vertices: []
       indices: 
       edges: []
