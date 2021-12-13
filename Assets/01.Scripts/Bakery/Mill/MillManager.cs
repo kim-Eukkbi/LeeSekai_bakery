@@ -35,10 +35,12 @@ public class MillManager : MonoBehaviour
     //빵 이름 텍스트
     public Text breadName;
 
+    private CanvasGroup canvasGroup;
+
     //코드가 길어지니 움직이는 부분을 분리해주자
     private MillUIMove uIMove;
 
-    private void Awake()
+    private void Start()
     {
         //리스트를 로드해준다
         //도구에 맞게 리소스는 따로 로드해주자
@@ -56,6 +58,11 @@ public class MillManager : MonoBehaviour
 
         UpdateUI();
         MakeIngredientItems(currentItem.recipe.ingredients);
+
+        canvasGroup = GetComponent<CanvasGroup>();
+
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.interactable = false;
     }
 
     void Update()
@@ -118,6 +125,7 @@ public class MillManager : MonoBehaviour
         }
     }
 
+    //재료 갯수에 맞게 프리팹 생성해주는 함수임
     private void MakeIngredientItems(List<IngredientSO> ingredients)
     {
         //있다면
@@ -138,7 +146,17 @@ public class MillManager : MonoBehaviour
             for (int i = 0; i < ingredients.Count; i++)
             {
                 IngredientItem item = Instantiate(ingredientItemPrefab, ingredintParentTrm);
-                item.UpdateUI(ingredients[i]);
+
+                int cnt = 0;
+
+                InventorySlot sameSlot = InventoryManager.Instance.FindSameItemSlot(ingredients[i]);
+
+                if(sameSlot != null)
+                {
+                    cnt = sameSlot.CurrentCount();
+                }
+
+                item.UpdateUI(ingredients[i], cnt);
                 ingredientItems.Add(item);
             }
         }
