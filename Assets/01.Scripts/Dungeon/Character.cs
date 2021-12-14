@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 using UnityEngine.UI;
 
 public enum Jobs //플레이어의 직업들
@@ -20,6 +22,18 @@ public enum State
     Dead
 }
 
+[System.Serializable]
+public class SkillSet
+{
+    public string skillName;
+    public TimelineAsset skillTimeLine;
+    public List<float> rededTime;
+    public float skillDamage;
+    public float mpCost;
+}
+
+
+
 public class Character : MonoBehaviour
 {
     public string cName; //캐릭터 이름
@@ -37,6 +51,7 @@ public class Character : MonoBehaviour
     public State state; // 이 캐릭터의 현재 상태
     public Sprite dropItemSprite; //몬스터가 떨어뜨리는 아이템의 이미지
     public int dropItemIndex; //몬스터가 떨어뜨리는 아이템의 갯수
+    public List<SkillSet> skillSets;
 
     public void Awake()
     {
@@ -56,6 +71,7 @@ public class Character : MonoBehaviour
         stateUI.def = def;
         stateUI.cJobs = cJobs;
         stateUI.state = state;
+        stateUI.skillSets = skillSets;
     }
 
     public void MonsterInit() //몬스터한테 이니셜라이징

@@ -37,6 +37,21 @@ public class Attack : MonoBehaviour
 
     }
 
+    public IEnumerator Reded(float delay)
+    {
+        CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
+        yield return new WaitForSeconds(delay);
+        cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 20f;
+        cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 1f;
+        DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(.1f);
+        cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
+        cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 0f;
+        DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+
     public IEnumerator PlayerSelectAttackType() //플레이어의 공격방식을 선택하여 때리는 함수
     {
         Sequence sequence = DOTween.Sequence();
@@ -46,25 +61,14 @@ public class Attack : MonoBehaviour
             case Jobs.MagicKnight: // 근거리 공격이면
                 {
                     CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                    DungeonUIManager.instance.currentPlayer.GetComponent<PlayableDirector>().playableAsset = DungeonUIManager.instance.currentCharacterStateUI.skillSets[0].skillTimeLine;
                     DungeonUIManager.instance.currentPlayer.GetComponent<PlayableDirector>().Play();
 
-                    yield return new WaitForSeconds(.5f);
-                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 20f;
-                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 1f;
-                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.red;
-                    yield return new WaitForSeconds(.1f);
-                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
-                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 0f;
-                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.white;
+                    for (int i = 0; i < DungeonUIManager.instance.currentCharacterStateUI.skillSets[0].rededTime.Count; i++)
+                    {
+                        StartCoroutine(Reded(DungeonUIManager.instance.currentCharacterStateUI.skillSets[0].rededTime[i]));
+                    }
 
-                    yield return new WaitForSeconds(.2f);
-                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 20f;
-                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 1f;
-                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.red;
-                    yield return new WaitForSeconds(.1f);
-                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
-                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 0f;
-                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.white;
 
                     yield return new WaitForSeconds(.6f);
 
@@ -73,6 +77,7 @@ public class Attack : MonoBehaviour
                     if (DungeonUIManager.instance.monsterCurrentState.Equals(State.Dead)) // 만약 적이 죽었으면 중지해야하기 때문에 리턴
                         yield break;
 
+                    yield return new WaitForSeconds(1);
                     StartCoroutine(DungeonUIManager.instance.SetDefaultUI());
                     break;
                 }
@@ -80,22 +85,20 @@ public class Attack : MonoBehaviour
             case Jobs.Hunter: //윤서가 만들어준거면
                 {
                     CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                    DungeonUIManager.instance.currentPlayer.GetComponent<PlayableDirector>().playableAsset = DungeonUIManager.instance.currentCharacterStateUI.skillSets[0].skillTimeLine;
                     DungeonUIManager.instance.currentPlayer.GetComponent<PlayableDirector>().Play();
 
-                    yield return new WaitForSeconds(1f);
-                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 20f;
-                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 1f;
-                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.red;
-                    yield return new WaitForSeconds(.1f);
-                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
-                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 0f;
-                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.white;
+                    for (int i = 0; i < DungeonUIManager.instance.currentCharacterStateUI.skillSets[0].rededTime.Count; i++)
+                    {
+                        StartCoroutine(Reded(DungeonUIManager.instance.currentCharacterStateUI.skillSets[0].rededTime[i]));
+                    }
 
                     DungeonUIManager.instance.AttackEachOther(true); // 데미지를 계산하기 위한 함수를 실행
 
                     if (DungeonUIManager.instance.monsterCurrentState.Equals(State.Dead)) // 만약 적이 죽었으면 중지해야하기 때문에 리턴
                         yield break;
 
+                    yield return new WaitForSeconds(1);
                     StartCoroutine(DungeonUIManager.instance.SetDefaultUI());
                     break;
                 }
@@ -104,24 +107,23 @@ public class Attack : MonoBehaviour
             case Jobs.Elementalist: //원거리 공격이면
                 {
                     CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = DungeonUIManager.instance.vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                    DungeonUIManager.instance.currentPlayer.GetComponent<PlayableDirector>().playableAsset = DungeonUIManager.instance.currentCharacterStateUI.skillSets[0].skillTimeLine;
                     DungeonUIManager.instance.currentPlayer.GetComponent<PlayableDirector>().Play();
 
-                    yield return new WaitForSeconds(.6f);
-                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 20f;
-                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 1f;
-                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.red;
-                    yield return new WaitForSeconds(.1f);
-                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
-                    cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 0f;
-                    DungeonUIManager.instance.monsterObj.GetComponent<SpriteRenderer>().color = Color.white;
-
+                    for (int i = 0; i < DungeonUIManager.instance.currentCharacterStateUI.skillSets[0].rededTime.Count; i++)
+                    {
+                        StartCoroutine(Reded(DungeonUIManager.instance.currentCharacterStateUI.skillSets[0].rededTime[i]));
+                    }
 
                     if (DungeonUIManager.instance.monsterCurrentState.Equals(State.Dead))// 만약 적이 죽었으면 중지해야하기 때문에 리턴
                         yield break;
 
+                    yield return new WaitForSeconds(1);
+
 
                     StartCoroutine(DungeonUIManager.instance.SetDefaultUI()); // 다 때렸으니까 UI 초기화
 
+                    
                     DungeonUIManager.instance.AttackEachOther(true);  // 데미지를 계산하기 위한 함수를 실행
                     break;
                 }

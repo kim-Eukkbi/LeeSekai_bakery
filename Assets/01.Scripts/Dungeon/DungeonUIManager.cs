@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class DungeonUIManager : MonoBehaviour
 {
@@ -41,19 +42,21 @@ public class DungeonUIManager : MonoBehaviour
     public StateUI currentCharacterStateUI;
     [HideInInspector]
     public GameObject currentPlayer;
-    private float playerMaxHp;
+    public float playerMaxHp;
+    public float playerMaxMp;
     private float monsterMaxHp;
     [HideInInspector]
     public List<State> playerState = new List<State>();// 캐릭터의 현재 상태를 정의
     private int currentPlayerIndex = 0;
     public GameObject attackSpot;
-    public GameObject gameEndObj;   
-    public GameObject gameEndObjDoma;   
-    public GameObject gameEndObjDomainsideImg;   
-    public GameObject gameEndObjDomainsideIndex;   
-    public GameObject gameEndObjVic;   
+    public GameObject gameEndObj;
+    public GameObject gameEndObjDoma;
+    public GameObject gameEndObjDomainsideImg;
+    public GameObject gameEndObjDomainsideIndex;
+    public GameObject gameEndObjVic;
     public GameObject gameEndObjContinue;
     public CinemachineVirtualCamera vCam;
+    public IngredientSO bossItem;
 
 
 
@@ -70,13 +73,30 @@ public class DungeonUIManager : MonoBehaviour
         playerState.Add(State.Live);
     }
 
- /*   public void Update()
+    public void Update()
     {
-        if(playerState[currentPlayerIndex] == State.Dead)
+        if(playerCurrentState == State.Dead || monsterCurrentState == State.Dead && Input.GetMouseButtonDown(0))
         {
-            stateTweens[currentPlayerIndex].Pause(); //공격 트윈 중지
-        }*/
-    //}
+            ReTurnFarm();
+        }
+    }
+    public void SkillDamageCul(float Damage) //서로 때리는걸 계산하는 부분
+    {
+
+        MonsterStateUI monsterStateUI = monsterStateUIobj.GetComponent<MonsterStateUI>();
+        float result = Damage;
+        monsterStateUI.stateSliders[0].DOValue((monsterStateUI.hp - result) / monsterMaxHp, .8f); //적의 체력 게이지에서 받은 데미지를 빼는 계산을 한다
+
+        monsterStateUI.hp -= result; // 피깎기
+
+
+        if (monsterStateUI.hp <= 0) //만약 피가 0 이하라면 
+        {
+            monsterStateUI.DeadMonster(); //적 죽음 함수를 실행
+            monsterCurrentState = State.Dead;
+        }
+
+    }
 
     public void AttackEachOther(bool isPlayer) //서로 때리는걸 계산하는 부분
     {
@@ -104,11 +124,11 @@ public class DungeonUIManager : MonoBehaviour
             currentCharacterStateUI.stateSliders[0].DOValue((currentCharacterStateUI.hp - result) / playerMaxHp, .8f); //적이 나를 때렸을때 가장 최근에 공격한 플레이어의 체력 게이지를 계산 하여 깎음
             currentCharacterStateUI.hp -= result; //피 깎기
 
-            if(currentCharacterStateUI.hp <= 0) // 만약 피가 0이하라면
+            if (currentCharacterStateUI.hp <= 0) // 만약 피가 0이하라면
             {
                 playerState[currentPlayerIndex] = State.Dead;
                 PlayerDead(); // 플레이어 죽음 함수
-               // Debug.Log(playerState[currentPlayerIndex]);
+                              // Debug.Log(playerState[currentPlayerIndex]);
             }
         }
     }
@@ -223,11 +243,16 @@ public class DungeonUIManager : MonoBehaviour
                 Debug.Log("Stop Living");
                 continue;
             }
-                
+
             stateTweens[i].Play(); // 다시 전투 게이지를 채워주는 트윈을 시작함
         }
         monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack[0].Play(); //적 전투 게이지를 채워주는 트윈을 시작함
     }
 
-
+    public void ReTurnFarm()
+    {
+        InventoryManager.Instance.AddItem(bossItem,5);
+        Debug.Log("넘겨");
+        SceneManager.LoadScene("FarmScene");
+    }
 }
