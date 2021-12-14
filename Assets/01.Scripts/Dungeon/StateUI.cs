@@ -18,6 +18,7 @@ public class StateUI : MonoBehaviour //이니셜라이즈로 받아오는 수치들
     public float sp;
     public Jobs cJobs;
     public State state;
+    public List<SkillSet> skillSets;
 
 
 }
