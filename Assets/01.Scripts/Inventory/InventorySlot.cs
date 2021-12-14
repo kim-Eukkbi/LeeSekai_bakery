@@ -44,7 +44,7 @@ public class InventorySlot : MonoBehaviour
         if(item.canNest)
         {
             //중첩 가능한 아이템이라면 갯수만큼 더해준다
-            count += amount;
+            count = amount;
         }
 
         print($"{this.gameObject.name}, {item.itemName}");
@@ -59,6 +59,14 @@ public class InventorySlot : MonoBehaviour
         count += amount;
 
         //UI업데이트하는거 잊지말고
+        UpdateUI();
+    }
+
+    public void SubItem(int amount)
+    {
+        //빼주는 함수
+        count -= amount;
+
         UpdateUI();
     }
 

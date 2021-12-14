@@ -32,8 +32,10 @@ public class MillManager : MonoBehaviour
 
     private MillItem currentItem { get { return millItems[3]; } }
 
+    [Header("UI관련")]
     //빵 이름 텍스트
     public Text breadName;
+    public Button makeBtn;
 
     private CanvasGroup canvasGroup;
 
@@ -57,12 +59,14 @@ public class MillManager : MonoBehaviour
         uIMove.SetMillItems(millItems);
 
         UpdateUI();
-        MakeIngredientItems(currentItem.recipe.ingredients);
+        MakeIngredientItemUIs();
 
         canvasGroup = GetComponent<CanvasGroup>();
 
         canvasGroup.blocksRaycasts = false;
         canvasGroup.interactable = false;
+
+        makeBtn.onClick.AddListener(MakeBread);
     }
 
     void Update()
@@ -91,7 +95,7 @@ public class MillManager : MonoBehaviour
 
             if(currentItem.recipe != null)
             {
-                MakeIngredientItems(currentItem.recipe.ingredients);
+                MakeIngredientItemUIs();
             }
             else
             {
@@ -117,7 +121,7 @@ public class MillManager : MonoBehaviour
 
         if (currentItem.recipe == null)
         {
-            breadName.text = string.Empty;
+            breadName.text = "알 수 없음";
         }
         else
         {
@@ -125,11 +129,46 @@ public class MillManager : MonoBehaviour
         }
     }
 
-    //재료 갯수에 맞게 프리팹 생성해주는 함수임
-    private void MakeIngredientItems(List<IngredientSO> ingredients)
+    private void MakeBread()
     {
+        //재료가 다 있다면
+        if(CanMake())
+        {
+            foreach (var ingredient in currentItem.recipe.ingredients)
+            {
+                InventorySlot slot = InventoryManager.Instance.FindSameItemSlot(ingredient);
+                slot.SubItem(1);
+            }
+
+            InventoryManager.Instance.AddItem(currentItem.recipe.bread);
+        }
+    }
+
+    private bool CanMake()
+    {
+        List<IngredientSO> ingredients = currentItem.recipe.ingredients;
+
+        //현재 선택된 빵에 필요한 재료리스트
+        foreach (var ingredient in ingredients)
+        {
+            //없다면
+            if(InventoryManager.Instance.FindSameItemSlot(ingredient) == null)
+            {
+                //못만들어
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    //재료 갯수에 맞게 프리팹 생성해주는 함수임
+    private void MakeIngredientItemUIs()
+    {
+        List<IngredientSO> ingredients = currentItem.recipe.ingredients;
+
         //있다면
-        if(ingredientItems.Count > 0)
+        if (ingredientItems.Count > 0)
         {
             //다 날려
             for (int i = ingredientItems.Count - 1; i >= 0; i--)

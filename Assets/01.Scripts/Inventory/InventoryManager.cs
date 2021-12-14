@@ -237,4 +237,35 @@ public class InventoryManager : MonoBehaviour
         //여기까지 왔는데도 null이면 같은게 없는거다
         return sameItemSlot;
     }
+
+    public List<InventorySlot> GetAllBreadInInvenroty()
+    {
+        List<InventorySlot> breadSlots = new List<InventorySlot>();
+
+        //모든 빵을 찾아
+
+        foreach (var slot in quickSlots)
+        {
+            if(slot.CurrentItem() != null)
+            {
+                if (slot.CurrentItem().isBread)
+                {
+                    breadSlots.Add(slot);
+                }
+            }
+        }
+
+        foreach (var slot in inventorySlots)
+        {
+            if (slot.CurrentItem() != null)
+            {
+                if (slot.CurrentItem().isBread)
+                {
+                    breadSlots.Add(slot);
+                }
+            }
+        }
+
+        return breadSlots;
+    }
 }

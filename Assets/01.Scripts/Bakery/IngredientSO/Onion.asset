@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Onion
   m_EditorClassIdentifier: 
   itemName: "\uC591\uD30C"
-  itemSprite: {fileID: 580429964585152745, guid: 9273ef51c16c94b478ddb2701704e2e6, type: 3}
+  itemSprite: {fileID: -9037584796848758622, guid: 9273ef51c16c94b478ddb2701704e2e6, type: 3}
   canNest: 1

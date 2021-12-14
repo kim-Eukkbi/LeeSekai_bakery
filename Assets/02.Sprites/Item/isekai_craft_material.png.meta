@@ -35,6 +35,21 @@ TextureImporter:
   - first:
       213: -3881643167496614369
     second: isekai_craft_material_10
+  - first:
+      213: -9037584796848758622
+    second: isekai_craft_material_11
+  - first:
+      213: -7029476090618212221
+    second: isekai_craft_material_12
+  - first:
+      213: -8135457421118460285
+    second: isekai_craft_material_13
+  - first:
+      213: -3976935959831193199
+    second: isekai_craft_material_14
+  - first:
+      213: -2979573826311959724
+    second: isekai_craft_material_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -362,6 +377,111 @@ TextureImporter:
       bones: []
       spriteID: f1eca80ea12a12ac0800000000000000
       internalID: -3881643167496614369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_craft_material_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a0eb5ca28c049280800000000000000
+      internalID: -9037584796848758622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_craft_material_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38099954db8427e90800000000000000
+      internalID: -7029476090618212221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_craft_material_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38e2be8349c091f80800000000000000
+      internalID: -8135457421118460285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_craft_material_14
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 199d8c3b0d51fc8c0800000000000000
+      internalID: -3976935959831193199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isekai_craft_material_15
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45bcf94346d66a6d0800000000000000
+      internalID: -2979573826311959724
       vertices: []
       indices: 
       edges: []

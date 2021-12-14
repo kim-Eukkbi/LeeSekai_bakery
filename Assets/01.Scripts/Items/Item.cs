@@ -15,6 +15,9 @@ public abstract class Item : ScriptableObject
     //아이템 중첩 여부
     public bool canNest = true;
 
+    //빵인지 알기 위한 여부
+    public bool isBread = false;
+
     //클릭 시 어떤 물체에 닿았는지 알기 위해 RaycastHit을 보낸다
     //플레이어가 체크해야 하는 아이템도 있으므로 플레이어도 보내자
     //아이템 사용여부를 리턴해야 하니 bool 형식이겠지?

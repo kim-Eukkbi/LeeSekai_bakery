@@ -21,6 +21,13 @@ public class ShowcaseManager : MonoBehaviour
     public CanvasGroup cvsShowcasePanel;
     public CanvasGroup csvSelectPanel;
 
+    [Header("SelectItem 프리팹")]
+    public SelectItem selectItemPrefab;
+    public Transform selectParent;
+
+    //Instantiate 한 오브젝트들이 담겨있는 리스트
+    public List<SelectItem> selectItems;
+
     public NowShowcasePanel nowPanel;
 
     private void Awake()
@@ -45,7 +52,13 @@ public class ShowcaseManager : MonoBehaviour
             switch (nowPanel)
             {
                 case NowShowcasePanel.Showcase:
-                    Debug.Log("쇼케이스 닫힘");
+                    CanvasGroup group = GetComponent<CanvasGroup>();
+                    group.alpha = 0;
+                    group.interactable = false;
+                    group.blocksRaycasts = false;
+
+                    InputManager.Instance.isUIOpen = false;
+
                     break;
                 case NowShowcasePanel.Select:
                     CloseSelectPanel();
@@ -63,6 +76,28 @@ public class ShowcaseManager : MonoBehaviour
         csvSelectPanel.blocksRaycasts = true;
 
         nowPanel = NowShowcasePanel.Select;
+
+        //추가로 해줘야 할 일 한번 다 날려버린 후 인벤토리에 있는 빵을 다 가져와서 띄워줘야댐
+
+        if(selectItems.Count > 0)
+        {
+            foreach (var item in selectItems)
+            {
+                Destroy(item.gameObject);
+            }
+
+            selectItems.Clear();
+        }
+
+        List<InventorySlot> breadSlots = InventoryManager.Instance.GetAllBreadInInvenroty();
+
+        foreach (var slot in breadSlots)
+        {
+            SelectItem item = Instantiate(selectItemPrefab, selectParent);
+
+            selectItems.Add(item);
+            item.Setting(slot.CurrentItem() as BreadSO, slot.CurrentCount());
+        }
     }
 
     public void CloseSelectPanel()

@@ -10,6 +10,10 @@ public class SelectPanel : MonoBehaviour
     [SerializeField]
     public Button confirmBtn;
 
+    public Image breadImg;
+    public Text nametxt;
+    public Text priceTxt;
+
     private ShowcaseItem nowItem;
 
     private void Start()
@@ -17,26 +21,35 @@ public class SelectPanel : MonoBehaviour
         //전시하기 버튼이 눌렸을 때
         confirmBtn.onClick.AddListener(() =>
         {
-            nowItem.bread = selectedBread;
+            nowItem.SetBread(selectedBread);
             ShowcaseManager.instance.CloseSelectPanel();
+
+            InventorySlot slot = InventoryManager.Instance.FindSameItemSlot(selectedBread);
+            slot.SubItem(1);
         });
     }
 
     /// <summary>
-    /// 어떤 ShowcaseItem이 열렸는지 알기 위한 함수입니다
+    /// 열린 ShowcaseItem을 선택하는 함수
     /// </summary>
     /// <param name="item">열린 ShowcaseItem</param>
     public void SetShowcaseItem(ShowcaseItem item)
     {
         nowItem = item;
+        breadImg.sprite = nowItem.breadImg.sprite;
+        nametxt.text = nowItem.breadName.text;
+        priceTxt.text = nowItem.pricetxt.text;
     }
 
     /// <summary>
-    /// 선택된 빵을 알기 위한 함수입니다
+    /// 빵을 선택하는 함수
     /// </summary>
     /// <param name="bread">선택된 빵</param>
     public void SelectBread(BreadSO bread)
     {
         selectedBread = bread;
+
+        breadImg.sprite = bread.itemSprite;
+        nametxt.text = bread.itemName;
     }
 }

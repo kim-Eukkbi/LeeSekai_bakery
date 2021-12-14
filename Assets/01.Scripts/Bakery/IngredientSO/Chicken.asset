@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Chicken
   m_EditorClassIdentifier: 
   itemName: "\uB2ED\uACE0\uAE30"
-  itemSprite: {fileID: 8928024198353238606, guid: 1ce05bc83ae717b489664def6c79a398, type: 3}
+  itemSprite: {fileID: -8135457421118460285, guid: 9273ef51c16c94b478ddb2701704e2e6, type: 3}
   canNest: 1

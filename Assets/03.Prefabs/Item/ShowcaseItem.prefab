@@ -460,7 +460,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "2000\uC6D0"
+  m_Text: "10000\uC6D0"
 --- !u!1 &7905485900003721261
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,4 +557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad849f6e903e63041a9ba0c655fd8246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bread: {fileID: 0}
   button: {fileID: 7905485900003721263}
+  breadImg: {fileID: 7905485899058701017}
+  breadName: {fileID: 7905485898488017405}
+  pricetxt: {fileID: 7905485899871853164}

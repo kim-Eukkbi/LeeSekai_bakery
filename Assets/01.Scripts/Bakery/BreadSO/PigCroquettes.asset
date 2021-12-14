@@ -15,7 +15,4 @@ MonoBehaviour:
   itemName: "\uB3FC\uC9C0 \uACE0\uB85C\uCF00"
   itemSprite: {fileID: 21300000, guid: 8a5c474601a8afb44b994908cae6ba1b, type: 3}
   canNest: 1
-  recipe:
-  - {fileID: 11400000, guid: 6878695dbc7b3b241bbad5c1affc4b43, type: 2}
-  - {fileID: 11400000, guid: 09430c4b2f0068e46a23ddbadab95623, type: 2}
-  - {fileID: 11400000, guid: 6b950f67855709f428e9d1b226f73c80, type: 2}
+  isBread: 1

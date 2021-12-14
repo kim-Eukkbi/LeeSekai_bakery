@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Pickle
   m_EditorClassIdentifier: 
   itemName: "\uC624\uC774 \uD53C\uD074"
-  itemSprite: {fileID: -3675312711881632073, guid: 1ce05bc83ae717b489664def6c79a398, type: 3}
+  itemSprite: {fileID: -7029476090618212221, guid: 9273ef51c16c94b478ddb2701704e2e6, type: 3}
   canNest: 1

@@ -11,6 +11,7 @@ TagManager:
   - Oven
   - Doma
   - HorseCar
+  - Showcase
   layers:
   - Default
   - TransparentFX

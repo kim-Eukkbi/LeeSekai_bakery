@@ -34,6 +34,7 @@ public class InputManager : MonoBehaviour
     public CanvasGroup fryUI;
     public CanvasGroup ovenUI;
     public CanvasGroup domaUI;
+    public CanvasGroup showcaseUI;
 
     private InventorySlot firstSlot;
     private InventorySlot secondSlot;
@@ -159,6 +160,14 @@ public class InputManager : MonoBehaviour
                     domaUI.alpha = 1;
                     domaUI.interactable = true;
                     domaUI.blocksRaycasts = true;
+                    isUIOpen = true;
+                    break;
+                }
+                else if (col.gameObject.CompareTag("Showcase"))
+                {
+                    showcaseUI.alpha = 1;
+                    showcaseUI.interactable = true;
+                    showcaseUI.blocksRaycasts = true;
                     isUIOpen = true;
                     break;
                 }
