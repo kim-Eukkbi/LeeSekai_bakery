@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class DungeonUIManager : MonoBehaviour
 {
@@ -55,6 +56,7 @@ public class DungeonUIManager : MonoBehaviour
     public GameObject gameEndObjVic;
     public GameObject gameEndObjContinue;
     public CinemachineVirtualCamera vCam;
+    public IngredientSO bossItem;
 
 
 
@@ -71,13 +73,13 @@ public class DungeonUIManager : MonoBehaviour
         playerState.Add(State.Live);
     }
 
-    /*   public void Update()
-       {
-           if(playerState[currentPlayerIndex] == State.Dead)
-           {
-               stateTweens[currentPlayerIndex].Pause(); //공격 트윈 중지
-           }*/
-    //}
+    public void Update()
+    {
+        if(playerCurrentState == State.Dead || monsterCurrentState == State.Dead && Input.GetMouseButtonDown(0))
+        {
+            ReTurnFarm();
+        }
+    }
     public void SkillDamageCul(float Damage) //서로 때리는걸 계산하는 부분
     {
 
@@ -247,5 +249,10 @@ public class DungeonUIManager : MonoBehaviour
         monsterStateUIobj.GetComponent<MonsterStateUI>().readyAttack[0].Play(); //적 전투 게이지를 채워주는 트윈을 시작함
     }
 
-
+    public void ReTurnFarm()
+    {
+        InventoryManager.Instance.AddItem(bossItem,5);
+        Debug.Log("넘겨");
+        SceneManager.LoadScene("FarmScene");
+    }
 }
