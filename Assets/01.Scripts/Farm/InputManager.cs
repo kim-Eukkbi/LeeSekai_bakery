@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
@@ -39,23 +40,59 @@ public class InputManager : MonoBehaviour
     private InventorySlot firstSlot;
     private InventorySlot secondSlot;
 
+    [Header("전체 캔버스")]
+    public CanvasGroup cvs;
+
     public bool isUIOpen = false;
+
+    public bool canInput = true;
+
+    private bool isFirst = true;
 
     private void Awake()
     {
         if(Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
 
         mainCam = Camera.main;
 
         pointer = new PointerEventData(eventSystem);
+
+        SceneManager.sceneLoaded += (scene, mode) => 
+        {
+            //이 씬이 로드되었다면
+            if(scene.name == "FarmScene")
+            {
+                
+
+                player = GameObject.FindObjectOfType<PlayerMove>();
+                mainCam = Camera.main;
+
+                player.Teleport(new Vector2(26.47f, 0.43f), player.roadVcamConfiner);
+
+                cvs.alpha = 1f;
+                cvs.blocksRaycasts = true;
+
+                canInput = true;
+            }
+            else
+            {
+                isFirst = false;
+
+                canInput = false;
+
+                cvs.alpha = 0f;
+                cvs.blocksRaycasts = false;
+            }
+        };
     }
 
     void Update()
     {
-        if (isUIOpen) return;
+        if (isUIOpen || !canInput) return;
 
         if(Input.GetMouseButtonDown(0))
         {
@@ -174,6 +211,7 @@ public class InputManager : MonoBehaviour
                 else if(col.gameObject.CompareTag("HorseCar"))
                 {
                     //마차를 탔을 때 해줄 일을 하면 댐
+                    SceneManager.LoadScene("DungeonScene");
                 }
             }
         }

@@ -252,7 +252,7 @@ public class DungeonUIManager : MonoBehaviour
     public void ReTurnFarm()
     {
         InventoryManager.Instance.AddItem(bossItem,5);
-        Debug.Log("³Ñ°Ü");
+        DOTween.KillAll();
         SceneManager.LoadScene("FarmScene");
     }
 }

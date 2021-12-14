@@ -47,6 +47,10 @@ public class InventoryManager : MonoBehaviour
         {
             Instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         //메모리를 할당해주자
         quickSlots = new List<InventorySlot>();
